@@ -1,0 +1,17 @@
+<h1>SIS Currículos</h1>
+<h2>Bem vindo</h2>
+
+<% if user_signed_in? %>
+  <ul>
+    <li><%= link_to "candidatos", candidatos_path %></li>
+  </ul>
+  <ul>
+    <li><%= current_user.email %></li>
+    <li><%= link_to "Desconectar", destroy_user_session_path, method: :delete %></li>
+  </ul>
+<% else %>
+  <ul>
+    <li><%= link_to "Logar", new_user_session_path %></li>
+    <li><%= link_to "Cadastrar usuário", new_user_registration_path %></li>
+  </ul>
+<% end %>

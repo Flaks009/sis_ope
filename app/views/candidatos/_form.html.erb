@@ -1,0 +1,27 @@
+<%= form_for(candidato) do |f| %>
+  <% if candidato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(candidato.errors.count, "error") %> prohibited this candidato from being saved:</h2>
+
+      <ul>
+      <% candidato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :CPF %>
+    <%= f.text_field :CPF %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Nome %>
+    <%= f.text_field :Nome %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
