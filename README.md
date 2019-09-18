@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Se for linux executar este comando
 
-Things you may want to cover:
+$ sudo chown -R $USER:$USER .
 
-* Ruby version
+Construindo a imagem
 
-* System dependencies
+$ sudo docker-compose build
 
-* Configuration
+Subindo aplicação
 
-* Database creation
+$ sudo docker-compose up
 
-* Database initialization
+Execute estes comandos em outro terminal
 
-* How to run the test suite
+$ sudo docker-compose run --rm web bash
+$ rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+Acesse a página localhost
 
-* Deployment instructions
-
+http://localhost:3000
 * ...
