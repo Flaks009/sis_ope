@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
+<%= current_user.email%>
+<ul>
+  <li><%= link_to "Sair", destroy_user_session_path, method: :delete%></li>
+</ul>
 
 <h1>Candidatos</h1>
 
