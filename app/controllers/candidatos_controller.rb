@@ -4,7 +4,7 @@ class CandidatosController < ApplicationController
   # GET /candidatos
   # GET /candidatos.json
   def index
-    @candidatos = Candidato.all
+    @candidatos = Candidato.where(user_id: current_user)
   end
 
   # GET /candidatos/1
@@ -69,6 +69,6 @@ class CandidatosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidato_params
-      params.require(:candidato).permit(:CPF, :Nome, :data_nasc)
+      params.require(:candidato).permit(:CPF, :Nome, :data_nasc, :cep, :logradouro, :numero, :bairro, :cidade, :uf, :user_id)
     end
 end
