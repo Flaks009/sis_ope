@@ -69,6 +69,6 @@ class CandidatosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidato_params
-      params.require(:candidato).permit(:CPF, :Nome)
+      params.require(:candidato).permit(:CPF, :Nome, :data_nasc)
     end
 end
