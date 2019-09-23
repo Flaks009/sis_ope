@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Synergia | Sistema de Gerenciamento de Currículos</title>
+    <link rel="shortcut icon" href="/views_to_be_implemented/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/views_to_be_implemented/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/views_to_be_implemented/css/cadastroDadosPrincipais.css">
+  </head>
+
+  <body>
+    <div class="navbar">
+      <img id="nav-logo" src="/views_to_be_implemented/images/topo-logo-synergia.png">
+      <div id="nav-title">Banco de Dados de Currículos</div>
+    </div>
+    <div class="middle-bar"></div>
+    <div class="main-menu">
+      <form class="left-menu" action="/views_to_be_implemented/html/menuPrincipal.html">
+        <div id="button-1">
+          <img id="img-button-1" src="/views_to_be_implemented/images/menu-principal.png">
+          <button id="menu-principal" type="submit">Menu Principal</button>
+        </div>
+      </form>
+      <div class="right-menu">
+        <div id="dados-cadastrais">
+          <p id="dados-cadastrais-label">Dados Cadastrais</p>
+
+          <div class="field">
+            <p id="cpf-label">CPF</p>
+            <input name="CPF" type="text" class="field-cpf" placeholder="Ex.: 000.000.000-00">
+          </div>
+
+          <div class="field">
+            <p id="nome-label">Nome Completo</p>
+            <input name="nome" type="text" class="field-nome" placeholder="Digite seu nome">
+
+            <p id="data-nascimento-label">Data de Nascimento</p>
+            <input name="dataNascimento" type="date" class="field-date" placeholder="Ex.: dd/mm/aaaa">
+          </div>
+
+          <div class="field">
+            <p id="email-label">E-mail</p>
+            <input name="email" type="email" class="field-email" placeholder="Digite seu email">
+          </div>
+        </div>
+
+        <div id="endereco">
+          <p id="endereco-label">Endereço</p>
+
+          <div class="field">
+            <p id="cep-label">CEP</p>
+            <input name="cep" type="text" class="field-cep" placeholder="Ex.: 00000-000">
+
+            <p id="logradouro-label">Logradouro</p>
+            <input name="logradouro" type="text" class="field-logradouro" placeholder="Digite seu endereço">
+
+            <p id="number-label">Número</p>
+            <input name="numero" type="text" class="field-numero" placeholder="Digite o número">
+          </div>
+
+          <div class="field">
+            <p id="bairro-label">Bairro</p>
+            <input name="bairro" type="text" class="field-bairro" placeholder="Digite seu bairro">
+
+            <p id="cidade-label">Cidade</p>
+            <input name="cidade" type="text" class="field-cidade" placeholder="Digite sua cidade">
+
+            <p id="estado-label">Estado</p>
+            <select name="estado" type="text" class="field-estado" placeholder="Digite seu estado">
+              <option value="AC">AC</option>
+              <option value="AL">AL</option>
+              <option value="AP">AP</option>
+              <option value="AM">AM</option>
+              <option value="BA">BA</option>
+              <option value="CE">CE</option>
+              <option value="DF">DF</option>
+              <option value="ES">ES</option>
+              <option value="GO">GO</option>
+              <option value="MA">MA</option>
+              <option value="MT">MT</option>
+              <option value="MS">MS</option>
+              <option value="MG">MG</option>
+              <option value="PA">PA</option>
+              <option value="PB">PB</option>
+              <option value="PR">PR</option>
+              <option value="PE">PE</option>
+              <option value="PI">PI</option>
+              <option value="RJ">RJ</option>
+              <option value="RN">RN</option>
+              <option value="RS">RS</option>
+              <option value="RO">RO</option>
+              <option value="RR">RR</option>
+              <option value="SC">SC</option>
+              <option value="SP">SP</option>
+              <option value="SE">SE</option>
+              <option value="TO">TO</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="bottom-bar">
+            <div id="progress-bar">
+              <div id="dados-cadastrais-progress"></div>
+              <div id="dados-cadastrais-progress-label">Dados Cadastrais</div>
+              <div id="middle-1"></div>
+              <div id="formacoes-progress"></div>
+              <div id="formacoes-progress-label">Formações</div>
+              <div id="middle-2"></div>
+              <div id="experiencias-progress"></div>
+              <div id="experiencias-progress-label">Experiências</div>
+              <div id="middle-3"></div>
+              <div id="cursos-extra-progress"></div>
+              <div id="cursos-extra-progress-label">Outros Cursos</div>
+              <div id="middle-4"></div>
+              <div id="finalizacao-progress"></div>
+              <div id="finalizacao-progress-label">Finalização</div>
+            </div>
+
+            <div id="next-page">
+                <form id="form-next-page" action="/views_to_be_implemented/html/cadastroFormacoes.html">
+                    <button id="next-page-button" type="submit">Formações</button>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

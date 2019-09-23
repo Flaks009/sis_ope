@@ -1,0 +1,104 @@
+body {
+      font-family: 'Open Sans';
+
+      position: absolute;
+      height: 100%;
+      width: 100%;
+}
+
+#background-menu {
+    position: absolute;
+    
+    background-image: url(/views_to_be_implemented/images/index-image.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#left-text {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 60%;
+}
+
+#box-text {
+    position: relative;
+    top: 60%;
+    height: 40%;
+    width: 100%;
+}
+
+#welcome-message1 {
+    color: white;
+    font-size: 40px;
+    
+    padding-left: 150px;
+    padding-bottom: 40px;
+}
+
+#welcome-message2, #welcome-message3 {
+    color: white;
+    font-size: 20px;
+    padding-left: 150px;
+}
+
+#right-menu {
+    position: relative;
+    float: right;
+    height: 100%;
+    width: 40%;
+}
+
+#menu-items {
+    position: relative;
+    background-color: #F5F5F5;
+    top: 20%;
+    height: 70%;
+    width:80%;
+}
+
+#logo-1, #logo-2 {
+    left: 20%;
+    position: relative;
+    padding-top: 10%;
+    padding-left: 15px;
+    padding-bottom: 5%;
+    height: 50px;
+}
+
+#email-label, #email-input, #senha-label, #senha-input, #div-checkbox, #esqueci-senha-link, #acessar-button, #primeiro-acesso-button {
+    position: relative;
+    left: 15%;
+    width: 65%;
+}
+
+#email-label, #senha-label, #div-checkbox {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#email-input, #senha-input {
+    height: 30px;
+    font-family: Open Sans;
+    font-size: 15px;
+}
+
+#div-checkbox, #esqueci-senha-link {
+    font-size: 12px;
+}
+
+#acessar-button, #primeiro-acesso-button {
+    margin-top: 10px;
+    height: 40px;
+    font-family: Open Sans;
+    font-size: 15px;
+    color: white;
+    background-color: #DBA102;
+    cursor: pointer;
+}
+
+
+

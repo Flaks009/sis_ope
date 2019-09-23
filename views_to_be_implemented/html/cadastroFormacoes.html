@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Synergia | Sistema de Gerenciamento de Currículos</title>
+    <link rel="shortcut icon" href="/views_to_be_implemented/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/views_to_be_implemented/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/views_to_be_implemented/css/cadastroFormacoes.css">
+  </head>
+
+  <body>
+    <div class="navbar">
+      <img id="nav-logo" src="/views_to_be_implemented/images/topo-logo-synergia.png">
+      <div id="nav-title">Banco de Dados de Currículos</div>
+    </div>
+    <div class="middle-bar"></div>
+    <div class="main-menu">
+      <form class="left-menu" action="/views_to_be_implemented/html/menuPrincipal.html">
+        <div id="button-1">
+          <img id="img-button-1" src="/views_to_be_implemented/images/menu-principal.png">
+          <button id="menu-principal" type="submit">Menu Principal</button>
+        </div>
+      </form>
+      <div class="right-menu">
+        <div id="formacoes">
+            <p id="formacoes-label">Formações</p>
+            
+            <div id="add-formacao">Clique para adicionar mais uma formação</div>
+            
+            <div id="formacoes-fields-1" class="formacoes-fields">
+                <div id="remover-formacao-1" class="remover-formacao">Remover formação</div>
+                
+                <div class="field">
+                    <p class="tipo-formacao-label">Tipo de formação</p>
+
+                    <select type="text" class="tipo-formacao-input" placeholder="Escolha uma opção">
+                      <option value="tecnico">Técnico</option>
+                      <option value="graduacao">Graduação</option>
+                      <option value="pos-graducao">Pós-Graduação</option>
+                      <option value="mestrado">Mestrado</option>
+                      <option value="doutorado">Doutorado</option>
+                      <option value="pos-doutorado">Pós-Doutorado</option>
+                    </select>
+                </div>
+                
+                <div class="field">
+                    <p class="nome-curso-label">Nome do Curso</p>
+                    <input class="nome-curso-input" type="text" placeholder="Nome do curso">
+                </div>
+                
+                <div class="field">
+                    <p class="nome-instituicao-label">Nome da Instituição</p>
+                    <input class="nome-instituicao-input" type="text" placeholder="Nome da instituição">
+                </div>
+                
+                <div class="field">
+                    <p class="data-inicio-curso-label">Data de Início do Curso</p>
+                    <input class="data-inicio-curso-input" type="month">
+                </div>
+                
+                <div class="field">
+                    <p class="data-fim-curso-label">Data de Finalização do Curso</p>
+                    <input class="data-fim-curso-input" type="month">
+                </div>
+            </div>
+
+        </div>
+
+        <div id="bottom-bar">
+            <div id="previous-page">
+                <form id="form-previous-page" action="/views_to_be_implemented/html/cadastroDadosPrincipais.html">
+                    <button id="previous-page-button" type="submit">Dados Principais</button>
+                </form>
+            </div>
+            
+            <div id="progress-bar">
+              <div id="dados-cadastrais-progress"></div>
+              <div id="dados-cadastrais-progress-label">Dados Cadastrais</div>
+              <div id="middle-1"></div>
+              <div id="formacoes-progress"></div>
+              <div id="formacoes-progress-label">Formações</div>
+              <div id="middle-2"></div>
+              <div id="experiencias-progress"></div>
+              <div id="experiencias-progress-label">Experiências</div>
+              <div id="middle-3"></div>
+              <div id="cursos-extra-progress"></div>
+              <div id="cursos-extra-progress-label">Outros Cursos</div>
+              <div id="middle-4"></div>
+              <div id="finalizacao-progress"></div>
+              <div id="finalizacao-progress-label">Finalização</div>
+            </div>
+
+            <div id="next-page">
+                <form id="form-next-page" action="/views_to_be_implemented/html/cadastroFormacoes.html">
+                    <button id="next-page-button" type="submit">Experiências</button>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script src="/views_to_be_implemented/js/formacoes.js"></script>
+  </body>
+</html>
