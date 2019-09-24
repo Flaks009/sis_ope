@@ -1,26 +1,40 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div id="background-menu">
+  <div id="left-text">
+    <div id="box-text">
+      <div id="welcome-message1">Bem-vindo!</div>
+      <div id="welcome-message2">Você está no banco de currículos da Synergia.</div>
+      <div id="welcome-message2">Faça seu login para acessar.</div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+  <div id="right-menu">
+    <div id="menu-items">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name),:class=>"login-menu") do |f| %>
+      <img id="logo-1" src="/img/topo-logo-synergia.png">
+      <img id="logo-2" src="/img/rodape-logo-tpf.png">
 
-<%= render "users/shared/links" %>
+      <div id="email-label"><%= f.label :email %><br /></div>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Digite seu email", :id=>"email-input" %>
+
+      <div id="senha-label"><%= f.label :password, "Senha" %><br /></div>
+      <%= f.password_field :password, autocomplete: "current-password", placeholder:"Digite sua senha", :id=>"senha-input" %>
+
+      <% if devise_mapping.rememberable? %>
+      <div id="div-checkbox">
+        <%= f.check_box :remember_me, :id=>"remember-checkbox", :type=>"checkbox" %>
+        <label for="remember-checkbox" id="remember-checkbox">Lembrar dados</label>
+      </div>
+      <% end %>
+
+      <%= render "users/shared/links" %>
+
+      <%= f.submit "Acessar", :id=>"acessar-button" %>
+      <button id="primeiro-acesso-button">Meu primeiro acesso</button>
+
+      <% end %>
+
+      
+
+
+    </div>
+  </div>
+</div>
