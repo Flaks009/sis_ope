@@ -13,10 +13,10 @@
       <img id="logo-2" src="/img/rodape-logo-tpf.png">
 
       <div id="email-label"><%= f.label :email %><br /></div>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Digite seu email", :id=>"email-input" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", :id=>"email-input" %>
 
-      <div id="senha-label"><%= f.label :password, "Senha" %><br /></div>
-      <%= f.password_field :password, autocomplete: "current-password", placeholder:"Digite sua senha", :id=>"senha-input" %>
+      <div id="senha-label"><%= f.label :password %><br /></div>
+      <%= f.password_field :password, autocomplete: "current-password", :id=>"senha-input" %>
 
       <% if devise_mapping.rememberable? %>
       <div id="div-checkbox">
@@ -25,14 +25,12 @@
       </div>
       <% end %>
 
-      <%= render "users/shared/links" %>
-
-      <%= f.submit "Acessar", :id=>"acessar-button" %>
+      <%= f.submit "Log in", :id=>"acessar-button" %>
       <button id="primeiro-acesso-button">Meu primeiro acesso</button>
 
       <% end %>
 
-      
+      <%= render "users/shared/links" %>
 
 
     </div>
