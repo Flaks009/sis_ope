@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :candidatos
   devise_for :users
   get 'candidatos/index'
-
   root to:'candidatos#index'
 
 

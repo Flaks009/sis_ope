@@ -4,7 +4,7 @@ class CandidatosController < ApplicationController
   # GET /candidatos
   # GET /candidatos.json
   def index
-    @candidatos = Candidato.where(user_id: current_user)
+    render "menuPrincipal"
   end
 
   # GET /candidatos/1
