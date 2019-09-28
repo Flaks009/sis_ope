@@ -10,7 +10,7 @@
   <thead>
     <tr>
       <th>Cpf</th>
-      <th>Nome</th>
+      <th>nome</th>
       <th>Data Nascimento</th>
       <th>CEP</th>
       <th>Logradouro</th>
@@ -24,15 +24,14 @@
   <tbody>
       <tr>
       <% @candidato.each do |candidato| %>
-        <td><%= candidato.CPF %></td>
-        <td><%= candidato.Nome %></td>
+        <td><%= candidato.cpf %></td>
+        <td><%= candidato.nome %></td>
         <td><%= candidato.data_nasc %></td>
         <td><%= candidato.cep %></td>
         <td><%= candidato.logradouro %></td>
         <td><%= candidato.numero %></td>
         <td><%= candidato.bairro %></td>
         <td><%= candidato.uf %></td>
-        <td><%= link_to 'Show', candidato %></td>
         <td><%= link_to 'Edit', edit_candidato_path(candidato) %></td>
         <td><%= link_to 'Destroy', candidato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -5,7 +5,7 @@ class CandidatosController < ApplicationController
   # GET /candidatos
   def index
     if current_user
-      @candidato = Candidato.where(CPF: @current_user.cpf).count
+      @candidato = Candidato.where(cpf: @current_user.cpf).count
     end
     render "menuPrincipal"
   end
@@ -13,7 +13,7 @@ class CandidatosController < ApplicationController
   # GET /candidatos/edit
   def show
     if current_user
-      @candidato = Candidato.where(CPF: @current_user.cpf)
+      @candidato = Candidato.where(cpf: @current_user.cpf)
     end
   end
 
@@ -25,7 +25,7 @@ class CandidatosController < ApplicationController
   # GET /candidatos/1/edit
   def edit
     if current_user
-      findQuery = Candidato.where(CPF: @current_user.cpf)
+      findQuery = Candidato.where(cpf: @current_user.cpf)
       id = findQuery.ids
       @candidato = Candidato.find_by_id(id)
     end
@@ -35,7 +35,7 @@ class CandidatosController < ApplicationController
   # POST /candidatos.json
   def create
     if current_user
-      if @candidato = Candidato.where(CPF: @current_user.cpf).count == 0
+      if @candidato = Candidato.where(cpf: @current_user.cpf).count == 0
         @candidato = Candidato.new(candidato_params)
 
         respond_to do |format|
@@ -83,11 +83,11 @@ class CandidatosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_candidato
-      @candidato = Candidato.where(CPF: current_user.cpf)      
+      @candidato = Candidato.where(cpf: current_user.cpf)      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidato_params
-      params.require(:candidato).permit(:CPF, :Nome, :data_nasc, :cep, :logradouro, :numero, :bairro, :cidade, :uf, :user_id)
+      params.require(:candidato).permit(:cpf, :nome, :data_nasc, :cep, :logradouro, :numero, :bairro, :cidade, :uf, :user_id)
     end
 end

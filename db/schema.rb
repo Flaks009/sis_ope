@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190925230212) do
+ActiveRecord::Schema.define(version: 20190928163843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "candidatos", force: :cascade do |t|
-    t.string   "CPF"
-    t.string   "Nome"
+    t.string   "cpf"
+    t.string   "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date     "data_nasc"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20190925230212) do
     t.string   "cidade"
     t.string   "uf"
     t.integer  "user_id"
+  end
+
+  create_table "formations", force: :cascade do |t|
+    t.string   "tipo"
+    t.string   "curso"
+    t.string   "instituicao"
+    t.date     "data_inicio"
+    t.date     "data_final"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
