@@ -34,15 +34,21 @@ class CandidatosController < ApplicationController
   # POST /candidatos
   # POST /candidatos.json
   def create
-    @candidato = Candidato.new(candidato_params)
+    if current_user
+      if @candidato = Candidato.where(CPF: @current_user.cpf).count == 0
+        @candidato = Candidato.new(candidato_params)
 
-    respond_to do |format|
-      if @candidato.save
-        format.html { redirect_to @candidato, notice: 'Candidato was successfully created.' }
-        format.json { render :show, status: :created, location: @candidato }
+        respond_to do |format|
+          if @candidato.save
+            format.html { redirect_to @candidato, notice: 'Candidato was successfully created.' }
+            format.json { render :show, status: :created, location: @candidato }
+          else
+            format.html { render :new }
+            format.json { render json: @candidato.errors, status: :unprocessable_entity }
+          end
+        end
       else
-        format.html { render :new }
-        format.json { render json: @candidato.errors, status: :unprocessable_entity }
+        render "menuPrincipal"
       end
     end
   end
