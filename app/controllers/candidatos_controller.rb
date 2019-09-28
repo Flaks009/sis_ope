@@ -1,15 +1,20 @@
 class CandidatosController < ApplicationController
   before_action :set_candidato, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  
   # GET /candidatos
-  # GET /candidatos.json
   def index
+    if current_user
+      @candidato = Candidato.where(CPF: @current_user.cpf).count
+    end
     render "menuPrincipal"
   end
 
-  # GET /candidatos/1
-  # GET /candidatos/1.json
+  # GET /candidatos/edit
   def show
+    if current_user
+      @candidato = Candidato.where(CPF: @current_user.cpf)
+    end
   end
 
   # GET /candidatos/new
@@ -19,6 +24,11 @@ class CandidatosController < ApplicationController
 
   # GET /candidatos/1/edit
   def edit
+    if current_user
+      findQuery = Candidato.where(CPF: @current_user.cpf)
+      id = findQuery.ids
+      @candidato = Candidato.find_by_id(id)
+    end
   end
 
   # POST /candidatos
@@ -40,6 +50,9 @@ class CandidatosController < ApplicationController
   # PATCH/PUT /candidatos/1
   # PATCH/PUT /candidatos/1.json
   def update
+
+    @candidato = Candidato.find(params[:id])
+
     respond_to do |format|
       if @candidato.update(candidato_params)
         format.html { redirect_to @candidato, notice: 'Candidato was successfully updated.' }
@@ -64,7 +77,7 @@ class CandidatosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_candidato
-      @candidato = Candidato.find(params[:id])
+      @candidato = Candidato.where(CPF: current_user.cpf)      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

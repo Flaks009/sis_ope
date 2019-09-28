@@ -1,14 +1,45 @@
 <p id="notice"><%= notice %></p>
+<%= current_user.email%>
+<ul>
+  <li><%= link_to "Sair", destroy_user_session_path, method: :delete%></li>
+</ul>
 
-<p>
-  <strong>Cpf:</strong>
-  <%= @candidato.CPF %>
-</p>
+<h1>Candidato</h1>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @candidato.Nome %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Cpf</th>
+      <th>Nome</th>
+      <th>Data Nascimento</th>
+      <th>CEP</th>
+      <th>Logradouro</th>
+      <th>Numero</th>
+      <th>Bairro</th>
+      <th>UF</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<%= link_to 'Edit', edit_candidato_path(@candidato) %> |
+  <tbody>
+      <tr>
+      <% @candidato.each do |candidato| %>
+        <td><%= candidato.CPF %></td>
+        <td><%= candidato.Nome %></td>
+        <td><%= candidato.data_nasc %></td>
+        <td><%= candidato.cep %></td>
+        <td><%= candidato.logradouro %></td>
+        <td><%= candidato.numero %></td>
+        <td><%= candidato.bairro %></td>
+        <td><%= candidato.uf %></td>
+        <td><%= link_to 'Show', candidato %></td>
+        <td><%= link_to 'Edit', edit_candidato_path(candidato) %></td>
+        <td><%= link_to 'Destroy', candidato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+
 <%= link_to 'Back', candidatos_path %>
