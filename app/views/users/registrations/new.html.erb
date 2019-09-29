@@ -13,6 +13,10 @@
       <%= f.text_field :cpf, autofocus: true, autocomplete: "cpf" %>
     </div>
 
+    <div class="field">
+      <%= f.hidden_field :tipoUser, :value => "candidato"%>
+    </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>

@@ -12,8 +12,10 @@ class CandidatosController < ApplicationController
 
   # GET /candidatos/edit
   def show
-    if current_user
+    if current_user.tipoUser == 'candidato'
       @candidato = Candidato.where(cpf: @current_user.cpf)
+    elsif current_user.tipoUser == 'admin'
+      @candidato = Candidato.all
     end
   end
 
