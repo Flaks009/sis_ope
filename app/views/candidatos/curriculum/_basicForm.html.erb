@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'cadastroDadosPrincipais', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <img id="nav-logo" src="/img/topo-logo-synergia.png">
+      <div id="nav-title">Banco de Dados de Currículos</div>
+      <div id="nav-user"><%= current_user.email%> | <%= link_to "Sair", destroy_user_session_path, method: :delete%></div>
+    </div>
+    <div class="middle-bar"></div>
+    <%= yield %>
+  </body>
+</html>

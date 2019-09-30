@@ -1,3 +1,4 @@
+<%= render "basicForm" %>
 <div id="background-menu">
   <div id="left-text">
     <div id="box-text">
@@ -9,35 +10,35 @@
   <div id="right-menu">
     <div id="menu-items">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name),:class=>"login-menu") do |f| %>
-      <img id="logo-1" src="/img/topo-logo-synergia.png">
-      <img id="logo-2" src="/img/rodape-logo-tpf.png">
-
-      <div id="email-label"><%= f.label :email %><br /></div>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Digite seu email", :id=>"email-input" %>
-
-      <div id="senha-label"><%= f.label :password, "Senha" %><br /></div>
-      <%= f.password_field :password, autocomplete: "current-password", placeholder:"Digite sua senha", :id=>"senha-input" %>
-
-      <% if devise_mapping.rememberable? %>
-      <div id="div-checkbox">
-        <%= f.check_box :remember_me, :id=>"remember-checkbox", :type=>"checkbox" %>
-        <label for="remember-checkbox" id="remember-checkbox">Lembrar dados</label>
-      </div>
-      <% end %>
-
-      <%= render "users/shared/links" %>
-
-      <%= f.submit "Acessar", :id=>"acessar-button" %>
       
+        <img id="logo-1" src="/img/topo-logo-synergia.png">
+        <img id="logo-2" src="/img/rodape-logo-tpf.png">
+      
+        <div class="field">
+          <%= f.label :email, "Email", class:"ipt-label" %><br />
+          <%= f.email_field :email, autofocus: true, class:"ipt-text", autocomplete: "email", placeholder:"Digite seu email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "Senha", class:"ipt-label" %><br />
+          <%= f.password_field :password, class:"ipt-text", autocomplete: "current-password", placeholder:"Digite sua senha" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me, :id=>"remember-checkbox", :type=>"checkbox" %>
+            <label for="remember-checkbox" id="remember-checkbox">Lembrar dados</label>
+            <%= render "users/shared/links" %>
+          </div>
+        <% end %>
+
+        <%= f.submit "Acessar", :id=>"btn-signin" %>
       <% end %>
       
       <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-        <%= button_to "Meu primeiro acesso", new_registration_path(resource_name), :id=>"primeiro-acesso-button", :method=>"get" %>
+        <%= button_to "Meu primeiro acesso", new_registration_path(resource_name), :id=>"btn-signup", :method=>"get" %>
       <% end %>
-      <!-- <button id="primeiro-acesso-button">Meu primeiro acesso</button> -->
 
-
-      
     </div>
   </div>
 </div>

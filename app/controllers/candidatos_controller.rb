@@ -7,7 +7,7 @@ class CandidatosController < ApplicationController
     if current_user
       @candidato = Candidato.where(cpf: @current_user.cpf).count
     end
-    render "menuPrincipal"
+    render "candidatos/menu/mainMenu"
   end
 
   # GET /candidatos/edit
