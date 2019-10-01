@@ -16,6 +16,15 @@
       </div>
 
       <div class="field">
+        <%= f.label :cpf, "CPF", class:"ipt-label" %><br/>
+        <%= f.text_field :cpf, autofocus: true, class:"ipt-text", placeholder: "Digite seu CPF" %>
+      </div>
+
+      <div class="field">
+        <%= f.hidden_field :tipoUser %>
+      </div>
+
+      <div class="field">
         <%= f.label :password, "Informe uma senha", class:"ipt-label" %><br/>
         <%= f.password_field :password, class:"ipt-text", autocomplete: "new-password", placeholder:"Digite uma senha" %>
       </div>

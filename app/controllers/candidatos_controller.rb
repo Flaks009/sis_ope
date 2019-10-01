@@ -50,7 +50,7 @@ class CandidatosController < ApplicationController
           end
         end
       else
-        render "menuPrincipal"
+        render "candidatos/menu/mainMenu"
       end
     end
   end
