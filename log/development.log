@@ -14561,3 +14561,1240 @@ Processing by CandidatosController#show as HTML
 Completed 200 OK in 32ms (Views: 28.4ms | ActiveRecord: 1.0ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3496553821036066245);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFormation (20190928162902)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mDROP TABLE "formations"[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190928162902"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3496553821036066245)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3496553821036066245);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddFkToCandidatos (20190921202341)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "candidatos" ADD "user_id" integer[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190921202341"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCpfToUsers (20190925225600)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "cpf" character varying[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190925225600"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTipoUserToUsers (20190925230212)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "tipoUser" character varying[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190925230212"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFormations (20191005161034)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.8ms)[0m  [1m[35mCREATE TABLE "formations" ("id" serial primary key, "tipo" character varying, "curso" character varying, "instituicao" character varying, "data_inicio" date, "data_final" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191005161034"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateExperiences (20191005161046)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3496553821036066245)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3496553821036066245);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateExperiences (20191005161046)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" serial primary key, "empresa" character varying, "cargo" character varying, "admissao" date, "saida" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3496553821036066245)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3496553821036066245);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3496553821036066245)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3496553821036066245);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCandidatos (20190918220613)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE "candidatos"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190918220613"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3496553821036066245)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3496553821036066245);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3496553821036066245)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3496553821036066245);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCandidatos (20190918220613)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE TABLE "candidatos" ("id" serial primary key, "cpf" character varying, "nome" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190918220613"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateExperiences (20191005161046)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" serial primary key, "empresa" character varying, "cargo" character varying, "admissao" date, "saida" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3496553821036066245)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (107.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "sis_ope_development"[0m
+  [1m[35m (105.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "sis_ope_test"[0m
+  [1m[35m (363.9ms)[0m  [1m[35mCREATE DATABASE "sis_ope_development" ENCODING = 'unicode'[0m
+  [1m[35m (236.3ms)[0m  [1m[35mCREATE DATABASE "sis_ope_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (22.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" serial primary key, "nome" character varying, "instituicao" character varying, "cargo" character varying, "inicio" date, "final" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (19.2ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" serial primary key, "instituicao" character varying, "cargo" character varying, "admissao" date, "saida" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (20.0ms)[0m  [1m[35mCREATE TABLE "formations" ("id" serial primary key, "tipo" character varying, "curso" character varying, "instituicao" character varying, "data_inicio" date, "data_final" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (20.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "cpf" character varying, "tipoUser" character varying)[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (18.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191005161034)[0m
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190925225600),
+(20190918211718),
+(20190921131425),
+(20190921130646),
+(20190925230212),
+(20190921202341),
+(20190918220613);
+
+[0m
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-05 16:19:18.118969"], ["updated_at", "2019-10-05 16:19:18.118969"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (21.5ms)[0m  [1m[35mCREATE TABLE "courses" ("id" serial primary key, "nome" character varying, "instituicao" character varying, "cargo" character varying, "inicio" date, "final" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (19.2ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" serial primary key, "instituicao" character varying, "cargo" character varying, "admissao" date, "saida" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE TABLE "formations" ("id" serial primary key, "tipo" character varying, "curso" character varying, "instituicao" character varying, "data_inicio" date, "data_final" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (20.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "cpf" character varying, "tipoUser" character varying)[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (18.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191005161034)[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190925225600),
+(20190918211718),
+(20190921131425),
+(20190921130646),
+(20190925230212),
+(20190921202341),
+(20190918220613);
+
+[0m
+  [1m[35m (19.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-05 16:19:18.304031"], ["updated_at", "2019-10-05 16:19:18.304031"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-10-05 16:19:18.309322"], ["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3496553821036066245);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateExperiences (20191005161046)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" serial primary key, "empresa" character varying, "cargo" character varying, "admissao" date, "saida" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3496553821036066245)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3496553821036066245);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCourses (20191005161059)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "courses" ("id" serial primary key, "nome" character varying, "instituicao" character varying, "cargo" character varying, "inicio" date, "final" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3496553821036066245)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3496553821036066245);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3496553821036066245)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3496553821036066245);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3496553821036066245)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (110.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "sis_ope_development"[0m
+  [1m[35m (107.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "sis_ope_test"[0m
+  [1m[35m (235.4ms)[0m  [1m[35mCREATE DATABASE "sis_ope_development" ENCODING = 'unicode'[0m
+  [1m[35m (235.9ms)[0m  [1m[35mCREATE DATABASE "sis_ope_test" ENCODING = 'unicode'[0m
+  [1m[35m (20.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (19.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3496553821036066245);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20190918211718)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190918211718"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCandidatos (20190918220613)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "candidatos" ("id" serial primary key, "cpf" character varying, "nome" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190918220613"]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddInfoToCandidatos (20190921130646)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "candidatos" ADD "data_nasc" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "candidatos" ADD "cep" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "candidatos" ADD "logradouro" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "candidatos" ADD "numero" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "candidatos" ADD "bairro" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "candidatos" ADD "cidade" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "candidatos" ADD "uf" character varying[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190921130646"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDateToCandidatos (20190921131425)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.0ms)[0m  [1m[35mALTER TABLE "candidatos" ALTER COLUMN "data_nasc" TYPE date USING CAST(data_nasc AS date)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190921131425"]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddFkToCandidatos (20190921202341)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "candidatos" ADD "user_id" integer[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190921202341"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCpfToUsers (20190925225600)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "cpf" character varying[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190925225600"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTipoUserToUsers (20190925230212)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "tipoUser" character varying[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190925230212"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFormations (20191005161034)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE "formations" ("id" serial primary key, "tipo" character varying, "curso" character varying, "instituicao" character varying, "data_inicio" date, "data_final" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191005161034"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateExperiences (20191005161046)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" serial primary key, "empresa" character varying, "cargo" character varying, "admissao" date, "saida" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191005161046"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCourses (20191005161059)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "courses" ("id" serial primary key, "nome" character varying, "instituicao" character varying, "cargo" character varying, "inicio" date, "final" date, "cpf_candidato" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191005161059"]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-05 16:22:04.243215"], ["updated_at", "2019-10-05 16:22:04.243215"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3496553821036066245)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for 172.19.0.1 at 2019-10-05 16:22:42 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CandidatosController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.19.0.1 at 2019-10-05 16:22:42 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/devise
+  Rendered users/sessions/_basicForm.html.erb (157.2ms)
+  Rendered users/shared/_links.html.erb (1.9ms)
+  Rendered users/sessions/new.html.erb within layouts/devise (182.3ms)
+Completed 200 OK in 220ms (Views: 196.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users/sign_up" for 172.19.0.1 at 2019-10-05 16:22:45 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/devise
+  Rendered users/registrations/_basicForm.html.erb (4.1ms)
+  Rendered /usr/local/bundle/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (0.8ms)
+  Rendered users/shared/_links.html.erb (1.0ms)
+  Rendered users/registrations/new.html.erb within layouts/devise (14.8ms)
+Completed 200 OK in 39ms (Views: 37.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.19.0.1 at 2019-10-05 16:22:49 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/devise
+  Rendered users/sessions/_basicForm.html.erb (18.6ms)
+  Rendered users/shared/_links.html.erb (1.9ms)
+  Rendered users/sessions/new.html.erb within layouts/devise (25.3ms)
+Completed 200 OK in 34ms (Views: 32.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 172.19.0.1 at 2019-10-05 16:31:47 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/devise
+  Rendered users/registrations/_basicForm.html.erb (2.4ms)
+  Rendered /usr/local/bundle/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (0.9ms)
+  Rendered users/shared/_links.html.erb (0.8ms)
+  Rendered users/registrations/new.html.erb within layouts/devise (10.8ms)
+Completed 200 OK in 43ms (Views: 28.7ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/users/sign_up" for 172.19.0.1 at 2019-10-05 16:32:30 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/devise
+  Rendered users/registrations/_basicForm.html.erb (3.5ms)
+  Rendered /usr/local/bundle/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (0.6ms)
+  Rendered users/shared/_links.html.erb (1.5ms)
+  Rendered users/registrations/new.html.erb within layouts/devise (12.9ms)
+Completed 200 OK in 41ms (Views: 32.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 172.19.0.1 at 2019-10-05 16:32:46 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9WKyZxZBEUw+W+dup+fhJPaapAA5IrP65ZG3HDEX5qijz4SRTpYk5/SfdbblSFgWmyDfV7DUUtfXMb0sDZbS6w==", "user"=>{"email"=>"brunomaranini@hotmail.com", "cpf"=>"44790119866", "tipoUser"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Cadastrar Usuário"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "brunomaranini@hotmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."cpf" = $1 LIMIT $2[0m  [["cpf", "44790119866"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "cpf", "tipoUser") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "brunomaranini@hotmail.com"], ["encrypted_password", "$2a$11$KvdOCMcwMpw6BJ7rIFs7GOUbrP71J4ycIuTdQcoe17EaGTqSIj4Mm"], ["created_at", "2019-10-05 16:32:46.466939"], ["updated_at", "2019-10-05 16:32:46.466939"], ["cpf", "44790119866"], ["tipoUser", ""]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 189ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/" for 172.19.0.1 at 2019-10-05 16:32:46 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (3.9ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 51ms (Views: 32.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/candidatos/new" for 172.19.0.1 at 2019-10-05 16:32:50 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering candidatos/new.html.erb within layouts/application
+  Rendered candidatos/curriculum/_basicForm.html.erb (5.7ms)
+  Rendered candidatos/_form.html.erb (8.0ms)
+  Rendered candidatos/new.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 58ms (Views: 34.8ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:32:54 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (5.2ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 37ms (Views: 30.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/candidatos/edit" for 172.19.0.1 at 2019-10-05 16:32:55 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.8ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendered candidatos/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 30ms (Views: 24.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:32:58 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (3.3ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 31ms (Views: 27.0ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/users/sign_out" for 172.19.0.1 at 2019-10-05 16:33:01 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"uSsQJH6oQ8u8Z+jTs9mXM8S6/bTgui6pcbz11oC4GgLvhibSJn92YHajegvxdi4BqQCG42lMz4RDHP/mvDkuQQ=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 26ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 172.19.0.1 at 2019-10-05 16:33:01 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.19.0.1 at 2019-10-05 16:33:01 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/devise
+  Rendered users/sessions/_basicForm.html.erb (12.7ms)
+  Rendered users/shared/_links.html.erb (1.5ms)
+  Rendered users/sessions/new.html.erb within layouts/devise (18.3ms)
+Completed 200 OK in 27ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 172.19.0.1 at 2019-10-05 16:33:03 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/devise
+  Rendered users/registrations/_basicForm.html.erb (3.9ms)
+  Rendered /usr/local/bundle/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered users/shared/_links.html.erb (1.1ms)
+  Rendered users/registrations/new.html.erb within layouts/devise (12.6ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 172.19.0.1 at 2019-10-05 16:33:17 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qb3CH0V8V+Yq97X4ofM0+ybz0ExLWCj6Mzs/JTV4RQcSEY2sJ6mt9YwqC92wptiY9VnSe4SZko63IFBI79TKVA==", "user"=>{"email"=>"bruno@bolado.com", "cpf"=>"44790119866", "tipoUser"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Cadastrar Usuário"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bruno@bolado.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."cpf" = $1 LIMIT $2[0m  [["cpf", "44790119866"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/registrations/new.html.erb within layouts/devise
+  Rendered users/registrations/_basicForm.html.erb (2.6ms)
+  Rendered /usr/local/bundle/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (1.0ms)
+  Rendered users/shared/_links.html.erb (0.9ms)
+  Rendered users/registrations/new.html.erb within layouts/devise (9.8ms)
+Completed 200 OK in 192ms (Views: 29.8ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users" for 172.19.0.1 at 2019-10-05 16:33:24 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SQakXweW05n7pGKxe7dDklUKnTxLtZSM9gJL+rnjqMPyquvsZUMpil153JRq4q/xhqCfC4R0LvhyGSSXY08nkA==", "user"=>{"email"=>"bruno@bolado.com", "cpf"=>"44790119866", "tipoUser"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Cadastrar Usuário"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bruno@bolado.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."cpf" = $1 LIMIT $2[0m  [["cpf", "44790119866"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/registrations/new.html.erb within layouts/devise
+  Rendered users/registrations/_basicForm.html.erb (4.7ms)
+  Rendered /usr/local/bundle/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (2.3ms)
+  Rendered users/shared/_links.html.erb (1.6ms)
+  Rendered users/registrations/new.html.erb within layouts/devise (21.5ms)
+Completed 200 OK in 67ms (Views: 46.4ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/users/sign_in" for 172.19.0.1 at 2019-10-05 16:33:40 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hrj3XNEwEPLnE18UL0MEkYCNN+3yJBX6lke3p5UI1fM9FLjvs+Xq4UHO4TE+FujyUyc12j3lr44SXNjKT6RaoA==", "user"=>{"email"=>"brunomaranini@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Acessar"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brunomaranini@hotmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 166ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 172.19.0.1 at 2019-10-05 16:33:40 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (4.0ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 26ms (Views: 22.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/candidatos/new" for 172.19.0.1 at 2019-10-05 16:33:43 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering candidatos/new.html.erb within layouts/application
+  Rendered candidatos/curriculum/_basicForm.html.erb (3.3ms)
+  Rendered candidatos/_form.html.erb (5.7ms)
+  Rendered candidatos/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 35ms (Views: 31.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/candidatos" for 172.19.0.1 at 2019-10-05 16:34:08 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x33s98W7/y4drn8U4uJqefJPCeXnsfpB/Vt4iwb8DEr37TZWzpFnlGyw4AVxL2VlGTkApeDM5t+IojyrjDSF9Q==", "candidato"=>{"cpf"=>"4479019866", "nome"=>"Bruno Maranini", "data_nasc"=>"1995-10-18", "cep"=>"123454", "logradouro"=>"sad", "numero"=>"sa", "bairro"=>"sdsa", "cidade"=>"sa", "uf"=>"AC", "user_id"=>"1"}, "email"=>"brunomaranini@hotmail.com", "commit"=>"Formações"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCandidato Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "candidatos" WHERE "candidatos"."cpf" = $1 LIMIT $2[0m  [["cpf", "4479019866"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (4.8ms)[0m  [1m[32mINSERT INTO "candidatos" ("cpf", "nome", "created_at", "updated_at", "data_nasc", "cep", "logradouro", "numero", "bairro", "cidade", "uf", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["cpf", "4479019866"], ["nome", "Bruno Maranini"], ["created_at", "2019-10-05 16:34:17.631104"], ["updated_at", "2019-10-05 16:34:17.631104"], ["data_nasc", "1995-10-18"], ["cep", "123454"], ["logradouro", "sad"], ["numero", "sa"], ["bairro", "sdsa"], ["cidade", "sa"], ["uf", "AC"], ["user_id", 1]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/candidatos/1
+Completed 302 Found in 9116ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/candidatos/1" for 172.19.0.1 at 2019-10-05 16:34:17 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.3ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendered candidatos/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 25ms (Views: 21.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:34:25 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (4.9ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 32ms (Views: 27.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/candidatos/edit" for 172.19.0.1 at 2019-10-05 16:34:43 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.9ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendered candidatos/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 29ms (Views: 24.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:34:45 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (6.0ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 39ms (Views: 33.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/candidatos/new" for 172.19.0.1 at 2019-10-05 16:34:48 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering candidatos/new.html.erb within layouts/application
+  Rendered candidatos/curriculum/_basicForm.html.erb (4.6ms)
+  Rendered candidatos/_form.html.erb (3.4ms)
+  Rendered candidatos/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 37ms (Views: 34.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/candidatos" for 172.19.0.1 at 2019-10-05 16:35:11 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"peh42W15Ng5raETv8imcmIlEvQRwBCkhhRkkI0rpqQuVeKJ4ZlOutBp22/5h5JOEYjK0RHd5Nb/w4GADwCEgtA==", "candidato"=>{"cpf"=>"4479019866", "nome"=>"Bruno Maranini", "data_nasc"=>"1995-10-18", "cep"=>"jdi", "logradouro"=>"qwij", "numero"=>"uwdq", "bairro"=>"djuwj", "cidade"=>"duju", "uf"=>"AC", "user_id"=>"1"}, "email"=>"dan@djia.com", "commit"=>"Formações"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCandidato Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "candidatos" WHERE "candidatos"."cpf" = $1 LIMIT $2[0m  [["cpf", "4479019866"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  Rendering candidatos/new.html.erb within layouts/application
+  Rendered candidatos/curriculum/_basicForm.html.erb (4.1ms)
+  Rendered candidatos/_form.html.erb (5.6ms)
+  Rendered candidatos/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 53ms (Views: 39.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:35:15 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (4.4ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 35ms (Views: 30.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/candidatos/edit" for 172.19.0.1 at 2019-10-05 16:35:54 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.7ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendered candidatos/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 33ms (Views: 27.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:37:47 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (4.1ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 36ms (Views: 32.1ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/users/sign_out" for 172.19.0.1 at 2019-10-05 16:38:00 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bJeihOYwJ0NWC8LaRjFw5iQZcIUk8Mhis0O1Fla34ltcB3gl7Rq/+ScVXcvV/H/6z295xSON1PzGuvE23H9r5A=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 172.19.0.1 at 2019-10-05 16:38:00 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.19.0.1 at 2019-10-05 16:38:00 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/devise
+  Rendered users/sessions/_basicForm.html.erb (17.8ms)
+  Rendered users/shared/_links.html.erb (1.1ms)
+  Rendered users/sessions/new.html.erb within layouts/devise (24.5ms)
+Completed 200 OK in 35ms (Views: 34.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 172.19.0.1 at 2019-10-05 16:38:02 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/devise
+  Rendered users/registrations/_basicForm.html.erb (5.8ms)
+  Rendered /usr/local/bundle/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (0.9ms)
+  Rendered users/shared/_links.html.erb (2.2ms)
+  Rendered users/registrations/new.html.erb within layouts/devise (19.5ms)
+Completed 200 OK in 48ms (Views: 46.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 172.19.0.1 at 2019-10-05 16:38:12 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OTEARfj2r4OD6xl6plG9H5G6XCnI1sjWGkCfRI5diCjyCCYSrOvZDNXXECfxBBeSF8le06m3XKZ5x0MMN/BMFw==", "user"=>{"email"=>"teste@teste.com", "cpf"=>"123456", "tipoUser"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Cadastrar Usuário"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "teste@teste.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."cpf" = $1 LIMIT $2[0m  [["cpf", "123456"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "cpf", "tipoUser") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "teste@teste.com"], ["encrypted_password", "$2a$11$IrcBOYPwEVGTYvTEPCNxnu0Wtgaks8HU4MXdwAy08T928c.fv1Wwy"], ["created_at", "2019-10-05 16:38:13.143792"], ["updated_at", "2019-10-05 16:38:13.143792"], ["cpf", "123456"], ["tipoUser", ""]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 178ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 172.19.0.1 at 2019-10-05 16:38:13 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "123456"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (3.3ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 34ms (Views: 26.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/candidatos/new" for 172.19.0.1 at 2019-10-05 16:38:16 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#new as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering candidatos/new.html.erb within layouts/application
+  Rendered candidatos/curriculum/_basicForm.html.erb (3.9ms)
+  Rendered candidatos/_form.html.erb (4.3ms)
+  Rendered candidatos/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 40ms (Views: 34.2ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/candidatos" for 172.19.0.1 at 2019-10-05 16:38:38 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5RlXTMmWaZbOi7Cm/Tt3700GMvLSyirDU4Yk9YW04vsuIHEbnYsfGZi3ufuqbt1iy3UwCLOrvrMwAfi9PBkmxA==", "candidato"=>{"cpf"=>"123456", "nome"=>"dbja", "data_nasc"=>"2020-11-06", "cep"=>"da", "logradouro"=>"dkmk", "numero"=>"ks", "bairro"=>"dmk", "cidade"=>"dkwmdk", "uf"=>"AC", "user_id"=>"2"}, "email"=>"dnakm@b.com", "commit"=>"Formações"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "123456"]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCandidato Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "candidatos" WHERE "candidatos"."cpf" = $1 LIMIT $2[0m  [["cpf", "123456"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "candidatos" ("cpf", "nome", "created_at", "updated_at", "data_nasc", "cep", "logradouro", "numero", "bairro", "cidade", "uf", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["cpf", "123456"], ["nome", "dbja"], ["created_at", "2019-10-05 16:38:38.703165"], ["updated_at", "2019-10-05 16:38:38.703165"], ["data_nasc", "2020-11-06"], ["cep", "da"], ["logradouro", "dkmk"], ["numero", "ks"], ["bairro", "dmk"], ["cidade", "dkwmdk"], ["uf", "AC"], ["user_id", 2]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/candidatos/2
+Completed 302 Found in 18ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/candidatos/2" for 172.19.0.1 at 2019-10-05 16:38:38 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.6ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "123456"]]
+  Rendered candidatos/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 33ms (Views: 28.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:38:42 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "123456"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (5.0ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 33ms (Views: 28.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/candidatos/edit" for 172.19.0.1 at 2019-10-05 16:38:44 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.5ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "123456"]]
+  Rendered candidatos/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 44ms (Views: 38.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:38:47 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "123456"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (5.8ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 38ms (Views: 33.3ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mCandidato Load (0.7ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "candidatos" WHERE "candidatos"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCandidato Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "candidatos" WHERE "candidatos"."cpf" = $1 LIMIT $2[0m  [["cpf", "4479019866"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started DELETE "/users/sign_out" for 172.19.0.1 at 2019-10-05 16:39:48 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"B0WBBFgTNBTMaZgw8CQKt4PCHw1eqU6IVN7lM14J8QXMfKdTDA5Cm5pVkW2ncaA6BbEd9z/I2vg3WTl756Q1Og=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 172.19.0.1 at 2019-10-05 16:39:48 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.19.0.1 at 2019-10-05 16:39:48 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/devise
+  Rendered users/sessions/_basicForm.html.erb (19.0ms)
+  Rendered users/shared/_links.html.erb (1.3ms)
+  Rendered users/sessions/new.html.erb within layouts/devise (27.0ms)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 172.19.0.1 at 2019-10-05 16:39:50 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/devise
+  Rendered users/registrations/_basicForm.html.erb (3.2ms)
+  Rendered /usr/local/bundle/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered users/shared/_links.html.erb (1.1ms)
+  Rendered users/registrations/new.html.erb within layouts/devise (12.2ms)
+Completed 200 OK in 40ms (Views: 39.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 172.19.0.1 at 2019-10-05 16:40:03 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qH3Osob8NAPfrKWenNTsvw0NUGwEvR4Q/AkVNhUgejKMLwzvf/VAeMxS6qvRHoC0DjwkmOapFeZG1Uyn0OnOxQ==", "user"=>{"email"=>"brunomaranini@hotmail.com", "cpf"=>"44790119866", "tipoUser"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Cadastrar Usuário"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "brunomaranini@hotmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."cpf" = $1 LIMIT $2[0m  [["cpf", "44790119866"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/registrations/new.html.erb within layouts/devise
+  Rendered users/registrations/_basicForm.html.erb (2.7ms)
+  Rendered /usr/local/bundle/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (1.2ms)
+  Rendered users/shared/_links.html.erb (1.6ms)
+  Rendered users/registrations/new.html.erb within layouts/devise (11.8ms)
+Completed 200 OK in 206ms (Views: 32.4ms | ActiveRecord: 1.3ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/users/sign_in" for 172.19.0.1 at 2019-10-05 16:45:06 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/devise
+  Rendered users/sessions/_basicForm.html.erb (157.5ms)
+  Rendered users/shared/_links.html.erb (1.3ms)
+  Rendered users/sessions/new.html.erb within layouts/devise (201.1ms)
+Completed 200 OK in 240ms (Views: 215.9ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users/sign_in" for 172.19.0.1 at 2019-10-05 16:45:12 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"loyO5N9ZOsPLF0jiuvjxmW4NgeY+24PbPdxXyQ7jBDuy3ky5JlBOuNjpB9f3Mp2SbTz1EtzPiC2HAA5YyyqwzA==", "user"=>{"email"=>"brunomaranini@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Acessar"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brunomaranini@hotmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 5ms (ActiveRecord: 1.2ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"loyO5N9ZOsPLF0jiuvjxmW4NgeY+24PbPdxXyQ7jBDuy3ky5JlBOuNjpB9f3Mp2SbTz1EtzPiC2HAA5YyyqwzA==", "user"=>{"email"=>"brunomaranini@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Acessar"}
+  Rendering users/sessions/new.html.erb within layouts/devise
+  Rendered users/sessions/_basicForm.html.erb (11.9ms)
+  Rendered users/shared/_links.html.erb (0.9ms)
+  Rendered users/sessions/new.html.erb within layouts/devise (16.3ms)
+Completed 200 OK in 172ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 172.19.0.1 at 2019-10-05 16:45:19 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PbRTA7eswOUm5GaJkikh74VVHuj0GvF1Imyt+Ci47yIZ5pFeTqW0njUaKbzf403khmRqHBYO+oOYsPRp7XFb1Q==", "user"=>{"email"=>"brunomaranini@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Acessar"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brunomaranini@hotmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 4ms (ActiveRecord: 1.4ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PbRTA7eswOUm5GaJkikh74VVHuj0GvF1Imyt+Ci47yIZ5pFeTqW0njUaKbzf403khmRqHBYO+oOYsPRp7XFb1Q==", "user"=>{"email"=>"brunomaranini@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Acessar"}
+  Rendering users/sessions/new.html.erb within layouts/devise
+  Rendered users/sessions/_basicForm.html.erb (13.3ms)
+  Rendered users/shared/_links.html.erb (1.3ms)
+  Rendered users/sessions/new.html.erb within layouts/devise (19.2ms)
+Completed 200 OK in 199ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 172.19.0.1 at 2019-10-05 16:45:23 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/devise
+  Rendered users/registrations/_basicForm.html.erb (4.2ms)
+  Rendered /usr/local/bundle/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (1.1ms)
+  Rendered users/shared/_links.html.erb (1.1ms)
+  Rendered users/registrations/new.html.erb within layouts/devise (14.4ms)
+Completed 200 OK in 40ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 172.19.0.1 at 2019-10-05 16:45:36 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/C8aRcFoL39qscmI451xNerKWV89ITr8TKVfJV1MxFPYfdgYOGFbBHlPhr2uVx0+6fstq981MQr2eQa0mIVwpA==", "user"=>{"email"=>"brunomaranini@hotmail.com", "cpf"=>"44790119866", "tipoUser"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Cadastrar Usuário"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "brunomaranini@hotmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."cpf" = $1 LIMIT $2[0m  [["cpf", "44790119866"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "cpf", "tipoUser") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "brunomaranini@hotmail.com"], ["encrypted_password", "$2a$11$DWMTjoyili7j0e1Zoyt2GeU96lfqct0jLTdJdxn.kR7tRGZfTlifi"], ["created_at", "2019-10-05 16:45:36.880597"], ["updated_at", "2019-10-05 16:45:36.880597"], ["cpf", "44790119866"], ["tipoUser", ""]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 192ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/" for 172.19.0.1 at 2019-10-05 16:45:36 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (6.4ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 50ms (Views: 28.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/candidatos/new" for 172.19.0.1 at 2019-10-05 16:45:40 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering candidatos/new.html.erb within layouts/application
+  Rendered candidatos/curriculum/_basicForm.html.erb (6.2ms)
+  Rendered candidatos/_form.html.erb (10.1ms)
+  Rendered candidatos/new.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 61ms (Views: 44.4ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/candidatos" for 172.19.0.1 at 2019-10-05 16:46:15 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KhffULU9P7c1Zzal4N/P5jl022Dn8+TbrxULFlzjhmUORR0NTDRLzCaZeZCtFaPtOkWvlAXn7y0VyVKHmSoykg==", "candidato"=>{"cpf"=>"44790119866", "nome"=>"Bruno Maranini", "data_nasc"=>"2020-11-06", "cep"=>"232d", "logradouro"=>"mdkim", "numero"=>"mdk", "bairro"=>"m", "cidade"=>"k", "uf"=>"AC", "user_id"=>"35"}, "email"=>"bg@t.com", "commit"=>"Formações"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCandidato Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "candidatos" WHERE "candidatos"."cpf" = $1 LIMIT $2[0m  [["cpf", "44790119866"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "candidatos" ("cpf", "nome", "created_at", "updated_at", "data_nasc", "cep", "logradouro", "numero", "bairro", "cidade", "uf", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["cpf", "44790119866"], ["nome", "Bruno Maranini"], ["created_at", "2019-10-05 16:46:15.866925"], ["updated_at", "2019-10-05 16:46:15.866925"], ["data_nasc", "2020-11-06"], ["cep", "232d"], ["logradouro", "mdkim"], ["numero", "mdk"], ["bairro", "m"], ["cidade", "k"], ["uf", "AC"], ["user_id", 35]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/candidatos/35
+Completed 302 Found in 40ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/candidatos/35" for 172.19.0.1 at 2019-10-05 16:46:15 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.8ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendered candidatos/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 36ms (Views: 31.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:46:19 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (4.8ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 42ms (Views: 36.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/candidatos/edit" for 172.19.0.1 at 2019-10-05 16:46:21 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.6ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendered candidatos/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 37ms (Views: 32.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/candidatos/35/edit" for 172.19.0.1 at 2019-10-05 16:46:23 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#edit as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "candidatos"."id" FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  [1m[36mCandidato Load (0.6ms)[0m  [1m[34mSELECT  "candidatos".* FROM "candidatos" WHERE "candidatos"."id" = 35 LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering candidatos/edit.html.erb within layouts/application
+  Rendered candidatos/_form.html.erb (5.5ms)
+  Rendered candidatos/edit.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 38ms (Views: 30.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:46:30 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (4.7ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 26ms (Views: 22.5ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out" for 172.19.0.1 at 2019-10-05 16:46:38 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mNGMP7hNjGPDi7DMw5GGu2flxQM+Z74HP7K7G8tKk/q8g05iQUT4GNB1//mOW+qwZNSx99xztfGFbuKKDoMnDQ=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 172.19.0.1 at 2019-10-05 16:46:38 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 172.19.0.1 at 2019-10-05 16:46:38 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/devise
+  Rendered users/sessions/_basicForm.html.erb (17.4ms)
+  Rendered users/shared/_links.html.erb (0.9ms)
+  Rendered users/sessions/new.html.erb within layouts/devise (22.5ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 172.19.0.1 at 2019-10-05 16:49:57 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rI7aTqL1K1TcpEwqMb0GuhPuDyN+nPnD25QBaJOfP3VkHnv39Pv7Yh9owx1YMjL5wKV5ZKhdh5M1dqVHeKSCIA==", "user"=>{"email"=>"brunomaranini@hotmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Acessar"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "brunomaranini@hotmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 159ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 172.19.0.1 at 2019-10-05 16:49:58 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (3.2ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/candidatos/edit" for 172.19.0.1 at 2019-10-05 16:50:00 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.6ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendered candidatos/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 38ms (Views: 33.8ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/candidatos/35" for 172.19.0.1 at 2019-10-05 16:50:03 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7faPlMHpaF/RPHUdk6sQG29m+IsKQaOXYw46l9LJFSwxYSCaOAmDdAvfVek9eEEhWYTVtLltnZO9fsvM3GWAYw==", "id"=>"35"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.6ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/candidatos_controller.rb:78:in `destroy'
+  Rendering /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.1ms)
+  Rendering /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.9ms)
+Started GET "/candidatos/edit" for 172.19.0.1 at 2019-10-05 16:50:38 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.6ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendered candidatos/show.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 65ms (Views: 39.2ms | ActiveRecord: 5.7ms)
+
+
+Started DELETE "/candidatos/35" for 172.19.0.1 at 2019-10-05 16:50:40 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"iZSvWdA/UtFteioR72nBdw5Djw6y8I2pHJWMdblShp1VAwBXKd+5+reZCuVBupBNOKGiMQHcs63C5X0ut/4T0g==", "id"=>"35"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[36mCandidato Load (0.5ms)[0m  [1m[34mSELECT  "candidatos".* FROM "candidatos" WHERE "candidatos"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "candidatos" WHERE "candidatos"."id" = $1[0m  [["id", 35]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/candidatos
+Completed 302 Found in 12ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:50:40 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (8.5ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 40ms (Views: 35.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/candidatos/new" for 172.19.0.1 at 2019-10-05 16:50:42 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering candidatos/new.html.erb within layouts/application
+  Rendered candidatos/curriculum/_basicForm.html.erb (5.1ms)
+  Rendered candidatos/_form.html.erb (2.5ms)
+  Rendered candidatos/new.html.erb within layouts/application (13.4ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.7ms)
+
+
+  
+SyntaxError (/sis_ope/app/views/candidatos/_form.html.erb:28: syntax error, unexpected tLABEL, expecting keyword_do or '{' or '('
+...f, value:current_user disabled:true);@output_buffer.safe_app...
+...                      ^~~~~~~~~):
+  
+app/views/candidatos/_form.html.erb:28: syntax error, unexpected tLABEL, expecting keyword_do or '{' or '('
+app/views/candidatos/new.html.erb:2:in `_app_views_candidatos_new_html_erb___3785413939094064778_70081888755840'
+  Rendering /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/bundle/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.8ms)
+Started GET "/candidatos/new" for 172.19.0.1 at 2019-10-05 16:51:00 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering candidatos/new.html.erb within layouts/application
+  Rendered candidatos/curriculum/_basicForm.html.erb (3.5ms)
+  Rendered candidatos/_form.html.erb (5.9ms)
+  Rendered candidatos/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 42ms (Views: 39.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/candidatos" for 172.19.0.1 at 2019-10-05 16:51:19 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LcFAHR1h1OLekSutIZ8ze4qJhwXhVJ92yQDpbN/8zjTxVu8T5IE/yQRyC1mPTGJBvGuqOlJ4oXIXcBg30VBbew==", "candidato"=>{"nome"=>"Bruno Maranini", "data_nasc"=>"2020-11-06", "cep"=>"123454", "logradouro"=>"brad", "numero"=>"213", "bairro"=>"dnsj", "cidade"=>"ja", "uf"=>"AC", "user_id"=>"35"}, "email"=>"brunomaranini@hotmail.com", "commit"=>"Formações"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCandidato Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "candidatos" WHERE "candidatos"."cpf" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "candidatos" ("nome", "created_at", "updated_at", "data_nasc", "cep", "logradouro", "numero", "bairro", "cidade", "uf", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["nome", "Bruno Maranini"], ["created_at", "2019-10-05 16:51:19.504741"], ["updated_at", "2019-10-05 16:51:19.504741"], ["data_nasc", "2020-11-06"], ["cep", "123454"], ["logradouro", "brad"], ["numero", "213"], ["bairro", "dnsj"], ["cidade", "ja"], ["uf", "AC"], ["user_id", 35]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/candidatos/36
+Completed 302 Found in 18ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/candidatos/36" for 172.19.0.1 at 2019-10-05 16:51:19 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.4ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendered candidatos/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 29ms (Views: 25.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:51:39 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (4.5ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 38ms (Views: 31.5ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/candidatos/new" for 172.19.0.1 at 2019-10-05 16:55:01 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering candidatos/new.html.erb within layouts/application
+  Rendered candidatos/curriculum/_basicForm.html.erb (4.6ms)
+  Rendered candidatos/_form.html.erb (4.6ms)
+  Rendered candidatos/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 43ms (Views: 38.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/candidatos" for 172.19.0.1 at 2019-10-05 16:55:07 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nDhWUmWMb9EXip7/IpH3kg5OV2U0jGtZ69MQ6ZJ9by9Ar/lcnGyE+s1pvguMQqaoOKx6WoegVV01o+GynNH6YA==", "candidato"=>{"cpf"=>"44790119866", "nome"=>"", "data_nasc"=>"", "cep"=>"", "logradouro"=>"", "numero"=>"", "bairro"=>"", "cidade"=>"", "uf"=>"AC", "user_id"=>"35"}, "email"=>"", "commit"=>"Formações"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCandidato Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "candidatos" WHERE "candidatos"."cpf" = $1 LIMIT $2[0m  [["cpf", "44790119866"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "candidatos" ("cpf", "nome", "created_at", "updated_at", "cep", "logradouro", "numero", "bairro", "cidade", "uf", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["cpf", "44790119866"], ["nome", ""], ["created_at", "2019-10-05 16:55:07.097459"], ["updated_at", "2019-10-05 16:55:07.097459"], ["cep", ""], ["logradouro", ""], ["numero", ""], ["bairro", ""], ["cidade", ""], ["uf", "AC"], ["user_id", 35]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/candidatos/37
+Completed 302 Found in 22ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/candidatos/37" for 172.19.0.1 at 2019-10-05 16:55:07 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.4ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendered candidatos/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 25ms (Views: 21.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:55:09 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (5.3ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 40ms (Views: 36.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/candidatos/edit" for 172.19.0.1 at 2019-10-05 16:55:10 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  Rendering candidatos/show.html.erb within layouts/application
+  [1m[36mCandidato Load (0.5ms)[0m  [1m[34mSELECT "candidatos".* FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendered candidatos/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 40ms (Views: 35.5ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/candidatos/37" for 172.19.0.1 at 2019-10-05 16:55:14 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"p31JwErSqXuFmie1VkHPBNATz+ycEyW3AigcepuSJix76ubOszJCUF95B0H4kp4+5vHi0y8/G7PcWO0hlT6zYw==", "id"=>"37"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[36mCandidato Load (0.5ms)[0m  [1m[34mSELECT  "candidatos".* FROM "candidatos" WHERE "candidatos"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "candidatos" WHERE "candidatos"."id" = $1[0m  [["id", 37]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/candidatos
+Completed 302 Found in 10ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/candidatos" for 172.19.0.1 at 2019-10-05 16:55:14 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CandidatosController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "candidatos" WHERE "candidatos"."cpf" = $1[0m  [["cpf", "44790119866"]]
+  Rendering candidatos/menu/mainMenu.html.erb within layouts/application
+  Rendered candidatos/menu/_basicForm.html.erb (7.4ms)
+  Rendered candidatos/menu/mainMenu.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 49ms (Views: 42.5ms | ActiveRecord: 1.3ms)
+
+

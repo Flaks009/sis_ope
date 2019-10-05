@@ -24,7 +24,8 @@
 
           <div class="field">
             <%= f.label :cpf, "CPF", id:"cpf-label" %>
-            <%= f.text_field :cpf, class:"field-cpf", placeholder:"Ex.: 000.000.000-00" %>
+            <%= f.text_field :cpf, class:"field-cpf", placeholder:current_user.cpf, disabled:true%>
+            <%= f.hidden_field :cpf, :value => current_user.cpf%>
           </div>
 
           <div class="field">

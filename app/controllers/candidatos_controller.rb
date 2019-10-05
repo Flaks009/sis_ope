@@ -75,6 +75,7 @@ class CandidatosController < ApplicationController
   # DELETE /candidatos/1
   # DELETE /candidatos/1.json
   def destroy
+    @candidato = Candidato.find(params[:id])
     @candidato.destroy
     respond_to do |format|
       format.html { redirect_to candidatos_url, notice: 'Candidato was successfully destroyed.' }
