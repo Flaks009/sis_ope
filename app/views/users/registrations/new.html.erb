@@ -1,29 +1,42 @@
-<h2>Sign up</h2>
+<%= render "basicForm" %>
+<div id="background-menu">
+  <div id="menu-items">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <img id="logo-1" src="/img/topo-logo-synergia.png">
+      <img id="logo-2" src="/img/rodape-logo-tpf.png">
+      
+      <p id="title-user">Cadastro de Usuário</p>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="field">
+        <%= f.label :email, "Email", class:"ipt-label" %><br/>
+        <%= f.email_field :email, autofocus: true, class:"ipt-text", autocomplete: "email", placeholder: "Digite seu email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :cpf, "CPF", class:"ipt-label" %><br/>
+        <%= f.text_field :cpf, autofocus: true, class:"ipt-text", placeholder: "Digite seu CPF" %>
+      </div>
+
+      <div class="field">
+        <%= f.hidden_field :tipoUser %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, "Informe uma senha", class:"ipt-label" %><br/>
+        <%= f.password_field :password, class:"ipt-text", autocomplete: "new-password", placeholder:"Digite uma senha" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "Confirme a senha informada", class:"ipt-label" %><br/>
+        <%= f.password_field :password_confirmation, class:"ipt-text", autocomplete: "new-password", placeholder: "Repita sua senha" %>
+      </div>
+
+      <%= f.submit "Cadastrar Usuário", :id=>"btn-signup" %>
+      
+      <%= render "users/shared/links" %> 
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

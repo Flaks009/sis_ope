@@ -1,0 +1,129 @@
+body {
+      font-family: 'Open Sans';
+
+      position: absolute;
+      height: 100%;
+      width: 100%;
+}
+
+.navbar {
+      background-color: white;
+      position: relative;
+      width: 100%;
+      height: 15%;
+}
+
+#nav-logo {
+      display: inline;
+      position: absolute;
+      top: 25%;
+      margin-left: 30px;
+}
+
+#nav-title {
+      font-weight: bold;
+      font-size: 18px;
+
+      display: inline;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+}
+
+
+
+.middle-bar {
+      background-color: #00B0BE;
+      position: relative;
+      width: 100%;
+      height: 5%;
+}
+
+
+
+.main-menu {
+      position: relative;
+      width: 100%;
+      height: 80%;
+}
+
+.left-menu {
+      background-color: #282421;
+      position: relative;
+      float: left;
+      height: 100%;
+      width: 20%;
+}
+
+#button-1,
+#button-2,
+#button-3 {
+      color: white;
+      padding: 50px 30px 50px 30px;
+}
+
+#img-button-1,
+#img-button-2,
+#img-button-3 {
+      float: left;
+      max-height: 40px;
+      max-width: 38px;
+      height: auto;
+      width: auto;
+}
+
+#new-curriculum-button, #edit-curriculum-button, #menu-principal {
+    float: right;
+      font-size: 15px;
+      font-family: 'Open Sans';
+      background-color: #282421;
+      border: none;
+      color: white;
+      text-align: left;
+      text-decoration: none;
+      height: 40px;
+      width: 80%;
+}
+
+.right-menu {
+      position: relative;
+      float: right;
+      height: 100%;
+      width: 80%;
+}
+
+#text-content {
+      position: relative;
+      float: left;
+      height: 100%;
+      width: 60%;
+}
+
+#text-pt1,
+#text-pt2 {
+      position: relative;
+      width: 80%;
+
+      margin-top: 80px;
+      margin-left: 100px;
+      line-height: 250%;
+}
+
+#image-content {
+      position: relative;
+      float: right;
+      height: 100%;
+      width: 40%;
+}
+
+#candidate-img {
+      position: relative;
+      top: 10%;
+      left: 15%;
+
+      max-height: 347px;
+      max-width: 300px;
+      height: auto;
+      width: auto;
+}

@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
+  font-family: 'Open Sans';
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#background-menu {
+  position: absolute;
+
+  background-image: url(/img/index-image.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+#left-text {
+  position: relative;
+  float: left;
+  height: 100%;
+  width: 60%;
+}
+
+#box-text {
+  position: relative;
+  top: 60%;
+  height: 40%;
+  width: 100%;
+}
+
+#welcome-message1 {
+  color: white;
+  font-size: 40px;
+
+  padding-left: 150px;
+  padding-bottom: 40px;
+}
+
+#welcome-message2,
+#welcome-message3 {
+  color: white;
+  font-size: 20px;
+  padding-left: 150px;
+}
+
+#right-menu {
+  position: relative;
+  float: right;
+  height: 100%;
+  width: 40%;
+}
+
+#menu-items {
+  position: relative;
+  background-color: #F5F5F5;
+  height: 70%;
+  width: 80%;
+  min-width: 435px;
+
+  top: 20%;
+  margin: auto;
+}
+
+#logo-1,
+#logo-2 {
+  position: relative;
+  height: 50px;
+  left: 20%;
+  padding-top: 10%;
+  padding-left: 15px;
+  padding-bottom: 5%;
+}
+
+.field {
+  position: relative;
+  width: 60%;
+  margin: auto;
+}
+
+.ipt-text {
+  height: 2em;
+  width: 100%;
+  font-size: 15px;
+
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.ipt-label {
+  height: 2.5;
+}
+
+#esqueci-senha-link,
+#remember-checkbox {
+  font-size: 12px;
+}
+
+#esqueci-senha-link {
+  text-align: center;
+  padding-top: 10px;
+}
+
+#btn-signup,
+#btn-signin {
+  position: relative;
+  width: 60%;
+  margin: 10px 20% 0% 20%;
+
+  height: 40px;
+  font-family: Open Sans;
+  font-size: 15px;
+  color: white;
+  background-color: #DBA102;
+  cursor: pointer;
+
+  text-align: center;
+}

@@ -1,16 +1,24 @@
-<h2>Forgot your password?</h2>
+<%= render "basicForm" %>
+<div id="background-menu">
+  <div id="menu-items">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <img id="logo-1" src="/img/topo-logo-synergia.png">
+      <img id="logo-2" src="/img/rodape-logo-tpf.png">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <p id="title-user">Alteração de Senha</p>
+
+      <div class="field">
+        <%= f.label :email, "Email", class:"ipt-label" %><br />
+        <%= f.email_field :email, autofocus: true, class:"ipt-text", autocomplete: "email", placeholder: "Digite seu email" %>
+      </div>
+
+      <%= f.submit "Enviar email com instruções", :id=>"btn-send" %>
+
+    <% end %>
+
+    <%= render "users/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

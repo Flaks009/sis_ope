@@ -10,16 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190918220613) do
+ActiveRecord::Schema.define(version: 20191005161059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "candidatos", force: :cascade do |t|
-    t.string   "CPF"
-    t.string   "Nome"
+    t.string   "cpf"
+    t.string   "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date     "data_nasc"
+    t.string   "cep"
+    t.string   "logradouro"
+    t.string   "numero"
+    t.string   "bairro"
+    t.string   "cidade"
+    t.string   "uf"
+    t.integer  "user_id"
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "instituicao"
+    t.string   "cargo"
+    t.date     "inicio"
+    t.date     "final"
+    t.string   "cpf_candidato"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.string   "empresa"
+    t.string   "cargo"
+    t.date     "admissao"
+    t.date     "saida"
+    t.string   "cpf_candidato"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "formations", force: :cascade do |t|
+    t.string   "tipo"
+    t.string   "curso"
+    t.string   "instituicao"
+    t.date     "data_inicio"
+    t.date     "data_final"
+    t.string   "cpf_candidato"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,6 +70,8 @@ ActiveRecord::Schema.define(version: 20190918220613) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "cpf"
+    t.string   "tipoUser"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Synergia | Sistema de Gerenciamento de Currículos</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'https://meyerweb.com/eric/tools/css/reset/reset.css' %>
+    <%= stylesheet_link_tag 'application.css' %>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <img id="nav-logo" src="http://www.synergiaconsultoria.com.br/wp-content/uploads/2016/01/topo-logo-synergia.png?x41292">
+      <div id="nav-title">Banco de Dados de Currículos</div>
+    </div>
+    <div class="middle-bar"></div>
+    <div class="main-menu">
+      <div class="left-menu">
+        <div id="button-1">
+          <img id="img-button-1" src="/images/new-curriculum.png">
+          <button id="new-curriculum-button">Cadastrar Dados</button>
+        </div>
+        <div id="button-2">
+          <img id="img-button-2" src="/images/edit-curriculum.png">
+          <button id="edit-curriculum-button">Alterar Dados</button>
+        </div>
+        <div id="button-3">
+          <img id="img-button-3" src="/images/show-curriculum.png">
+          <button id="show-curriculum-button">Pesquisar Currículos</button>
+        </div>
+      </div>
+      <div class="right-menu">
+        <div id="text-content">
+          <p id="text-pt1">No Banco de Dados de Currículos da Synergia, o 
+          candidato cadastra seu currículo e permite com que
+          o time do RH possa localizar seu perfil com muito
+          mais facilidade. </p>
+          <p id="text-pt2">Com seus dados disponíveis, o time pode alocar o 
+          candidato ao projeto mais adequado as necessecidades
+          do requisitante e ao perfil do candidato.</p>
+        </div>
+        <div id="image-content">
+          <img id="candidate-img" src="/images/candidate-img.png">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
