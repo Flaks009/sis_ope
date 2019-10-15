@@ -1,10 +1,13 @@
 class FormationsController < ApplicationController
   before_action :set_formation, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /formations
   # GET /formations.json
   def index
-    @formations = Formation.all
+    if current_user
+      @formations = Formation.where(cpf_candidato: @current_user.cpf)
+    end
   end
 
   # GET /formations/1
@@ -19,34 +22,40 @@ class FormationsController < ApplicationController
 
   # GET /formations/1/edit
   def edit
+    if current_user
+      findQuery = Formation.where(cpf_candidato: @current_user.cpf)
+      id = findQuery.ids
+      @formation = Formation.find_by_id(id)
+    end
   end
 
   # POST /formations
   # POST /formations.json
   def create
-    @formation = Formation.new(formation_params)
+    if current_user
+      @formation = Formation.new(course_params)
 
-    respond_to do |format|
-      if @formation.save
-        format.html { redirect_to @formation, notice: 'Formation was successfully created.' }
-        format.json { render :show, status: :created, location: @formation }
-      else
-        format.html { render :new }
-        format.json { render json: @formation.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @formation.save
+          format.html { redirect_to @formation, notice: 'Formation was successfully created.' }
+        else
+          format.html { render :new }
+        end
       end
+    else
+      render "candidatos/menu/mainMenu"
     end
   end
 
   # PATCH/PUT /formations/1
   # PATCH/PUT /formations/1.json
   def update
+    @formation = Formation.find(params[:id])
     respond_to do |format|
-      if @formation.update(formation_params)
+      if @formation.update(course_params)
         format.html { redirect_to @formation, notice: 'Formation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @formation }
       else
         format.html { render :edit }
-        format.json { render json: @formation.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,9 +63,10 @@ class FormationsController < ApplicationController
   # DELETE /formations/1
   # DELETE /formations/1.json
   def destroy
+    @formation = Formation.find(params[:id])
     @formation.destroy
     respond_to do |format|
-      format.html { redirect_to formations_url, notice: 'Formation was successfully destroyed.' }
+      format.html { redirect_to courses_url, notice: 'Formation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
