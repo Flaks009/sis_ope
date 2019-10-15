@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @course.nome %>
+</p>
+
+<p>
+  <strong>Instituicao:</strong>
+  <%= @course.instituicao %>
+</p>
+
+<p>
+  <strong>Inicio:</strong>
+  <%= @course.inicio %>
+</p>
+
+<p>
+  <strong>Final:</strong>
+  <%= @course.final %>
+</p>
+
+<p>
+  <strong>Cpf candidato:</strong>
+  <%= @course.cpf_candidato %>
+</p>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
