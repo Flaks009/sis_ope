@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ExperiencesController < ApplicationController
-  before_action :set_experience, only: [:show, :edit, :update, :destroy]
+  before_action :set_experience, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   # GET /experiences
@@ -12,8 +14,7 @@ class ExperiencesController < ApplicationController
 
   # GET /experiences/1
   # GET /experiences/1.json
-  def show
-  end
+  def show; end
 
   # GET /experiences/new
   def new
@@ -43,7 +44,7 @@ class ExperiencesController < ApplicationController
         end
       end
     else
-      render "candidatos/menu/mainMenu"
+      render 'candidatos/menu/mainMenu'
     end
   end
 
@@ -70,15 +71,16 @@ class ExperiencesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_experience
-      @experience = Experience.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def experience_params
-      params.require(:experience).permit(:empresa, :cargo, :admissao, :saida, :cpf_candidato)
-    end
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_experience
+    @experience = Experience.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def experience_params
+    params.require(:experience).permit(:empresa, :cargo, :admissao, :saida, :cpf_candidato)
+  end
 end

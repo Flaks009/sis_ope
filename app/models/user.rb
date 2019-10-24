@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -5,6 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :cpf, uniqueness: true
-  has_one :candidato, :class_name => "User", :foreign_key => "user_id"
-
+  has_one :candidato, class_name: 'User', foreign_key: 'user_id'
 end

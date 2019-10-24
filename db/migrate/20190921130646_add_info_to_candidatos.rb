@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddInfoToCandidatos < ActiveRecord::Migration[5.0]
   def change
     add_column :candidatos, :data_nasc, :string

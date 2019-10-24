@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class ExperiencesControllerTest < ActionDispatch::IntegrationTest
@@ -5,17 +7,17 @@ class ExperiencesControllerTest < ActionDispatch::IntegrationTest
     @experience = experiences(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get experiences_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_experience_url
     assert_response :success
   end
 
-  test "should create experience" do
+  test 'should create experience' do
     assert_difference('Experience.count') do
       post experiences_url, params: { experience: { admissao: @experience.admissao, cargo: @experience.cargo, cpf_candidato: @experience.cpf_candidato, empresa: @experience.empresa, saida: @experience.saida } }
     end
@@ -23,22 +25,22 @@ class ExperiencesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to experience_url(Experience.last)
   end
 
-  test "should show experience" do
+  test 'should show experience' do
     get experience_url(@experience)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_experience_url(@experience)
     assert_response :success
   end
 
-  test "should update experience" do
+  test 'should update experience' do
     patch experience_url(@experience), params: { experience: { admissao: @experience.admissao, cargo: @experience.cargo, cpf_candidato: @experience.cpf_candidato, empresa: @experience.empresa, saida: @experience.saida } }
     assert_redirected_to experience_url(@experience)
   end
 
-  test "should destroy experience" do
+  test 'should destroy experience' do
     assert_difference('Experience.count', -1) do
       delete experience_url(@experience)
     end

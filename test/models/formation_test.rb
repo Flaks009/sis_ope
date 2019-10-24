@@ -1,8 +1,8 @@
-#frozen_string_literal: true
+# frozen_string_literal: true
 
 # == Schema Information
 #
-#Table name: formations
+# Table name: formations
 #
 # tipo              :string
 # curso             :string

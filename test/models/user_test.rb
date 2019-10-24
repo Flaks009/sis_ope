@@ -1,8 +1,8 @@
-#frozen_string_literal: true
+# frozen_string_literal: true
 
 # == Schema Information
 #
-#Table name: users
+# Table name: users
 #
 # email                   :string   not null
 # encrypted_password      :string   not null

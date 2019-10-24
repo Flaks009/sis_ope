@@ -1,19 +1,18 @@
+# frozen_string_literal: true
+
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   # GET /courses
   # GET /courses.json
   def index
-    if current_user
-      @courses = Course.where(cpf_candidato: @current_user.cpf)
-    end
+    @courses = Course.where(cpf_candidato: @current_user.cpf) if current_user
   end
 
   # GET /courses/1
   # GET /courses/1.json
-  def show
-  end
+  def show; end
 
   # GET /courses/new
   def new
@@ -43,7 +42,7 @@ class CoursesController < ApplicationController
         end
       end
     else
-      render "candidatos/menu/mainMenu"
+      render 'candidatos/menu/mainMenu'
     end
   end
 
@@ -72,13 +71,14 @@ class CoursesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def course_params
-      params.require(:course).permit(:nome, :instituicao, :inicio, :final, :cpf_candidato)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_course
+    @course = Course.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def course_params
+    params.require(:course).permit(:nome, :instituicao, :inicio, :final, :cpf_candidato)
+  end
 end

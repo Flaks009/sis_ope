@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class FormationsController < ApplicationController
-  before_action :set_formation, only: [:show, :edit, :update, :destroy]
+  before_action :set_formation, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   # GET /formations
@@ -12,8 +14,7 @@ class FormationsController < ApplicationController
 
   # GET /formations/1
   # GET /formations/1.json
-  def show
-  end
+  def show; end
 
   # GET /formations/new
   def new
@@ -43,7 +44,7 @@ class FormationsController < ApplicationController
         end
       end
     else
-      render "candidatos/menu/mainMenu"
+      render 'candidatos/menu/mainMenu'
     end
   end
 
@@ -72,13 +73,14 @@ class FormationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_formation
-      @formation = Formation.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def formation_params
-      params.require(:formation).permit(:tipo, :curso, :instituicao, :data_inicio, :data_final, :cpf_candidato)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_formation
+    @formation = Formation.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def formation_params
+    params.require(:formation).permit(:tipo, :curso, :instituicao, :data_inicio, :data_final, :cpf_candidato)
+  end
 end
