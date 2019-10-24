@@ -1,0 +1,47 @@
+<%= form_for(formation) do |f| %>
+  <% if formation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(formation.errors.count, "error") %> prohibited this formation from being saved:</h2>
+
+      <ul>
+      <% formation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo %>
+    <%= f.text_field :tipo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :curso %>
+    <%= f.text_field :curso %>
+  </div>
+
+  <div class="field">
+    <%= f.label :instituicao %>
+    <%= f.text_field :instituicao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_inicio %>
+    <%= f.date_select :data_inicio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_final %>
+    <%= f.date_select :data_final %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpf_candidato %>
+    <%= f.text_field :cpf_candidato %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
