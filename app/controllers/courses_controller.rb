@@ -1,84 +1,74 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+    before_action :set_candidato, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!
 
-  # GET /courses
-  # GET /courses.json
-  def index
-    if current_user
-      @courses = Course.where(cpf_candidato: @current_user.cpf)
+    # GET /courses/new
+    def new
+      @course = Course.new
     end
-  end
-
-  # GET /courses/1
-  # GET /courses/1.json
-  def show
-  end
-
-  # GET /courses/new
-  def new
-    @course = Course.new
-  end
-
-  # GET /courses/1/edit
-  def edit
-    if current_user
-      findQuery = Course.where(cpf_candidato: @current_user.cpf)
-      id = findQuery.ids
-      @course = Course.find_by_id(id)
+  
+    # GET /candidatos/1/edit
+    def edit
+      if current_user
+        findQuery = Course.where(cpf_candidato: @current_user.cpf)
+        id = findQuery.ids
+        @course = Course.find_by_id(id)
+      end
     end
-  end
-
-  # POST /courses
-  # POST /courses.json
-  def create
-    if current_user
-      @course = Course.new(course_params)
-
-      respond_to do |format|
-        if @course.save
-          format.html { redirect_to @course, notice: 'Course was successfully created.' }
+  
+    # POST /candidatos
+    # POST /candidatos.json
+    def create
+      if current_user
+        if @candidato = Candidato.where(cpf: @current_user.cpf).count == 0
+          @course = Course.new(course_params)
+  
+          respond_to do |format|
+            if @course.save
+              format.html { redirect_to @course, notice: 'Course was successfully created.' }
+            else
+              format.html { render :new }
+            end
+          end
         else
-          format.html { render :new }
+          render "candidatos/menu/mainMenu"
         end
       end
-    else
-      render "candidatos/menu/mainMenu"
     end
-  end
-
-  # PATCH/PUT /courses/1
-  # PATCH/PUT /courses/1.json
-  def update
-    @course = Course.find(params[:id])
-    respond_to do |format|
-      if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
-      else
-        format.html { render :edit }
+  
+    # PATCH/PUT /candidatos/1
+    # PATCH/PUT /candidatos/1.json
+    def update
+  
+      @course = Course.find(params[:id])
+  
+      respond_to do |format|
+        if @course.update(course_params)
+          format.html { redirect_to @course, notice: 'Candidato was successfully updated.' }
+        else
+          format.html { render :edit }
+        end
       end
     end
-  end
-
-  # DELETE /courses/1
-  # DELETE /courses/1.json
-  def destroy
-    @course = Course.find(params[:id])
-    @course.destroy
-    respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course
+  
+    # DELETE /candidatos/1
+    # DELETE /candidatos/1.json
+    def destroy
       @course = Course.find(params[:id])
+      @course.destroy
+      respond_to do |format|
+        format.html { redirect_to candidatos_url, notice: 'Candidato was successfully destroyed.' }
+      end
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def course_params
-      params.require(:course).permit(:nome, :instituicao, :inicio, :final, :cpf_candidato)
-    end
+  
+    private
+      # Use callbacks to share common setup or constraints between actions.
+      def set_candidato
+        @course = Course.where(cpf_candidato: current_user.cpf)      
+      end
+  
+      # Never trust parameters from the scary internet, only allow the white list through.
+      def course_params
+        params.require(:course).permit(:nome,:instituicao,:inicio,:final,:cpf_candidato)
+      end
 end

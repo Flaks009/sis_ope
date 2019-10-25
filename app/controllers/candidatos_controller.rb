@@ -15,7 +15,11 @@ class CandidatosController < ApplicationController
     if current_user.tipoUser == 'candidato'
       @candidato = Candidato.where(cpf: @current_user.cpf)
     elsif current_user.tipoUser == 'admin'
-      @candidato = Candidato.all
+      @candidato = if params[:term]
+        Candidato.where('nome ILIKE ?', "%#{params[:term]}%").or(Candidato.where('cidade ILIKE ?', "%#{params[:term]}%"))
+      else
+        @Candidato = Candidato.all
+      end
     end
   end
 
@@ -91,6 +95,6 @@ class CandidatosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidato_params
-      params.require(:candidato).permit(:cpf, :nome, :data_nasc, :cep, :logradouro, :numero, :bairro, :cidade, :uf, :user_id)
+      params.require(:candidato).permit(:cpf, :nome, :data_nasc, :cep, :logradouro, :numero, :bairro, :cidade, :uf, :user_id, :term)
     end
 end

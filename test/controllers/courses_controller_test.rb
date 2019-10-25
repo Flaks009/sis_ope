@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class CoursesControllerTest < ActionDispatch::IntegrationTest
+<<<<<<< HEAD
   setup do
     @course = courses(:one)
   end
@@ -45,4 +46,9 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to courses_url
   end
+=======
+  # test "the truth" do
+  #   assert true
+  # end
+>>>>>>> sprint3
 end
