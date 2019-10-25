@@ -46,11 +46,9 @@ class CandidatosController < ApplicationController
 
         respond_to do |format|
           if @candidato.save
-            format.html { redirect_to @candidato, notice: 'Candidato was successfully created.' }
-            format.json { render :show, status: :created, location: @candidato }
+            format.html { redirect_to "/formations/new"}
           else
             format.html { render :new }
-            format.json { render json: @candidato.errors, status: :unprocessable_entity }
           end
         end
       else

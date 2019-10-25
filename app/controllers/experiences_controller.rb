@@ -33,11 +33,11 @@ class ExperiencesController < ApplicationController
   # POST /experiences.json
   def create
     if current_user
-      @experience = Experience.new(course_params)
+      @experience = Experience.new(experience_params)
 
       respond_to do |format|
         if @experience.save
-          format.html { redirect_to @experience, notice: 'Experience was successfully created.' }
+          format.html { redirect_to "/courses/new" }
         else
           format.html { render :new }
         end
@@ -52,7 +52,7 @@ class ExperiencesController < ApplicationController
   def update
     @experience = Experience.find(params[:id])
     respond_to do |format|
-      if @experience.update(course_params)
+      if @experience.update(experience_params)
         format.html { redirect_to @experience, notice: 'Experience was successfully updated.' }
       else
         format.html { render :edit }

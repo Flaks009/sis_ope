@@ -33,11 +33,11 @@ class FormationsController < ApplicationController
   # POST /formations.json
   def create
     if current_user
-      @formation = Formation.new(course_params)
+      @formation = Formation.new(formation_params)
 
       respond_to do |format|
         if @formation.save
-          format.html { redirect_to @formation, notice: 'Formation was successfully created.' }
+          format.html { redirect_to "/experiences/new"}
         else
           format.html { render :new }
         end
@@ -52,7 +52,7 @@ class FormationsController < ApplicationController
   def update
     @formation = Formation.find(params[:id])
     respond_to do |format|
-      if @formation.update(course_params)
+      if @formation.update(formation_params)
         format.html { redirect_to @formation, notice: 'Formation was successfully updated.' }
       else
         format.html { render :edit }
