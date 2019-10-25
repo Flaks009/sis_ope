@@ -5,8 +5,10 @@
       
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <img id="logo-1" src="/img/topo-logo-synergia.png">
-      <img id="logo-2" src="/img/rodape-logo-tpf.png">
+      <div id="logos">
+        <img id="logo-1" src="/img/topo-logo-synergia.png">
+        <img id="logo-2" src="/img/rodape-logo-tpf.png">
+      </div>
 
       <p id="title-user">Alteração de Senha</p>
 
@@ -15,10 +17,14 @@
         <%= f.email_field :email, autofocus: true, class:"ipt-text", autocomplete: "email", placeholder: "Digite seu email" %>
       </div>
 
-      <%= f.submit "Enviar email com instruções", :id=>"btn-send" %>
+      <div class="buttons">
+        <%= f.submit "Enviar email com instruções", :id=>"btn-send" %>
+      </div>
 
     <% end %>
-
-    <%= render "users/shared/links" %>
+    
+    <div class="buttons">
+      <%= render "users/shared/links" %>
+    </div>
   </div>
 </div>

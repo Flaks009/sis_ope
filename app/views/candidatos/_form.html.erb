@@ -1,6 +1,6 @@
   <div class="main-menu">    
     <div class="left-menu">
-      <div id="button-1">
+      <div id="button-4">
         <img id="img-button-1" src="/img/menu-principal.png">
         <%= link_to 'Menu Principal', candidatos_path, id:"menu-principal" %>
       </div>
@@ -22,53 +22,42 @@
         <div id="dados-cadastrais">
           <p id="dados-cadastrais-label">Dados Cadastrais</p>
 
-          <div class="field">
             <%= f.label :cpf, "CPF", id:"cpf-label" %>
-            <%= f.text_field :cpf, class:"field-cpf", placeholder:current_user.cpf, disabled:true%>
+            <%= f.text_field :cpf, id:"field-cpf", placeholder:current_user.cpf, disabled:true%>
             <%= f.hidden_field :cpf, :value => current_user.cpf%>
-          </div>
 
-          <div class="field">
             <%= f.label :nome, "Nome Completo", id:"nome-label" %>
-            <%= f.text_field :nome, class:"field-nome", placeholder:"Digite seu nome" %>
+            <%= f.text_field :nome, id:"field-nome", placeholder:"Digite seu nome" %>
             <%= f.label :data_nasc, "Data de Nascimento", id:"data-nascimento-label" %>
-            <%= f.date_field :data_nasc, class:"field-date", placeholder:"Ex.: dd/mm/aaaa" %>
-          </div>
+            <%= f.date_field :data_nasc, id:"field-date", placeholder:"Ex.: dd/mm/aaaa" %>
 
-          <div class="field">
+
             <p id="email-label">E-mail</p>
-            <input name="email" type="email" class="field-email" placeholder="Digite seu email">
-          </div>
+            <input name="email" type="email" id="field-email" placeholder="Digite seu email">
         </div>
 
         <div id="endereco">
           <p id="endereco-label">Endereço</p>
 
-          <div class="field">
-            <%= f.label :cep, "CEP", id:"cep-label" %>
-            <%= f.text_field :cep, class:"field-cep", placeholder:"Ex.: 00000-000" %>
+          <%= f.label :logradouro, "Logradouro", id:"logradouro-label" %>
+          <%= f.text_field :logradouro, id:"field-logradouro", placeholder:"Digite seu endereço" %>
 
-            <%= f.label :logradouro, "Logradouro", id:"logradouro-label" %>
-            <%= f.text_field :logradouro, class:"field-logradouro", placeholder:"Digite seu endereço" %>
+          <%= f.label :numero, "Número", id:"number-label" %>
+          <%= f.text_field :numero, id:"field-numero", placeholder:"Digite o número" %>
 
-            <%= f.label :numero, "Número", id:"number-label" %>
-            <%= f.text_field :numero, class:"field-numero", placeholder:"Digite o número" %>
-          </div>
+          <%= f.label :bairro, "Bairro", id:"bairro-label" %>
+          <%= f.text_field :bairro, id:"field-bairro", placeholder:"Digite seu bairro" %>
 
-          <div class="field">
-            <%= f.label :bairro, "Bairro", id:"bairro-label" %>
-            <%= f.text_field :bairro, class:"field-bairro", placeholder:"Digite seu bairro" %>
+          <%= f.label :cidade, "Cidade", id:"cidade-label" %>
+          <%= f.text_field :cidade, id:"field-cidade", placeholder:"Digite sua cidade" %>
 
-            <%= f.label :cidade, "Cidade", id:"cidade-label" %>
-            <%= f.text_field :cidade, class:"field-cidade", placeholder:"Digite sua cidade" %>
+          <%= f.label :uf, "UF", id:"estado-label" %>
+          <%= f.select :uf, ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'], id:"field-estado", placeholder:"Selecione seu estado" %>
 
-            <%= f.label :uf, "UF", id:"estado-label" %>
-            <%= f.select :uf, ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'], class:"field-estado", placeholder:"Selecione seu estado" %>
-          </div>
+          <%= f.label :cep, "CEP", id:"cep-label" %>
+          <%= f.text_field :cep, id:"field-cep", placeholder:"Ex.: 00000-000" %>
 
-          <div class="field">
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-          </div>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
         </div>
 
         <div id="bottom-bar">
@@ -98,6 +87,7 @@
                 <%= f.submit "Formações", id:"next-page-button-link" %>
               </div>
             </div>
+            
         </div>
       <% end %>
     </div>

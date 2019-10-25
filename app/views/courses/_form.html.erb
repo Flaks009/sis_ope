@@ -1,72 +1,85 @@
-  <div class="main-menu">    
-    <div class="left-menu">
-      <div id="button-1">
-        <img id="img-button-1" src="/img/menu-principal.png">
-        <%= link_to 'Menu Principal', candidatos_path, id:"menu-principal" %>
+<<<<<<< HEAD
+<div class="main-menu">    
+<div class="left-menu">
+  <div id="button-4">
+    <img id="img-button-1" src="/img/menu-principal.png">
+    <%= link_to 'Menu Principal', candidatos_path, id:"menu-principal" %>
+  </div>
+</div>
+<div class="right-menu">
+  <%= form_for(course) do |f| %>
+    <% if course.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+        <ul>
+        <% course.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div id="cursos">
+
+      <div id="add-curso">Clique para adicionar mais uma curso</div>
+      
+      <div id="cursos-fields-1" class="cursos-fields">
+        <div id="remover-curso-1" class="remover-curso">Remover curso</div>
+        
+        <%= f.label :nome, "Nome do Curso", id:"curso-label" %>
+        <%= f.text_field :nome, id:"field-curso", placeholder:"Digite o nome do curso" %>
+
+        <%= f.label :instituicao, "Nome da Instituição", id:"instituicao-label" %>
+        <%= f.text_field :instituicao, id:"field-instituicao", placeholder:"Digite o nome da instituição" %>
+
+        <%= f.label :inicio, "Data de Início do Curso", id:"data-inicio-curso-label" %>
+        <div id="field-data-inicio-curso">
+          <%= f.date_field :inicio %>
+        </div>
+        
+        <%= f.label :final, "Data de Finalização do Curso", id:"data-fim-curso-label" %>
+        <div id="field-data-fim-curso">
+          <%= f.date_field :final %>
+        </div>
+
+        <%= f.hidden_field :cpf_candidato %>
+      </div>
+    
+    </div>
+    
+    <div id="bottom-bar">
+        
+      <div id="previous-page">
+        <div id="previous-page-button">
+          <%= f.submit "Experiências", id:"previous-page-button-link" %>
+        </div>
+      </div>
+
+      <div id="progress-bar">
+        <div id="dados-cadastrais-progress"></div>
+        <div id="dados-cadastrais-progress-label">Dados Cadastrais</div>
+        <div id="middle-1"></div>
+        <div id="formacoes-progress"></div>
+        <div id="formacoes-progress-label">Formações</div>
+        <div id="middle-2"></div>
+        <div id="experiencias-progress"></div>
+        <div id="experiencias-progress-label">Experiências</div>
+        <div id="middle-3"></div>
+        <div id="cursos-extra-progress"></div>
+        <div id="cursos-extra-progress-label">Outros Cursos</div>
+        <div id="middle-4"></div>
+        <div id="finalizacao-progress"></div>
+        <div id="finalizacao-progress-label">Finalização</div>
+      </div>
+
+      <div id="next-page">
+        <div id="next-page-button">
+          <%= f.submit "Finalização", id:"next-page-button-link" %>
+        </div>
       </div>
     </div>
-    <div class="right-menu">
-      <%= form_for(course) do |f| %>
-        <% if course.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
-      
-            <ul>
-            <% course.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <div id="dados-cadastrais">
-          <p id="dados-cadastrais-label">Dados Cadastrais</p>
-
-          <div class="field">
-            <%= f.hidden_field :cpf_candidato, :value => current_user.cpf%>
-          </div>
-
-          <div class="field">
-            <%= f.label :nome, "Nome Curso", id:"nome-label" %>
-            <%= f.text_field :nome, class:"field-nome", placeholder:"Digite o nome do curso" %>
-            <%= f.label :instituicao, "Instituicao", id:"nome-label" %>
-            <%= f.text_field :instituicao, class:"field-nome", placeholder:"Digite o nome do curso" %>
-            <%= f.label :inicio, "inicio", id:"data-nascimento-label" %>
-            <%= f.date_field :inicio, class:"field-date", placeholder:"Ex.: dd/mm/aaaa" %>
-            <%= f.label :final, "Data de Nascimento", id:"data-nascimento-label" %>
-            <%= f.date_field :final, class:"field-date", placeholder:"Ex.: dd/mm/aaaa" %>
-          </div>
-
-        </div>
-
-        <div id="bottom-bar">
-            
-            <div id="previous-page">
-            </div>
-
-            <div id="progress-bar">
-              <div id="dados-cadastrais-progress"></div>
-              <div id="dados-cadastrais-progress-label">Dados Cadastrais</div>
-              <div id="middle-1"></div>
-              <div id="formacoes-progress"></div>
-              <div id="formacoes-progress-label">Formações</div>
-              <div id="middle-2"></div>
-              <div id="experiencias-progress"></div>
-              <div id="experiencias-progress-label">Experiências</div>
-              <div id="middle-3"></div>
-              <div id="cursos-extra-progress"></div>
-              <div id="cursos-extra-progress-label">Outros Cursos</div>
-              <div id="middle-4"></div>
-              <div id="finalizacao-progress"></div>
-              <div id="finalizacao-progress-label">Finalização</div>
-            </div>
-
-            <div id="next-page">
-              <div id="next-page-button">
-                <%= f.submit "Cursos", id:"next-page-button-link" %>
-              </div>
-            </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+  <% end %>
+</div>
+</div>
+<%= javascript_include_tag 'courses/courses.js' %>
