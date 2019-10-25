@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :courses
   resources :candidatos
   devise_for :users, controllers: {registrations: 'users/registrations'}
   get 'show', to: 'candidatos#show'
