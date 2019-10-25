@@ -4,10 +4,12 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       
       <%= render "devise/shared/error_messages", resource: resource %>
-
-      <img id="logo-1" src="/img/topo-logo-synergia.png">
-      <img id="logo-2" src="/img/rodape-logo-tpf.png">
       
+      <div id="logos">
+        <img id="logo-1" src="/img/topo-logo-synergia.png">
+        <img id="logo-2" src="/img/rodape-logo-tpf.png">
+      </div>
+
       <p id="title-user">Cadastro de Usuário</p>
 
       <div class="field">
@@ -20,9 +22,7 @@
         <%= f.text_field :cpf, autofocus: true, class:"ipt-text", placeholder: "Digite seu CPF" %>
       </div>
 
-      <div class="field">
-        <%= f.hidden_field :tipoUser %>
-      </div>
+      <%= f.hidden_field :tipoUser %>
 
       <div class="field">
         <%= f.label :password, "Informe uma senha", class:"ipt-label" %><br/>
@@ -34,9 +34,13 @@
         <%= f.password_field :password_confirmation, class:"ipt-text", autocomplete: "new-password", placeholder: "Repita sua senha" %>
       </div>
 
-      <%= f.submit "Cadastrar Usuário", :id=>"btn-signup" %>
-      
-      <%= render "users/shared/links" %> 
+      <div class="buttons">
+        <%= f.submit "Cadastrar Usuário", :id=>"btn-signup" %>
+      </div>
+
+      <div class="buttons">
+        <%= render "users/shared/links" %>
+      </div>
     <% end %>
   </div>
 </div>
