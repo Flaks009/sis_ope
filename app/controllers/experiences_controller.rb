@@ -66,7 +66,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.find(params[:id])
     @experience.destroy
     respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Experience was successfully destroyed.' }
+      format.html { redirect_to experiences_url, notice: 'Experience was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
