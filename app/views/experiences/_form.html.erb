@@ -9,7 +9,7 @@
   <%= form_for(experience) do |f| %>
     <% if experience.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
+        <h2><%= pluralize(experience.errors.count, "error") %> prohibited this experiences from being saved:</h2>
 
         <ul>
         <% experience.errors.full_messages.each do |message| %>
@@ -21,25 +21,25 @@
 
     <div id="experiencias">
 
-      <div id="add-curso">Clique para adicionar mais uma curso</div>
+      <div id="add-experiencia">Clique para adicionar mais uma experiência</div>
       
       <div id="experiencias-fields-1" class="experiencias-fields">
-        <div id="remover-curso-1" class="remover-curso">Remover curso</div>
+        <div id="remover-experiencia-1" class="remover-experiencia">Remover experiência</div>
         
-        <%= f.label :nome, "Nome do Curso", id:"curso-label" %>
-        <%= f.text_field :nome, id:"field-curso", placeholder:"Digite o nome do curso" %>
+        <%= f.label :empresa, "Nome da Empresa", id:"empresa-label" %>
+        <%= f.text_field :empresa, id:"field-empresa", placeholder:"Digite o nome da empresa" %> 
+        
+        <%= f.label :cargo, "Nome do Cargo", id:"cargo-label" %>
+        <%= f.text_field :cargo, id:"field-cargo", placeholder:"Digite o cargo" %>
 
-        <%= f.label :instituicao, "Nome da Instituição", id:"instituicao-label" %>
-        <%= f.text_field :instituicao, id:"field-instituicao", placeholder:"Digite o nome da instituição" %>
-
-        <%= f.label :inicio, "Data de Início do Curso", id:"data-inicio-curso-label" %>
-        <div id="field-data-inicio-curso">
-          <%= f.date_field :inicio %>
+        <%= f.label :admissao, "Data de Admissão", id:"data-inicio-experiencia-label" %>
+        <div id="field-data-inicio-admissao">
+          <%= f.date_field :admissao %>
         </div>
-        
-        <%= f.label :final, "Data de Finalização do Curso", id:"data-fim-curso-label" %>
-        <div id="field-data-fim-curso">
-          <%= f.date_field :final %>
+
+        <%= f.label :saida, "Data de Desligamento", id:"data-fim-experiencia-label" %>
+        <div id="field-data-fim-experiencia">
+          <%= f.date_field :saida %>
         </div>
 
         <%= f.hidden_field :cpf_candidato %>
@@ -51,7 +51,7 @@
         
       <div id="previous-page">
         <div id="previous-page-button">
-          <%= f.submit "Experiências", id:"previous-page-button-link" %>
+          <%= f.submit "Formações", id:"previous-page-button-link" %>
         </div>
       </div>
 
@@ -74,7 +74,7 @@
 
       <div id="next-page">
         <div id="next-page-button">
-          <%= f.submit "Finalização", id:"next-page-button-link" %>
+          <%= f.submit "Outros Cursos", id:"next-page-button-link" %>
         </div>
       </div>
     </div>
@@ -82,44 +82,3 @@
 </div>
 </div>
 <%= javascript_include_tag 'courses/courses.js' %>
-
-
-
-
-
-<%= form_for(experience) do |f| %>
-  <% if experience.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
-
-      <ul>
-      <% experience.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :empresa %>
-    <%= f.text_field :empresa %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cargo %>
-    <%= f.text_field :cargo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :admissao %>
-    <%= f.date_select :admissao %>
-  </div>
-
-    <%= f.label :saida %>
-    <%= f.date_select :saida %>
-
-    <%= f.label :cpf_candidato %>
-    <%= f.text_field :cpf_candidato %>
-
-    <%= f.submit %>
-<% end %>
