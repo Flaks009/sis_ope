@@ -41,8 +41,7 @@
         <div id="field-data-fim-curso">
           <%= f.date_field :final %>
         </div>
-
-        <%= f.hidden_field :cpf_candidato %>
+        <%= f.hidden_field :cpf_candidato, :value => current_user.cpf %>
       </div>
     
     </div>

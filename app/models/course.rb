@@ -1,12 +1,3 @@
 class Course < ApplicationRecord
-    has_one :candidato, :class_name => "Course", :foreign_key => "cpf_candidato"
-
-
-    def course_attributes=(course_attributes)
-        course_attributes.each do |attributes|
-        courses.build(attributes)
-        end
-    end
-  
-  
+    belongs_to :candidato, :primary_key => "cpf", :foreign_key => "cpf_candidato"
 end

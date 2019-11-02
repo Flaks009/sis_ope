@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :cpf, uniqueness: true
-  has_one :candidato, :class_name => "User", :foreign_key => "user_id"
+  has_one :candidato, :class_name => "Candidato", :foreign_key => "user_id"
 
 end

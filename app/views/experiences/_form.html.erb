@@ -42,7 +42,8 @@
           <%= f.date_field :saida %>
         </div>
 
-        <%= f.hidden_field :cpf_candidato %>
+        <%= f.hidden_field :cpf_candidato, :value => current_user.cpf %>
+
       </div>
     
     </div>
