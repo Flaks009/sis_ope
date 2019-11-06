@@ -1,0 +1,63 @@
+<div class="main-menu">    
+<div class="left-menu">
+  <div id="button-4">
+    <img id="img-button-1" src="/img/menu-principal.png">
+    <%= link_to 'Menu Principal', candidatos_path, id:"menu-principal" %>
+  </div>
+</div>
+<div class="right-menu">
+  <%= form_for(course) do |f| %>
+    <% if course.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+        <ul>
+        <% course.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div id="confirm">
+      <p id="finalizacao-label">Finalizacao</p>
+      <p id="finalizacao-message">“Declaro que os dados informados são verídicos e autorizo a Synergia a armazenar e
+        compartilhar minhas informações com seus parceiros, clientes e fornecedores, caso
+        seja necessário.”</p>
+      <div id="finalizacao-button">
+        <img id="img-button-2" src="../../../public/img/save-confirm.png">
+        <div id="link-button">Concordar e Salvar Dados</div>
+      </div>
+    </div>
+    
+    <div id="bottom-bar">
+        
+      <div id="previous-page">
+        <div id="previous-page-button">
+          <%= f.submit "Cursos", id:"previous-page-button-link" %>
+        </div>
+      </div>
+
+      <div id="progress-bar">
+        <div id="dados-cadastrais-progress"></div>
+        <div id="dados-cadastrais-progress-label">Dados Cadastrais</div>
+        <div id="middle-1"></div>
+        <div id="formacoes-progress"></div>
+        <div id="formacoes-progress-label">Formações</div>
+        <div id="middle-2"></div>
+        <div id="experiencias-progress"></div>
+        <div id="experiencias-progress-label">Experiências</div>
+        <div id="middle-3"></div>
+        <div id="cursos-extra-progress"></div>
+        <div id="cursos-extra-progress-label">Outros Cursos</div>
+        <div id="middle-4"></div>
+        <div id="finalizacao-progress"></div>
+        <div id="finalizacao-progress-label">Finalização</div>
+      </div>
+
+      <div id="next-page">
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>

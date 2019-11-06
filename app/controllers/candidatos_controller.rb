@@ -15,8 +15,8 @@ class CandidatosController < ApplicationController
     if current_user.tipoUser == 'candidato'
       @candidato = Candidato.where(cpf: @current_user.cpf)
     elsif current_user.tipoUser == 'admin'
-      @candidato = if params[:term]
-        Candidato.where('nome ILIKE ?', "%#{params[:term]}%").or(Candidato.where('cidade ILIKE ?', "%#{params[:term]}%"))
+      @candidato = if params[:name_term]
+        Candidato.where('nome ILIKE ?', "%#{params[:name_term]}%").or(Candidato.where('cidade ILIKE ?', "%#{params[:city_term]}%"))
       else
         @Candidato = Candidato.all
       end
