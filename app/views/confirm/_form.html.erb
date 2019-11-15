@@ -6,19 +6,6 @@
   </div>
 </div>
 <div class="right-menu">
-  <%= form_for(course) do |f| %>
-    <% if course.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
-
-        <ul>
-        <% course.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
     <div id="confirm">
       <p id="finalizacao-label">Finalizacao</p>
       <p id="finalizacao-message">“Declaro que os dados informados são verídicos e autorizo a Synergia a armazenar e
@@ -34,7 +21,7 @@
         
       <div id="previous-page">
         <div id="previous-page-button">
-          <%= f.submit "Cursos", id:"previous-page-button-link" %>
+          <%= link_to "Menu Principal", id:"previous-page-button-link" %>
         </div>
       </div>
 
@@ -58,6 +45,5 @@
       <div id="next-page">
       </div>
     </div>
-  <% end %>
 </div>
 </div>

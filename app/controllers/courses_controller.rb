@@ -2,6 +2,13 @@ class CoursesController < ApplicationController
     before_action :set_candidato, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
 
+    def index
+      if current_user
+        @courses = Course.where(cpf_candidato: @current_user.cpf)
+      end
+    end  
+
+
     # GET /courses/new
     def new
       @course = Course.new
@@ -31,7 +38,7 @@ class CoursesController < ApplicationController
             end
           end
         else
-          render "candidatos/menu/mainMenu"
+          render "confirm/_form"
         end
       end
     end
