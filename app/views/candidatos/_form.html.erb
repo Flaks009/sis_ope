@@ -28,9 +28,9 @@
 
             <%= f.label :nome, "Nome Completo", id:"nome-label" %>
             <%= f.text_field :nome, id:"field-nome", placeholder:"Digite seu nome", :required => 'required' %>
+
             <%= f.label :data_nasc, "Data de Nascimento", id:"data-nascimento-label" %>
             <%= f.date_field :data_nasc, id:"field-date", placeholder:"Ex.: dd/mm/aaaa", :required => 'required' %>
-
 
             <p id="email-label">E-mail</p>
             <input name="email" type="email" id="field-email" placeholder="<%= current_user.email%>" disabled>
@@ -55,7 +55,7 @@
           <%= f.select :uf, ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'], id:"field-estado", placeholder:"Selecione seu estado", :required => 'required' %>
 
           <%= f.label :cep, "CEP", id:"cep-label" %>
-          <%= f.text_field :cep, id:"field-cep", placeholder:"Ex.: 00000-000", :required => 'required' %>
+          <%= f.text_field :cep, id:"field-cep", placeholder:"Ex.: 00000000", :required => 'required' %>
 
           <%= f.hidden_field :user_id, :value => current_user.id %>
         </div>
