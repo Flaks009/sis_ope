@@ -9,12 +9,14 @@
             </form>
         </div>
     <% end %>
+    <% if @candidato > 0 %> 
         <div id="button-2">
             <form action="/candidatos/edit">
                 <img id="img-button-2" src="/img/edit-curriculum.png">
                 <button id="edit-curriculum-button" type="submit">Alterar Dados</button>
             </form>
         </div>
+    <% end %>
     </div>
     <div class="right-menu">
         <div id="text-content">
