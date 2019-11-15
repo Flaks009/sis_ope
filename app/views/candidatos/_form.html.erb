@@ -27,35 +27,35 @@
             <%= f.hidden_field :cpf, :value => current_user.cpf%>
 
             <%= f.label :nome, "Nome Completo", id:"nome-label" %>
-            <%= f.text_field :nome, id:"field-nome", placeholder:"Digite seu nome" %>
+            <%= f.text_field :nome, id:"field-nome", placeholder:"Digite seu nome", :required => 'required' %>
             <%= f.label :data_nasc, "Data de Nascimento", id:"data-nascimento-label" %>
-            <%= f.date_field :data_nasc, id:"field-date", placeholder:"Ex.: dd/mm/aaaa" %>
+            <%= f.date_field :data_nasc, id:"field-date", placeholder:"Ex.: dd/mm/aaaa", :required => 'required' %>
 
 
             <p id="email-label">E-mail</p>
-            <input name="email" type="email" id="field-email" placeholder="Digite seu email">
+            <input name="email" type="email" id="field-email" placeholder="<%= current_user.email%>" disabled>
         </div>
 
         <div id="endereco">
           <p id="endereco-label">Endereço</p>
 
           <%= f.label :logradouro, "Logradouro", id:"logradouro-label" %>
-          <%= f.text_field :logradouro, id:"field-logradouro", placeholder:"Digite seu endereço" %>
+          <%= f.text_field :logradouro, id:"field-logradouro", placeholder:"Digite seu endereço", :required => 'required' %>
 
           <%= f.label :numero, "Número", id:"number-label" %>
-          <%= f.text_field :numero, id:"field-numero", placeholder:"Digite o número" %>
+          <%= f.text_field :numero, id:"field-numero", placeholder:"Digite o número", :required => 'required' %>
 
           <%= f.label :bairro, "Bairro", id:"bairro-label" %>
-          <%= f.text_field :bairro, id:"field-bairro", placeholder:"Digite seu bairro" %>
+          <%= f.text_field :bairro, id:"field-bairro", placeholder:"Digite seu bairro", :required => 'required' %>
 
           <%= f.label :cidade, "Cidade", id:"cidade-label" %>
-          <%= f.text_field :cidade, id:"field-cidade", placeholder:"Digite sua cidade" %>
+          <%= f.text_field :cidade, id:"field-cidade", placeholder:"Digite sua cidade", :required => 'required' %>
 
           <%= f.label :uf, "UF", id:"estado-label" %>
-          <%= f.select :uf, ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'], id:"field-estado", placeholder:"Selecione seu estado" %>
+          <%= f.select :uf, ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'], id:"field-estado", placeholder:"Selecione seu estado", :required => 'required' %>
 
           <%= f.label :cep, "CEP", id:"cep-label" %>
-          <%= f.text_field :cep, id:"field-cep", placeholder:"Ex.: 00000-000" %>
+          <%= f.text_field :cep, id:"field-cep", placeholder:"Ex.: 00000-000", :required => 'required' %>
 
           <%= f.hidden_field :user_id, :value => current_user.id %>
         </div>
