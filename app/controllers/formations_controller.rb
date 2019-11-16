@@ -1,6 +1,7 @@
 class FormationsController < ApplicationController
   before_action :set_formation, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  after_filter "link_back", only: [:new]
 
   # GET /formations
   # GET /formations.json
@@ -18,6 +19,7 @@ class FormationsController < ApplicationController
   # GET /formations/new
   def new
     @formation = Formation.new
+    link_back
   end
 
   # GET /formations/1/edit
@@ -69,6 +71,11 @@ class FormationsController < ApplicationController
       format.html { redirect_to courses_url, notice: 'Formation was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def link_back
+    back_id = Candidato.where(cpf: current_user.cpf)
+    @id_back = back_id.ids
   end
 
   private

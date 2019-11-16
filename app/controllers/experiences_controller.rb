@@ -1,6 +1,7 @@
 class ExperiencesController < ApplicationController
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  after_filter "link_back", only: [:new]
 
   # GET /experiences
   # GET /experiences.json
@@ -69,6 +70,11 @@ class ExperiencesController < ApplicationController
       format.html { redirect_to experiences_url, notice: 'Experience was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def link_back
+    back_id = Candidato.where(cpf: current_user.cpf)
+    @id_back = back_id.ids
   end
   
   private
