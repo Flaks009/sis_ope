@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   validates :cpf, uniqueness: true, length: {is: 11}
   validates_presence_of :cpf, message: 'CPF não pode ser nulo'
-  has_one :candidato, :class_name => "Candidato", :foreign_key => "user_id"
+  has_one :candidato, :class_name => "Candidato", :foreign_key => "user_id", :dependent => :destroy
 
 end
