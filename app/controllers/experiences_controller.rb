@@ -1,7 +1,6 @@
 class ExperiencesController < ApplicationController
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  after_filter "link_back", only: [:new]
 
   # GET /experiences
   # GET /experiences.json
@@ -19,6 +18,7 @@ class ExperiencesController < ApplicationController
   # GET /experiences/new
   def new
     @experience = Experience.new
+    link_back
   end
 
   # GET /experiences/1/edit
@@ -73,7 +73,7 @@ class ExperiencesController < ApplicationController
   end
 
   def link_back
-    back_id = Candidato.where(cpf: current_user.cpf)
+    back_id = Formation.where(cpf_candidato: current_user.cpf)
     @id_back = back_id.ids
   end
   

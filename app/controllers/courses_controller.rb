@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
     before_action :set_candidato, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
+    after_filter "link_back", only: [:new]
+
 
     def index
       if current_user
@@ -12,6 +14,7 @@ class CoursesController < ApplicationController
     # GET /courses/new
     def new
       @course = Course.new
+      link_back
     end
   
     # GET /candidatos/1/edit
@@ -66,6 +69,11 @@ class CoursesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to candidatos_url, notice: 'Candidato was successfully destroyed.' }
       end
+    end
+
+    def link_back
+      back_id = Experience.where(cpf_candidato: current_user.cpf)
+      @id_back = back_id.ids
     end
   
     private

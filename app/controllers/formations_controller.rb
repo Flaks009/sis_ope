@@ -1,7 +1,6 @@
 class FormationsController < ApplicationController
   before_action :set_formation, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  after_filter "link_back", only: [:new]
 
   # GET /formations
   # GET /formations.json
