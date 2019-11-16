@@ -12,7 +12,7 @@ class Candidato < ApplicationRecord
     
     ## Relacionamentos    
     belongs_to :user
-    has_many :course, :class_name => "Course", :foreign_key => "cpf_candidato", :primary_key => "cpf"
-    has_many :formation, :class_name => "Formation", :foreign_key => "cpf_candidato", :primary_key => "cpf"
-    has_many :experience, :class_name => "Experience", :foreign_key => "cpf_candidato", :primary_key => "cpf"
+    has_many :course, :class_name => "Course", :foreign_key => "cpf_candidato", :primary_key => "cpf", :dependent => :destroy
+    has_many :formation, :class_name => "Formation", :foreign_key => "cpf_candidato", :primary_key => "cpf", :dependent => :destroy
+    has_many :experience, :class_name => "Experience", :foreign_key => "cpf_candidato", :primary_key => "cpf", :dependent => :destroy
 end
