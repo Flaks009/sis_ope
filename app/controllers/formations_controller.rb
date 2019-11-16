@@ -75,6 +75,7 @@ class FormationsController < ApplicationController
   def link_back
     back_id = Candidato.where(cpf: current_user.cpf)
     @id_back = back_id.ids
+    @id_back = @id_back[0]
   end
 
   private
