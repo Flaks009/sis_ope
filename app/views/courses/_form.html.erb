@@ -8,9 +8,7 @@
 <div class="right-menu">
   <%= form_for(course) do |f| %>
     <% if course.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
-
+      <div id="error_explanation" class="error-message">
         <ul>
         <% course.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -50,7 +48,7 @@
         
       <div id="previous-page">
         <div id="previous-page-button">
-          <%= link_to "Experiencias", "/experiences/#{@id_back}/edit" %>
+          <%= link_to "Experiências", "/experiences/#{@id_back}/edit" %>
         </div>
       </div>
 
@@ -81,3 +79,4 @@
 </div>
 </div>
 <%= javascript_include_tag 'courses/courses.js' %>
+<%= javascript_include_tag 'general/error_messages.js' %>

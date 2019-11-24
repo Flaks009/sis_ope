@@ -118,3 +118,14 @@ body {
   text-decoration: none;
   color: white;
 }
+
+.error-message {
+  position: fixed;
+  right: 25px;
+  top: 25px;
+  padding: 10px;
+
+  font-size: 14px;
+  background-color: cornsilk;
+  border: 1px solid black;
+}

@@ -2,6 +2,22 @@
   overflow: auto;
 }
 
+#menu-principal {
+  position: relative;
+  top: 15px;
+  left: 15px;
+  float: right;
+  font-size: 15px;
+  font-family: 'Open Sans';
+  background-color: #282421;
+  border: none;
+  color: white;
+  text-align: left;
+  text-decoration: none;
+  height: 40px;
+  width: 80%;
+}
+
 #nav-candidatos {
   position: relative;
   height: 20%;

@@ -6,7 +6,6 @@
     </div>
   </div>
   <div class="right-menu">
-    <p id="notice"><%= notice %></p>
     <div id="nav-candidatos">
     <% if current_user.tipoUser == 'admin'%>
           <p id="label-candidatos">Relatório de Candidatos</p>
@@ -30,12 +29,6 @@
         <tr>
           <th>CPF</th>
           <th>Nome</th>
-          <th>Data Nascimento</th>
-          <th>CEP</th>
-          <th>Logradouro</th>
-          <th>Numero</th>
-          <th>Bairro</th>
-          <th>UF</th>
           <th colspan="3">Ações</th>
         </tr>
       </thead>
@@ -45,12 +38,6 @@
           <% @candidato.each do |candidato| %>
             <td><%= candidato.cpf %></td>
             <td><%= candidato.nome %></td>
-            <td><%= candidato.data_nasc %></td>
-            <td><%= candidato.cep %></td>
-            <td><%= candidato.logradouro %></td>
-            <td><%= candidato.numero %></td>
-            <td><%= candidato.bairro %></td>
-            <td><%= candidato.uf %></td>
             <td><%= link_to 'Editar', edit_candidato_path(candidato) %></td>
             <td><%= link_to 'Deletar', candidato, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
             <td><%= link_to 'Visualizar PDF' %></td>

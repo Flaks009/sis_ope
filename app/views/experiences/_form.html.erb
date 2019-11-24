@@ -8,9 +8,7 @@
 <div class="right-menu">
   <%= form_for(experience) do |f| %>
     <% if experience.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(experience.errors.count, "error") %> prohibited this experiences from being saved:</h2>
-
+      <div id="error_explanation" class="error-message">
         <ul>
         <% experience.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -83,3 +81,4 @@
 </div>
 </div>
 <%= javascript_include_tag 'experiences/experiences.js' %>
+<%= javascript_include_tag 'general/error_messages.js' %>

@@ -1,8 +1,8 @@
 class Experience < ApplicationRecord
 
     ##Validações
-    validates :empresa, format: { with: /\A[a-záàâãéèêíïóôõöúçñ ]+\z/i, message: "Insira somente letras no campo nome da empresa" }
-    validates :cargo, format: { with: /\A[a-záàâãéèêíïóôõöúçñ ]+\z/i, message: "Insira somente letras no campo cargo" }
+    validates :empresa, format: { with: /\A[a-záàâãéèêíïóôõöúçñ ]+\z/i, message: ": Insira somente letras no campo 'Nome da Empresa'" }
+    validates :cargo, format: { with: /\A[a-záàâãéèêíïóôõöúçñ ]+\z/i, message: ": Insira somente letras no campo 'Nome do Cargo'" }
 
 
 

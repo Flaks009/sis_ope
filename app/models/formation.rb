@@ -1,8 +1,8 @@
 class Formation < ApplicationRecord
     
     ##Validações
-    validates :curso, format: { with: /\A[a-záàâãéèêíïóôõöúçñ ]+\z/i, message: "Insira somente letras no campo nome do curso" }
-    validates :instituicao, format: { with: /\A[a-záàâãéèêíïóôõöúçñ ]+\z/i, message: "Insira somente letras no campo nome" }
+    validates :curso, format: { with: /\A[a-záàâãéèêíïóôõöúçñ ]+\z/i, message: ": Insira somente letras no campo 'Nome do Curso'" }
+    validates :instituicao, format: { with: /\A[a-záàâãéèêíïóôõöúçñ ]+\z/i, message: ": Insira somente letras no campo 'Nome da Instituição'" }
 
 
     ##Relacionamentos

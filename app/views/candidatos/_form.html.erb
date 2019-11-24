@@ -8,9 +8,7 @@
     <div class="right-menu">
       <%= form_for(candidato) do |f| %>
         <% if candidato.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(candidato.errors.count, "error") %> prohibited this candidato from being saved:</h2>
-      
+          <div id="error_explanation" class="error-message">
             <ul>
             <% candidato.errors.full_messages.each do |message| %>
               <li><%= message %></li>
@@ -92,3 +90,4 @@
       <% end %>
     </div>
   </div>
+  <%= javascript_include_tag 'general/error_messages.js' %>

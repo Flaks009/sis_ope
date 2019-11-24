@@ -60,6 +60,7 @@
 }
 
 #finalizacao-button {
+  position: relative;
   grid-column: 2;
   grid-row: 4;
 
@@ -71,8 +72,11 @@
 }
 
 #link-button {
-  padding-top: 15px;
-  padding-left: 80px;
+  position: relative;
+  top: 5%;
+  left: 5%;
+  color: black;
+  text-decoration: none;
 }
 
 /* Bottom bar size and position */
@@ -293,12 +297,16 @@
 
 #previous-page-button-link {
   position: relative;
+  top: 15%;
+  left: 10%;
   height: 100%;
   width: 100%;
+  color: black;
   background-color: #DDA100;
   font-family: Open Sans;
   font-size: 12px;
   font-style: italic;
+  text-decoration: none;
   cursor: pointer;
 }
 

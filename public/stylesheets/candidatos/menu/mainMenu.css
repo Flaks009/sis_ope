@@ -76,9 +76,9 @@ body {
       width: 20%;
 }
 
-#button-1 > form,
-#button-2 > form,
-#button-3 > form,
+#button-1>form,
+#button-2>form,
+#button-3>form,
 #button-4 {
       color: white;
       padding: 10% 10% 5% 10%;
@@ -101,6 +101,7 @@ body {
 
 #new-curriculum-button,
 #edit-curriculum-button,
+#admin-button,
 #menu-principal {
       float: right;
       font-size: 15px;

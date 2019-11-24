@@ -17,6 +17,14 @@
             </form>
         </div>
     <% end %>
+    <% if @candidato > 0 %> 
+        <div id="button-3">
+            <form action="/candidatos/edit">
+                <img id="img-button-3" src="/img/admin.png">
+                <button id="admin-button" type="submit">Visualizar Currículos</button>
+            </form>
+        </div>
+    <% end %>
     </div>
     <div class="right-menu">
         <div id="text-content">

@@ -8,9 +8,7 @@
     <div class="right-menu">
       <%= form_for(formation) do |f| %>
         <% if formation.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(formation.errors.count, "error") %> prohibited this formation from being saved:</h2>
-
+          <div id="error_explanation" class="error-message">
             <ul>
             <% formation.errors.full_messages.each do |message| %>
               <li><%= message %></li>
@@ -54,7 +52,7 @@
             
           <div id="previous-page">
             <div id="previous-page-button">
-              <%= link_to "Dados candidato", "/candidatos/#{@id_back}/edit" %>
+              <%= link_to "Dados Cadastro", "/candidatos/#{@id_back}/edit" %>
             </div>
           </div>
 
@@ -85,4 +83,5 @@
     </div>
   </div>
   <%= javascript_include_tag 'formations/formations.js' %>
+  <%= javascript_include_tag 'general/error_messages.js' %>
 

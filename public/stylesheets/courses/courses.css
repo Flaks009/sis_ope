@@ -36,7 +36,8 @@
     cursor: pointer;
 }
 
-#add-curso:before, #add-curso:after {
+#add-curso:before,
+#add-curso:after {
     position: absolute;
     top: 30%;
     left: -1.5%;
@@ -64,7 +65,7 @@
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     font-size: 12px;
-    overflow:auto;
+    overflow: auto;
 }
 
 .cursos-fields {
@@ -163,10 +164,10 @@
     width: 100%;
 
     justify-self: left;
-    align-self: center; 
+    align-self: center;
 }
 
-#field-data-inicio-curso > input {
+#field-data-inicio-curso>input {
     width: 100%;
 }
 
@@ -184,10 +185,10 @@
     width: 100%;
 
     justify-self: left;
-    align-self: center; 
+    align-self: center;
 }
 
-#field-data-fim-curso > input {
+#field-data-fim-curso>input {
     width: 100%;
 }
 
@@ -248,12 +249,16 @@
 
 /* Circle size and position */
 
-#dados-cadastrais-progress, #formacoes-progress, #experiencias-progress, #cursos-extra-progress, #finalizacao-progress {
+#dados-cadastrais-progress,
+#formacoes-progress,
+#experiencias-progress,
+#cursos-extra-progress,
+#finalizacao-progress {
     position: relative;
     background-color: #282421;
     height: 35px;
     width: 35px;
-    border: 1px solid  #282421;
+    border: 1px solid #282421;
     border-radius: 50%;
 
     justify-self: center;
@@ -291,7 +296,10 @@
 
 /* Connections size and position */
 
-#middle-1, #middle-2, #middle-3, #middle-4 {
+#middle-1,
+#middle-2,
+#middle-3,
+#middle-4 {
     position: relative;
     background-color: #282421;
     height: 8px;
@@ -329,7 +337,11 @@
 
 /* Labels size and position */
 
-#dados-cadastrais-progress-label, #formacoes-progress-label, #experiencias-progress-label, #cursos-extra-progress-label, #finalizacao-progress-label {
+#dados-cadastrais-progress-label,
+#formacoes-progress-label,
+#experiencias-progress-label,
+#cursos-extra-progress-label,
+#finalizacao-progress-label {
     font-size: 12px;
     justify-self: center;
     align-self: center;
@@ -390,18 +402,22 @@
     border-style: solid;
     border-width: 25px;
     margin-top: -25px;
-    margin-right: -5px;
+    margin-right: 0px;
     z-index: 1;
 }
 
-#previous-page-button-link {
+#previous-page-button>a {
     position: relative;
+    top: 15%;
+    left: 10%;
     height: 100%;
     width: 100%;
+    color: black;
     background-color: #DDA100;
     font-family: Open Sans;
     font-size: 12px;
     font-style: italic;
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -444,4 +460,15 @@
     font-size: 12px;
     font-style: italic;
     cursor: pointer;
+}
+
+.error-message {
+    position: fixed;
+    right: 25px;
+    top: 25px;
+    padding: 10px;
+
+    font-size: 14px;
+    background-color: cornsilk;
+    border: 1px solid black;
 }

@@ -21,10 +21,12 @@
         <%= f.submit "Enviar email com instruções", :id=>"btn-send" %>
       </div>
 
+      <div class="buttons">
+        <%= render "users/shared/links" %>
+      </div>
+
     <% end %>
     
-    <div class="buttons">
-      <%= render "users/shared/links" %>
-    </div>
   </div>
 </div>
+<%= javascript_include_tag 'general/error_messages.js' %>

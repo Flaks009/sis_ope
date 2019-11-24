@@ -14,7 +14,8 @@
     width: 80%;
 }
 
-#new_candidato {
+#new_candidato,
+.edit_candidato {
     position: relative;
     height: 100%;
     width: 100%;
@@ -296,12 +297,16 @@
 
 /* Circle size and position */
 
-#dados-cadastrais-progress, #formacoes-progress, #experiencias-progress, #cursos-extra-progress, #finalizacao-progress {
+#dados-cadastrais-progress,
+#formacoes-progress,
+#experiencias-progress,
+#cursos-extra-progress,
+#finalizacao-progress {
     position: relative;
     background-color: #282421;
     height: 35px;
     width: 35px;
-    border: 1px solid  #282421;
+    border: 1px solid #282421;
     border-radius: 50%;
 
     justify-self: center;
@@ -336,7 +341,10 @@
 
 /* Connections size and position */
 
-#middle-1, #middle-2, #middle-3, #middle-4 {
+#middle-1,
+#middle-2,
+#middle-3,
+#middle-4 {
     position: relative;
     background-color: #282421;
     height: 8px;
@@ -371,7 +379,11 @@
 
 /* Labels size and position */
 
-#dados-cadastrais-progress-label, #formacoes-progress-label, #experiencias-progress-label, #cursos-extra-progress-label, #finalizacao-progress-label {
+#dados-cadastrais-progress-label,
+#formacoes-progress-label,
+#experiencias-progress-label,
+#cursos-extra-progress-label,
+#finalizacao-progress-label {
     font-size: 12px;
     justify-self: center;
     align-self: center;
@@ -444,4 +456,15 @@
     font-size: 12px;
     font-style: italic;
     cursor: pointer;
+}
+
+.error-message {
+    position: fixed;
+    right: 25px;
+    top: 25px;
+    padding: 10px;
+
+    font-size: 14px;
+    background-color: cornsilk;
+    border: 1px solid black;
 }
