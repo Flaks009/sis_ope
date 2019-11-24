@@ -50,7 +50,7 @@
         
       <div id="previous-page">
         <div id="previous-page-button">
-          <%= link_to "Formações", "/formations/#{@id_back}/edit" %>
+          <%= link_to "Formações", "/formations/#{@id_back_formation}/edit", id:"previous-page-button_link-a" %>
         </div>
       </div>
 
@@ -73,7 +73,11 @@
 
       <div id="next-page">
         <div id="next-page-button">
-          <%= f.submit "Outros Cursos", id:"next-page-button-link" %>
+          <% if @id_forward_course != nil %>
+            <%= link_to "Outros Cursos", "/courses/#{@id_forward_course}/edit", id:"next-page-button-link-a" %>
+          <% else %>
+            <%= f.submit "Outros Cursos", id:"next-page-button-link" %>
+          <% end %>
         </div>
       </div>
     </div>

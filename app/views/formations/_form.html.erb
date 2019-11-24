@@ -52,7 +52,7 @@
             
           <div id="previous-page">
             <div id="previous-page-button">
-              <%= link_to "Dados Cadastro", "/candidatos/#{@id_back}/edit" %>
+              <%= link_to "Dados Cadastro", "/candidatos/#{@id_back_candidato}/edit", id:"previous-page-button_link-a" %>
             </div>
           </div>
 
@@ -75,7 +75,11 @@
 
           <div id="next-page">
             <div id="next-page-button">
-              <%= f.submit "Experiências", id:"next-page-button-link" %>
+              <% if @id_forward_experiences != nil %>
+                <%= link_to "Experiências", "/experiences/#{@id_forward_experiences}/edit", id:"next-page-button-link-a" %>
+              <% else %>
+                <%= f.submit "Experiências", id:"next-page-button-link" %>
+              <% end %>
             </div>
           </div>
         </div>

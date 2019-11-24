@@ -18,6 +18,7 @@ class ExperiencesController < ApplicationController
   # GET /experiences/new
   def new
     @experience = Experience.new
+    link_forward
     link_back
   end
 
@@ -28,6 +29,8 @@ class ExperiencesController < ApplicationController
       id = findQuery.ids
       @experience = Experience.find_by_id(id)
     end
+    link_forward
+    link_back
   end
 
   # POST /experiences
@@ -74,10 +77,17 @@ class ExperiencesController < ApplicationController
 
   def link_back
     back_id = Formation.where(cpf_candidato: current_user.cpf)
-    @id_back = back_id.ids
-    @id_back = @id_back[0]
+    @id_back_formation = back_id.ids
+    @id_back_formation = @id_back_formation[0]
+  end
+
+  def link_forward
+    forward_id = Course.where(cpf_candidato: current_user.cpf)
+    @id_forward_course = forward_id.ids
+    @id_forward_course = @id_forward_course[0]
   end
   
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_experience

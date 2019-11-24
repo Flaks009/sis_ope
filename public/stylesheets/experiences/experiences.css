@@ -14,7 +14,8 @@
     width: 80%;
 }
 
-#new_experience {
+#new_experience,
+.edit_experience {
     position: relative;
     height: 100%;
     width: 100%;
@@ -406,9 +407,23 @@
     z-index: 1;
 }
 
-#previous-page-button>a {
+#previous-page-button_link {
     position: relative;
-    top: 15%;
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: black;
+    background-color: #DDA100;
+    font-family: Open Sans;
+    font-size: 12px;
+    font-style: italic;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#previous-page-button_link-a {
+    position: relative;
+    top: 10%;
     left: 10%;
     height: 100%;
     width: 100%;
@@ -453,12 +468,30 @@
 
 #next-page-button-link {
     position: relative;
+    display: block;
     height: 100%;
     width: 100%;
+    color: black;
     background-color: #DDA100;
     font-family: Open Sans;
     font-size: 12px;
     font-style: italic;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#next-page-button-link-a {
+    position: relative;
+    top: 10%;
+    left: 10%;
+    height: 100%;
+    width: 100%;
+    color: black;
+    background-color: #DDA100;
+    font-family: Open Sans;
+    font-size: 12px;
+    font-style: italic;
+    text-decoration: none;
     cursor: pointer;
 }
 

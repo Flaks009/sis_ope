@@ -35,6 +35,7 @@ class CandidatosController < ApplicationController
       id = findQuery.ids
       @candidato = Candidato.find_by_id(id)
     end
+    link_forward
   end
 
   # POST /candidatos
@@ -83,6 +84,12 @@ class CandidatosController < ApplicationController
       format.html { redirect_to candidatos_url, notice: 'Candidato was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def link_forward
+    forward_id = Formation.where(cpf_candidato: current_user.cpf)
+    @id_forward_formations = forward_id.ids
+    @id_forward_formations = @id_forward_formations[0]
   end
 
   private

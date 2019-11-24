@@ -10,11 +10,11 @@ class CoursesController < ApplicationController
       end
     end  
 
-
     # GET /courses/new
     def new
       @course = Course.new
       link_back
+      link_forward
     end
   
     # GET /candidatos/1/edit
@@ -24,6 +24,8 @@ class CoursesController < ApplicationController
         id = findQuery.ids
         @course = Course.find_by_id(id)
       end
+      link_back
+      link_forward
     end
   
     # POST /candidatos
@@ -73,8 +75,14 @@ class CoursesController < ApplicationController
 
     def link_back
       back_id = Experience.where(cpf_candidato: current_user.cpf)
-      @id_back = back_id.ids
-      @id_back = @id_back[0]
+      @id_back_experience = back_id.ids
+      @id_back_experience = @id_back_experience[0]
+    end
+
+    def link_forward
+      forward_id = Course.where(cpf_candidato: current_user.cpf)
+      @id_forward_course = forward_id.ids
+      @id_forward_course = @id_forward_course[0]
     end
   
     private

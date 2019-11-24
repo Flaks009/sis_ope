@@ -18,6 +18,7 @@ class FormationsController < ApplicationController
   # GET /formations/new
   def new
     @formation = Formation.new
+    link_forward
     link_back
   end
 
@@ -28,6 +29,8 @@ class FormationsController < ApplicationController
       id = findQuery.ids
       @formation = Formation.find_by_id(id)
     end
+    link_forward
+    link_back
   end
 
   # POST /formations
@@ -74,8 +77,14 @@ class FormationsController < ApplicationController
 
   def link_back
     back_id = Candidato.where(cpf: current_user.cpf)
-    @id_back = back_id.ids
-    @id_back = @id_back[0]
+    @id_back_candidato = back_id.ids
+    @id_back_candidato = @id_back_candidato[0]
+  end
+
+  def link_forward
+    forward_id = Experience.where(cpf_candidato: current_user.cpf)
+    @id_forward_experiences = forward_id.ids
+    @id_forward_experiences = @id_forward_experiences[0]
   end
 
   private
