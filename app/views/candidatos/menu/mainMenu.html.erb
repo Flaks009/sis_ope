@@ -1,7 +1,7 @@
 <%= render "candidatos/menu/basicForm" %>
 <div class="main-menu">
     <div class="left-menu">
-    <% if @candidato == 0 %> 
+    <% if @candidato == 0 %>
         <div id="button-1">
             <form action="/candidatos/new">
                 <img id="img-button-1" src="/img/new-curriculum.png">
@@ -9,7 +9,7 @@
             </form>
         </div>
     <% end %>
-    <% if @candidato > 0 %> 
+    <% if @candidato > 0 %>
         <div id="button-2">
             <form action="/candidatos/edit">
                 <img id="img-button-2" src="/img/edit-curriculum.png">
@@ -17,7 +17,7 @@
             </form>
         </div>
     <% end %>
-    <% if @candidato > 0 %> 
+    <% if @candidato > 0 %>
         <div id="button-3">
             <form action="/candidatos/edit">
                 <img id="img-button-3" src="/img/admin.png">

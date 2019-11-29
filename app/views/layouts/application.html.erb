@@ -7,10 +7,19 @@
     <%= stylesheet_link_tag    'reset', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'index', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'menuPrincipal', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'report/report.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'candidatos/menu/mainMenu.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'register/register.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/header' %>
+    <div class='main-menu'>
+      <%= render 'shared/sidebar' %>
+      <div class='right-menu'>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

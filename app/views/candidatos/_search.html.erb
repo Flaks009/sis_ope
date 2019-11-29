@@ -1,0 +1,12 @@
+<p id="label-candidatos">Relatório de Candidatos</p>
+<%= form_tag("show", method: :get, id:"form-search") do %>
+  <%= label :nome, "Documento", id:"cpf-label" %>
+  <%= text_field_tag :cpf_term,nil, placeholder:"Informe o CPF" %>
+
+  <%= label :nome, "Nome", id:"name-label" %>
+  <%= text_field_tag :name_term,nil, placeholder:"Informe o Nome" %>
+
+  <%= label :nome, "Cidade", id:"city-label" %>
+  <%= text_field_tag :city_term,nil, placeholder:"Informe a Cidade" %>
+  <%= submit_tag 'Procurar', id:"search-button" %>
+<% end %>

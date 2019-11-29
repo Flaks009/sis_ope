@@ -1,12 +1,13 @@
 class CandidatosController < ApplicationController
   before_action :set_candidato, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  
+
   # GET /candidatos
   def index
-    if current_user
-      @candidato = Candidato.where(cpf: @current_user.cpf).count
-    end
+    @candidatos = Candidatos.all
+    # if current_user
+    #   @candidato = Candidato.where(cpf: @current_user.cpf).count
+    # end
     render "candidatos/menu/mainMenu"
   end
 
@@ -95,7 +96,7 @@ class CandidatosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_candidato
-      @candidato = Candidato.where(cpf: current_user.cpf)      
+      @candidato = Candidato.where(cpf: current_user.cpf)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

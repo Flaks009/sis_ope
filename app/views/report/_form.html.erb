@@ -1,4 +1,4 @@
-<div class="main-menu">    
+<div class="main-menu">
   <div class="left-menu">
     <div id="button-4">
       <img id="img-button-1" src="/img/menu-principal.png">
@@ -9,7 +9,7 @@
     <div id="nav-candidatos">
     <% if current_user.tipoUser == 'admin'%>
           <p id="label-candidatos">Relatório de Candidatos</p>
-        
+
           <%= form_tag("show", method: :get, id:"form-search") do %>
           <%= label :nome, "Documento", id:"cpf-label" %>
           <%= text_field_tag :cpf_term,nil, placeholder:"Informe o CPF" %>
@@ -19,7 +19,7 @@
 
           <%= label :nome, "Cidade", id:"city-label" %>
           <%= text_field_tag :city_term,nil, placeholder:"Informe a Cidade" %>
-          <%= submit_tag 'Procurar', id:"search-button" %> <% end %>     
+          <%= submit_tag 'Procurar', id:"search-button" %> <% end %>
     <% else %>
         <p id="label-candidatos">Meu Currículo</p>
     <% end %>
@@ -32,7 +32,7 @@
           <th colspan="3">Ações</th>
         </tr>
       </thead>
-    
+
       <tbody>
           <tr>
           <% @candidato.each do |candidato| %>

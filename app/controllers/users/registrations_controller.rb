@@ -14,15 +14,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
 
-  
+
 end
 
 def create
   @user = User.new(user_params)
-
   respond_to do |format|
     if @user.save
-      
+
       # Deliver the signup email
       UserNotifier.send_signup_email(@user).deliver
 
