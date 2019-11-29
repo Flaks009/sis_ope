@@ -4,11 +4,7 @@ class CandidatosController < ApplicationController
 
   # GET /candidatos
   def index
-    @candidatos = Candidatos.all
-    # if current_user
-    #   @candidato = Candidato.where(cpf: @current_user.cpf).count
-    # end
-    render "candidatos/menu/mainMenu"
+    @candidatos = Candidato.all
   end
 
   # GET /candidatos/edit

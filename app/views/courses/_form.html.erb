@@ -1,10 +1,3 @@
-<div class="main-menu">    
-<div class="left-menu">
-  <div id="button-4">
-    <img id="img-button-1" src="/img/menu-principal.png">
-    <%= link_to 'Menu Principal', candidatos_path, id:"menu-principal" %>
-  </div>
-</div>
 <div class="right-menu">
   <%= form_for(course) do |f| %>
     <% if course.errors.any? %>
@@ -20,10 +13,10 @@
     <div id="cursos">
 
       <div id="add-curso">Clique para adicionar mais uma curso</div>
-      
+
       <div id="cursos-fields-1" class="cursos-fields">
         <div id="remover-curso-1" class="remover-curso">Remover curso</div>
-        
+
         <%= f.label :nome, "Nome do Curso", id:"curso-label" %>
         <%= f.text_field :nome, id:"field-curso", placeholder:"Digite o nome do curso"%>
 
@@ -34,18 +27,18 @@
         <div id="field-data-inicio-curso">
           <%= f.date_field :inicio%>
         </div>
-        
+
         <%= f.label :final, "Data de Finalização do Curso", id:"data-fim-curso-label" %>
         <div id="field-data-fim-curso">
           <%= f.date_field :final%>
         </div>
         <%= f.hidden_field :cpf_candidato, :value => current_user.cpf %>
       </div>
-    
+
     </div>
-    
+
     <div id="bottom-bar">
-        
+
       <div id="previous-page">
         <div id="previous-page-button">
           <%= link_to "Experiências", "/experiences/#{@id_back_experience}/edit", id:"previous-page-button_link-a" %>
@@ -76,7 +69,6 @@
       </div>
     </div>
   <% end %>
-</div>
 </div>
 <%= javascript_include_tag 'courses/courses.js' %>
 <%= javascript_include_tag 'general/error_messages.js' %>

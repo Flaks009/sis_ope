@@ -1,14 +1,6 @@
-<p id="notice"><%= notice %></p>
-<%= current_user.email%>
-<ul>
-  <li><%= link_to "Sair", destroy_user_session_path, method: :delete%></li>
-</ul>
-
 <h1>Candidatos</h1>
 
 <%= render 'search' %>
-
-<h1> teste </h1>
 
 <table>
   <thead>
@@ -28,8 +20,8 @@
   <tbody>
       <tr>
       <% @candidatos.each do |candidato| %>
-        <td><%= candidato.CPF %></td>
-        <td><%= candidato.Nome %></td>
+        <td><%= candidato.cpf %></td>
+        <td><%= candidato.nome %></td>
         <td><%= candidato.data_nasc %></td>
         <td><%= candidato.cep %></td>
         <td><%= candidato.logradouro %></td>

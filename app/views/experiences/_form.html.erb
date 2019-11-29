@@ -1,10 +1,3 @@
-<div class="main-menu">    
-<div class="left-menu">
-  <div id="button-4">
-    <img id="img-button-1" src="/img/menu-principal.png">
-    <%= link_to 'Menu Principal', candidatos_path, id:"menu-principal" %>
-  </div>
-</div>
 <div class="right-menu">
   <%= form_for(experience) do |f| %>
     <% if experience.errors.any? %>
@@ -20,13 +13,13 @@
     <div id="experiencias">
 
       <div id="add-experiencia">Clique para adicionar mais uma experiência</div>
-      
+
       <div id="experiencias-fields-1" class="experiencias-fields">
         <div id="remover-experiencia-1" class="remover-experiencia">Remover experiência</div>
-        
+
         <%= f.label :empresa, "Nome da Empresa", id:"empresa-label" %>
-        <%= f.text_field :empresa, id:"field-empresa", placeholder:"Digite o nome da empresa", :required => 'required' %> 
-        
+        <%= f.text_field :empresa, id:"field-empresa", placeholder:"Digite o nome da empresa", :required => 'required' %>
+
         <%= f.label :cargo, "Nome do Cargo", id:"cargo-label" %>
         <%= f.text_field :cargo, id:"field-cargo", placeholder:"Digite o cargo", :required => 'required' %>
 
@@ -43,11 +36,11 @@
         <%= f.hidden_field :cpf_candidato, :value => current_user.cpf %>
 
       </div>
-    
+
     </div>
-    
+
     <div id="bottom-bar">
-        
+
       <div id="previous-page">
         <div id="previous-page-button">
           <%= link_to "Formações", "/formations/#{@id_back_formation}/edit", id:"previous-page-button_link-a" %>
@@ -82,7 +75,6 @@
       </div>
     </div>
   <% end %>
-</div>
 </div>
 <%= javascript_include_tag 'experiences/experiences.js' %>
 <%= javascript_include_tag 'general/error_messages.js' %>

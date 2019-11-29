@@ -64,18 +64,22 @@ body {
 
 .main-menu {
   display: inline-flex;
-}
-
-.right-menu {
       position: relative;
+      width: 100vw;
       height: 80%;
 }
 
 .left-menu {
       background-color: #282421;
       position: relative;
-      height: calc(100vh - 190px);
+      height: 100%;
       width: 20%;
+}
+
+.right-menu {
+      position: relative;
+      height: 100%;
+      width: 80%;
 }
 
 #button-1>form,
