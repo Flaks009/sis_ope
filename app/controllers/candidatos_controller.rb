@@ -1,5 +1,5 @@
 class CandidatosController < ApplicationController
-  before_action :set_candidato, only: [:show, :edit, :update, :destroy]
+  before_action :set_candidato, only: [:show, :edit, :update, :destroy, :pdf_generate]
   before_action :authenticate_user!
   
   # GET /candidatos
@@ -90,6 +90,27 @@ class CandidatosController < ApplicationController
     forward_id = Formation.where(cpf_candidato: current_user.cpf)
     @id_forward_formations = forward_id.ids
     @id_forward_formations = @id_forward_formations[0]
+  end
+
+  def pdf_generate
+    @candidato = Candidato.where(cpf: @current_user.cpf)
+    id = @candidato.ids
+    @candidato = Candidato.find_by_id(id)
+
+    @courses = Course.where(cpf_candidato: @current_user.cpf)
+    id = @courses.ids
+    @courses = Course.find_by_id(id)
+
+    @experience = Experience.where(cpf_candidato: @current_user.cpf)
+    id = @experience.ids
+    @experience = Experience.find_by_id(id)
+
+
+    @formation = Formation.where(cpf_candidato: @current_user.cpf)
+    id = @formation.ids
+    @formation = Formation.find_by_id(id)
+
+    render 'candidatos/pdf/pdf'
   end
 
   private
