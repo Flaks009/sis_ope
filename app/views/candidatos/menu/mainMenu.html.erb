@@ -1,23 +1,36 @@
 <%= render "candidatos/menu/basicForm" %>
 <div class="main-menu">
     <div class="left-menu">
-    <% if @candidato == 0 %> 
+    <% if current_user.tipoUser == 'candidato' %>
+        <% if @candidato == 0%> 
+            <div id="button-1">
+                <form action="/candidatos/new">
+                    <img id="img-button-1" src="/img/new-curriculum.png">
+                    <button id="new-curriculum-button" type="submit">Cadastrar Dados</button>
+                </form>
+            </div>
+        <% end %>
+        <% if @candidato > 0 %> 
+            <div id="button-2">
+                <form action="/candidatos/edit">
+                    <img id="img-button-2" src="/img/edit-curriculum.png">
+                    <button id="edit-curriculum-button" type="submit">Alterar Dados</button>
+                </form>
+            </div>
+        <% end %>
+    <% elsif current_user.tipoUser == 'admin' %> 
         <div id="button-1">
             <form action="/candidatos/new">
                 <img id="img-button-1" src="/img/new-curriculum.png">
                 <button id="new-curriculum-button" type="submit">Cadastrar Dados</button>
             </form>
         </div>
-    <% end %>
-    <% if @candidato > 0 %> 
         <div id="button-2">
             <form action="/candidatos/edit">
                 <img id="img-button-2" src="/img/edit-curriculum.png">
                 <button id="edit-curriculum-button" type="submit">Alterar Dados</button>
             </form>
         </div>
-    <% end %>
-    <% if @candidato > 0 %> 
         <div id="button-3">
             <form action="/candidatos/edit">
                 <img id="img-button-3" src="/img/admin.png">
