@@ -35,7 +35,6 @@ class CandidatosController < ApplicationController
       id = findQuery.ids
       @candidato = Candidato.find_by_id(id)
     end
-    link_forward
   end
 
   # POST /candidatos
@@ -66,8 +65,8 @@ class CandidatosController < ApplicationController
 
     respond_to do |format|
       if @candidato.update(candidato_params)
-        format.html { redirect_to @candidato, notice: 'Candidato was successfully updated.' }
-        format.json { render :show, status: :ok, location: @candidato }
+        link_forward
+        format.html {redirect_to "/formations/#{@id_forward_formations}/edit"}
       else
         format.html { render :edit }
         format.json { render json: @candidato.errors, status: :unprocessable_entity }

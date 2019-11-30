@@ -25,40 +25,31 @@ class CoursesController < ApplicationController
         @course = Course.find_by_id(id)
       end
       link_back
-      link_forward
     end
   
     # POST /candidatos
     # POST /candidatos.json
     def create
       if current_user
-        if @candidato = Candidato.where(cpf: @current_user.cpf).count == 0
           @course = Course.new(course_params)
-  
           respond_to do |format|
             if @course.save
-              format.html { redirect_to @course, notice: 'Course was successfully created.' }
+              format.html { render "/confirm/_form" }
             else
               format.html { render :new }
             end
           end
         else
-          render "confirm/_form"
-        end
+          render "candidatos/menu/mainMenu"
       end
     end
   
     # PATCH/PUT /candidatos/1
-    # PATCH/PUT /candidatos/1.json
     def update
-  
       @course = Course.find(params[:id])
-  
       respond_to do |format|
         if @course.update(course_params)
-          format.html { redirect_to @course, notice: 'Candidato was successfully updated.' }
-        else
-          format.html { render :edit }
+          format.html { render "/confirm/_form" }
         end
       end
     end

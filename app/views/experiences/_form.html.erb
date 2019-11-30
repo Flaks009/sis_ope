@@ -73,11 +73,7 @@
 
       <div id="next-page">
         <div id="next-page-button">
-          <% if @id_forward_course != nil %>
-            <%= link_to "Outros Cursos", "/courses/#{@id_forward_course}/edit", id:"next-page-button-link-a" %>
-          <% else %>
             <%= f.submit "Outros Cursos", id:"next-page-button-link" %>
-          <% end %>
         </div>
       </div>
     </div>

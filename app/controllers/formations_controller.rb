@@ -29,7 +29,6 @@ class FormationsController < ApplicationController
       id = findQuery.ids
       @formation = Formation.find_by_id(id)
     end
-    link_forward
     link_back
   end
 
@@ -57,7 +56,8 @@ class FormationsController < ApplicationController
     @formation = Formation.find(params[:id])
     respond_to do |format|
       if @formation.update(formation_params)
-        format.html { redirect_to @formation, notice: 'Formation was successfully updated.' }
+        link_forward
+        format.html {redirect_to "/experiences/#{@id_forward_experiences}/edit"}
       else
         format.html { render :edit }
       end

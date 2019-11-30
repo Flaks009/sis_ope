@@ -75,11 +75,7 @@
 
           <div id="next-page">
             <div id="next-page-button">
-              <% if @id_forward_experiences != nil %>
-                <%= link_to "Experiências", "/experiences/#{@id_forward_experiences}/edit", id:"next-page-button-link-a" %>
-              <% else %>
                 <%= f.submit "Experiências", id:"next-page-button-link" %>
-              <% end %>
             </div>
           </div>
         </div>

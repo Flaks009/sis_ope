@@ -29,7 +29,6 @@ class ExperiencesController < ApplicationController
       id = findQuery.ids
       @experience = Experience.find_by_id(id)
     end
-    link_forward
     link_back
   end
 
@@ -57,7 +56,8 @@ class ExperiencesController < ApplicationController
     @experience = Experience.find(params[:id])
     respond_to do |format|
       if @experience.update(experience_params)
-        format.html { redirect_to @experience, notice: 'Experience was successfully updated.' }
+        link_forward
+        format.html { redirect_to "/courses/#{@id_forward_course}/edit"}
       else
         format.html { render :edit }
       end

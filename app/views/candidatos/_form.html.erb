@@ -82,14 +82,9 @@
 
             <div id="next-page">
               <div id="next-page-button">
-                <% if @id_forward_formations != nil %>
-                  <%= link_to "Formações", "/formations/#{@id_forward_formations}/edit", id:"next-page-button-link-a" %>
-                <% else %>
                   <%= f.submit "Formações", id:"next-page-button-link" %>
-                <% end %>
               </div>
             </div>
-            
         </div>
       <% end %>
     </div>
