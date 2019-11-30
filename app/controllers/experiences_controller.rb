@@ -57,7 +57,14 @@ class ExperiencesController < ApplicationController
     respond_to do |format|
       if @experience.update(experience_params)
         link_forward
-        format.html { redirect_to "/courses/#{@id_forward_course}/edit"}
+        findQuery = Course.where(cpf_candidato: @current_user.cpf)
+        id = findQuery.ids
+        course = Course.find_by_id(id)
+        if course != nil
+          format.html { redirect_to "/courses/#{@id_forward_course}/edit"}
+        else
+          format.html { redirect_to "/courses/new"}
+        end
       else
         format.html { render :edit }
       end

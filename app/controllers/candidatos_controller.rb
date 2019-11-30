@@ -66,7 +66,14 @@ class CandidatosController < ApplicationController
     respond_to do |format|
       if @candidato.update(candidato_params)
         link_forward
-        format.html {redirect_to "/formations/#{@id_forward_formations}/edit"}
+        findQuery = Formation.where(cpf_candidato: @current_user.cpf)
+        id = findQuery.ids
+        formation = Formation.find_by_id(id)
+        if formation != nil
+          format.html {redirect_to "/formations/#{@id_forward_formations}/edit"}
+        else
+          format.html {redirect_to "/formations/new"}
+        end
       else
         format.html { render :edit }
         format.json { render json: @candidato.errors, status: :unprocessable_entity }

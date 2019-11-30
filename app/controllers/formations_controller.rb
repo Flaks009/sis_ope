@@ -57,7 +57,14 @@ class FormationsController < ApplicationController
     respond_to do |format|
       if @formation.update(formation_params)
         link_forward
-        format.html {redirect_to "/experiences/#{@id_forward_experiences}/edit"}
+        findQuery = Experience.where(cpf_candidato: @current_user.cpf)
+        id = findQuery.ids
+        experience = Experience.find_by_id(id)
+        if experience != nil
+          format.html {redirect_to "/experiences/#{@id_forward_experiences}/edit"}
+        else
+          format.html {redirect_to "/experiences/new"}
+        end
       else
         format.html { render :edit }
       end
