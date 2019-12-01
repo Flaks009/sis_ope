@@ -14,7 +14,8 @@
     width: 80%;
 }
 
-#new_course {
+#new_course,
+.edit_course {
     position: relative;
     height: 100%;
     width: 100%;
@@ -406,7 +407,7 @@
     z-index: 1;
 }
 
-#previous-page-button_link {
+#previous-page-button-link {
     position: relative;
     display: block;
     height: 100%;
@@ -420,7 +421,7 @@
     cursor: pointer;
 }
 
-#previous-page-button_link-a {
+#previous-page-button-link-a {
     position: relative;
     top: 10%;
     left: 10%;

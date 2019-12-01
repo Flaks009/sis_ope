@@ -36,10 +36,10 @@
 
             <p id="email-label">E-mail</p>
             <% if current_user.tipoUser == 'candidato' %>
-              <input name="email" type="email" id="field-email" placeholder="<%= current_user.email%>" disabled>
+              <input name="email" type="email" id="field-email" placeholder="<%= current_user.email %>" disabled>
             <% elsif current_user.tipoUser == 'admin' %>
               <% if @candidato.cpf != nil %>
-                <input name="email" type="email" id="field-email" placeholder="<%= @email.email %>" value=<%= @email.email %>>
+                <input name="email" type="email" id="field-email" placeholder="<%= @email.email %>" value="<%= @email.email %>">
               <% elsif @candidato.cpf == nil %>
                 <input name="email" type="email" id="field-email" placeholder="Insira o Email">
               <% end %>

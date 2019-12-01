@@ -297,7 +297,8 @@
 
 #previous-page-button-link {
   position: relative;
-  display: block;
+  top: 10%;
+  left: 10%;
   height: 100%;
   width: 100%;
   color: black;

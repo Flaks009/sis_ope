@@ -28,6 +28,7 @@ class CoursesController < ApplicationController
           @course = Course.find(params[:id])
         end        
       end
+      link_forward
       link_back
     end
   
