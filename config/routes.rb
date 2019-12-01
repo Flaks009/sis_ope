@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   resources :formations
   resources :experiences
   resources :courses
-  resources :candidatos
+  resources :candidatos do
+    get :pdf_generate, :on => :member
+  end
   devise_for :users, controllers: {registrations: 'users/registrations'}
   get 'show', to: 'candidatos#show'
-  get 'pdf', to: 'candidatos#pdf_generate'
   get 'candidatos/index'
   root to:'candidatos#index'
 
