@@ -25,9 +25,13 @@ class ExperiencesController < ApplicationController
   # GET /experiences/1/edit
   def edit
     if current_user
-      findQuery = Experience.where(cpf_candidato: @current_user.cpf)
-      id = findQuery.ids
-      @experience = Experience.find_by_id(id)
+      if current_user.tipoUser == "candidato"
+        findQuery = Experience.where(cpf_candidato: @current_user.cpf)
+        id = findQuery.ids
+        @experience = Experience.find_by_id(id)
+      elsif current_user.tipoUser == "admin"
+        @experience = Experience.find(params[:id])
+      end
     end
     link_back
   end
@@ -57,9 +61,15 @@ class ExperiencesController < ApplicationController
     respond_to do |format|
       if @experience.update(experience_params)
         link_forward
-        findQuery = Course.where(cpf_candidato: @current_user.cpf)
-        id = findQuery.ids
-        course = Course.find_by_id(id)
+        if current_user.tipoUser == 'candidato'
+          findQuery = Course.where(cpf_candidato: @current_user.cpf)
+          id = findQuery.ids
+          course = Course.find_by_id(id)
+        elsif current_user.tipoUser == 'admin'
+          findQuery = Course.where(cpf_candidato: @experience.cpf_candidato)
+          id = findQuery.ids
+          course = Course.find_by_id(id)
+        end
         if course != nil
           format.html { redirect_to "/courses/#{@id_forward_course}/edit"}
         else
@@ -83,15 +93,27 @@ class ExperiencesController < ApplicationController
   end
 
   def link_back
-    back_id = Formation.where(cpf_candidato: current_user.cpf)
-    @id_back_formation = back_id.ids
-    @id_back_formation = @id_back_formation[0]
+    if current_user.tipoUser == 'candidato'
+      back_id = Formation.where(cpf_candidato: current_user.cpf)
+      @id_back_formation = back_id.ids
+      @id_back_formation = @id_back_formation[0]
+    elsif current_user.tipoUser == 'admin'
+      back_id = Formation.where(cpf_candidato: @experience.cpf_candidato)
+      @id_back_formation = back_id.ids
+      @id_back_formation = @id_back_formation[0]      
+    end
   end
 
   def link_forward
-    forward_id = Course.where(cpf_candidato: current_user.cpf)
-    @id_forward_course = forward_id.ids
-    @id_forward_course = @id_forward_course[0]
+    if current_user.tipoUser == 'candidato'
+      forward_id = Course.where(cpf_candidato: current_user.cpf)
+      @id_forward_course = forward_id.ids
+      @id_forward_course = @id_forward_course[0]
+    elsif current_user.tipoUser == 'admin'
+      forward_id = Course.where(cpf_candidato: @experience.cpf_candidato)
+      @id_forward_course = forward_id.ids
+      @id_forward_course = @id_forward_course[0]     
+    end
   end
   
 

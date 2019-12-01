@@ -40,7 +40,11 @@
           <%= f.date_field :saida, :required => 'required' %>
         </div>
 
-        <%= f.hidden_field :cpf_candidato, :value => current_user.cpf %>
+        <% if current_user.tipoUser == 'candidato'%>
+          <%= f.hidden_field :cpf_candidato, :value => current_user.cpf %>
+        <% elsif current_user.tipoUser == 'admin' %>
+          <%= f.hidden_field :cpf_candidato, :value => @experience.cpf_candidato %>
+        <% end%>
 
       </div>
     

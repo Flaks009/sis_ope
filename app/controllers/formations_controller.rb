@@ -24,10 +24,12 @@ class FormationsController < ApplicationController
 
   # GET /formations/1/edit
   def edit
-    if current_user
+    if current_user.tipoUser == "candidato"
       findQuery = Formation.where(cpf_candidato: @current_user.cpf)
       id = findQuery.ids
       @formation = Formation.find_by_id(id)
+    elsif current_user.tipoUser == "admin"
+      @formation = Formation.find(params[:id])
     end
     link_back
   end
@@ -57,9 +59,15 @@ class FormationsController < ApplicationController
     respond_to do |format|
       if @formation.update(formation_params)
         link_forward
-        findQuery = Experience.where(cpf_candidato: @current_user.cpf)
-        id = findQuery.ids
-        experience = Experience.find_by_id(id)
+        if current_user.tipoUser == 'candidato'
+          findQuery = Experience.where(cpf_candidato: @current_user.cpf)
+          id = findQuery.ids
+          experience = Experience.find_by_id(id)
+        elsif current_user.tipoUser == 'admin'
+          findQuery = Experience.where(cpf_candidato: @formation.cpf_candidato)
+          id = findQuery.ids
+          experience = Experience.find_by_id(id)
+        end
         if experience != nil
           format.html {redirect_to "/experiences/#{@id_forward_experiences}/edit"}
         else
@@ -83,15 +91,28 @@ class FormationsController < ApplicationController
   end
 
   def link_back
-    back_id = Candidato.where(cpf: current_user.cpf)
-    @id_back_candidato = back_id.ids
-    @id_back_candidato = @id_back_candidato[0]
+    if current_user.tipoUser == 'candidato'
+      back_id = Candidato.where(cpf: current_user.cpf)
+      @id_back_candidato = back_id.ids
+      @id_back_candidato = @id_back_candidato[0]
+    elsif current_user.tipoUser == 'admin'
+      back_id = Candidato.where(cpf: @formation.cpf_candidato)
+      @id_back_candidato = back_id.ids
+      @id_back_candidato = @id_back_candidato[0]
+    end
   end
 
   def link_forward
-    forward_id = Experience.where(cpf_candidato: current_user.cpf)
-    @id_forward_experiences = forward_id.ids
-    @id_forward_experiences = @id_forward_experiences[0]
+    if current_user.tipoUser == 'candidato'
+      forward_id = Experience.where(cpf_candidato: current_user.cpf)
+      @id_forward_experiences = forward_id.ids
+      @id_forward_experiences = @id_forward_experiences[0]
+    elsif current_user.tipoUser == 'admin'
+      forward_id = Experience.where(cpf_candidato: @formation.cpf_candidato)
+      @id_forward_experiences = forward_id.ids
+      @id_forward_experiences = @id_forward_experiences[0]      
+    end
+    
   end
 
   private

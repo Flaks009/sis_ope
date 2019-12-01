@@ -21,8 +21,12 @@
           <p id="dados-cadastrais-label">Dados Cadastrais</p>
 
             <%= f.label :cpf, "CPF", id:"cpf-label" %>
-            <%= f.text_field :cpf, id:"field-cpf", placeholder:current_user.cpf, disabled:true%>
-            <%= f.hidden_field :cpf, :value => current_user.cpf%>
+            <% if current_user.tipoUser == 'candidato' %>
+              <%= f.text_field :cpf, id:"field-cpf", placeholder:current_user.cpf, disabled:true%>
+              <%= f.hidden_field :cpf, :value => current_user.cpf%>
+            <% elsif current_user.tipoUser == 'admin' %>
+              <%= f.text_field :cpf, id:"field-cpf", placeholder:"Insira o CPF", :required => 'required'%>
+            <% end %>
 
             <%= f.label :nome, "Nome Completo", id:"nome-label" %>
             <%= f.text_field :nome, id:"field-nome", placeholder:"Digite seu nome", :required => 'required' %>
@@ -31,7 +35,15 @@
             <%= f.date_field :data_nasc, id:"field-date", placeholder:"Ex.: dd/mm/aaaa", :required => 'required' %>
 
             <p id="email-label">E-mail</p>
-            <input name="email" type="email" id="field-email" placeholder="<%= current_user.email%>" disabled>
+            <% if current_user.tipoUser == 'candidato' %>
+              <input name="email" type="email" id="field-email" placeholder="<%= current_user.email%>" disabled>
+            <% elsif current_user.tipoUser == 'admin' %>
+              <% if @candidato.cpf != nil %>
+                <input name="email" type="email" id="field-email" placeholder="<%= @email.email %>" value=<%= @email.email %>>
+              <% elsif @candidato.cpf == nil %>
+                <input name="email" type="email" id="field-email" placeholder="Insira o Email">
+              <% end %>
+            <% end %>
         </div>
 
         <div id="endereco">

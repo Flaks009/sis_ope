@@ -20,9 +20,13 @@ class CoursesController < ApplicationController
     # GET /candidatos/1/edit
     def edit
       if current_user
-        findQuery = Course.where(cpf_candidato: @current_user.cpf)
-        id = findQuery.ids
-        @course = Course.find_by_id(id)
+        if current_user.tipoUser == "candidato"
+          findQuery = Course.where(cpf_candidato: @current_user.cpf)
+          id = findQuery.ids
+          @course = Course.find_by_id(id)
+        elsif current_user.tipoUser == "admin"
+          @course = Course.find(params[:id])
+        end        
       end
       link_back
     end
@@ -65,9 +69,15 @@ class CoursesController < ApplicationController
     end
 
     def link_back
-      back_id = Experience.where(cpf_candidato: current_user.cpf)
-      @id_back_experience = back_id.ids
-      @id_back_experience = @id_back_experience[0]
+      if current_user.tipoUser == 'candidato'
+        back_id = Experience.where(cpf_candidato: current_user.cpf)
+        @id_back_experience = back_id.ids
+        @id_back_experience = @id_back_experience[0]
+      elsif current_user.tipoUser == 'admin'
+        back_id = Experience.where(cpf_candidato: @course.cpf_candidato)
+        @id_back_experience = back_id.ids
+        @id_back_experience = @id_back_experience[0]
+      end
     end
 
     def link_forward

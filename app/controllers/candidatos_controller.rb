@@ -30,10 +30,15 @@ class CandidatosController < ApplicationController
 
   # GET /candidatos/1/edit
   def edit
-    if current_user
+    if current_user.tipoUser == "candidato"
       findQuery = Candidato.where(cpf: @current_user.cpf)
       id = findQuery.ids
       @candidato = Candidato.find_by_id(id)
+    elsif current_user.tipoUser == "admin"
+      @candidato = Candidato.find(params[:id])
+      findEmail = User.where(cpf: @candidato.cpf)
+      idEmail = findEmail.ids
+      @email = User.find_by_id(idEmail)
     end
   end
 
@@ -60,15 +65,19 @@ class CandidatosController < ApplicationController
   # PATCH/PUT /candidatos/1
   # PATCH/PUT /candidatos/1.json
   def update
-
     @candidato = Candidato.find(params[:id])
-
     respond_to do |format|
       if @candidato.update(candidato_params)
         link_forward
-        findQuery = Formation.where(cpf_candidato: @current_user.cpf)
-        id = findQuery.ids
-        formation = Formation.find_by_id(id)
+        if current_user.tipoUser == 'candidato'
+          findQuery = Formation.where(cpf_candidato: @current_user.cpf)
+          id = findQuery.ids
+          formation = Formation.find_by_id(id)
+        elsif current_user.tipoUser == 'admin'
+          findQuery = Formation.where(cpf_candidato: @candidato.cpf)
+          id = findQuery.ids
+          formation = Formation.find_by_id(id)
+        end
         if formation != nil
           format.html {redirect_to "/formations/#{@id_forward_formations}/edit"}
         else
@@ -76,7 +85,6 @@ class CandidatosController < ApplicationController
         end
       else
         format.html { render :edit }
-        format.json { render json: @candidato.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -93,9 +101,15 @@ class CandidatosController < ApplicationController
   end
 
   def link_forward
-    forward_id = Formation.where(cpf_candidato: current_user.cpf)
-    @id_forward_formations = forward_id.ids
-    @id_forward_formations = @id_forward_formations[0]
+    if current_user.tipoUser == 'candidato'
+      forward_id = Formation.where(cpf_candidato: current_user.cpf)
+      @id_forward_formations = forward_id.ids
+      @id_forward_formations = @id_forward_formations[0]
+    elsif current_user.tipoUser == 'admin'
+      forward_id = Formation.where(cpf_candidato: @candidato.cpf)
+      @id_forward_formations = forward_id.ids
+      @id_forward_formations = @id_forward_formations[0]
+    end
   end
 
   def pdf_generate

@@ -39,7 +39,11 @@
         <div id="field-data-fim-curso">
           <%= f.date_field :final, :required => 'required'%>
         </div>
-        <%= f.hidden_field :cpf_candidato, :value => current_user.cpf %>
+        <% if current_user.tipoUser == 'candidato' %>
+          <%= f.hidden_field :cpf_candidato, :value => current_user.cpf %>
+        <% elsif current_user.tipoUser == 'admin' %>
+          <%= f.hidden_field :cpf_candidato, :value => @course.cpf_candidato %>
+        <% end %>
       </div>
     
     </div>
