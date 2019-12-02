@@ -3,6 +3,55 @@
 <% @formation %>
 <% @experience %>
 
-<%= @candidato.nome %>
-<%= @formation.tipo %>
-<%= @experience.cargo %>
+<div id="block-pdf" style="position:relative;font-family:'Open Sans';padding:50px 100px 50px 100px;">
+  <div id="pdf" style="padding:50px 100px 50px 100px;">
+    <div style="font-family:'Open Sans';">
+      <h1 align="center"><b><%= @candidato.nome %>, <%= (Date.today.day - @candidato.data_nasc.day).to_s %> anos</b></h1>
+      <p align="right"><%= @candidato.logradouro %>, <%= @candidato.numero %></p>
+      <p align="right"><%= @candidato.cidade %> - <%= @candidato.uf %> - CEP: <%= @candidato.cep %></p>
+
+      <br>
+      <hr>
+      <h2 align="center"><b>Escolaridade</b></h2>
+      <hr>
+      <br>
+
+      <p align="left"><b>Tipo de Formação:</b> <%= @formation.tipo %></p>
+      <p align="left"><b>Instituição:</b> <%= @formation.instituicao %></p>
+      <p align="left"><b>Curso:</b> <%= @formation.curso %></p>
+      <p align="left"><b>Início:</b> <%= @formation.data_inicio.year %>/<%= @formation.data_inicio.month %></p>
+      <p align="left"><b>Conclusão:</b> <%= @formation.data_final.year %>/<%= @formation.data_final.month %></p>
+
+      <br>
+      <hr>
+      <h2 align="center"><b>Experiência Profissional</b></h2>
+      <hr>
+      <br>
+
+      <p align="left"><b>Empresa:</b> <%= @experience.empresa %></p>
+      <p align="left"><b>Último Cargo:</b> <%= @experience.cargo %></p>
+      <p align="left"><b>Adimissão:</b> <%= @experience.admissao.year %>/<%= @experience.admissao.month %></p>
+      <p align="left"><b>Desligamento:</b> <%= @experience.saida.year %>/<%= @experience.saida.month %></p>
+
+      <br>
+      <hr>
+      <h2 align="center"><b>Outros Cursos</b></h2>
+      <hr>
+      <br>
+
+      <p align="left"><b>Instituição:</b> <%= @courses.instituicao %></p>
+      <p align="left"><b>Curso:</b> <%= @courses.nome %></p>
+      <p align="left"><b>Início:</b> <%= @courses.inicio.year %>/<%= @courses.inicio.month %></p>
+      <p align="left"><b>Conclusão:</b> <%= @courses.final.year %>/<%= @courses.final.month %></p>
+    </div>
+  </div>
+
+
+  <br>
+  <br>
+  <p>
+    <input type="button" value="Confirmar Dados e Gerar PDF" id="btnImprimir" style="left: 50%;position: absolute;transform: translateX(-50%);font-size:16px;height:30px;width:300px;color:white;background-color:#DDA100;" onclick="GerarPDF()" />
+  </p>
+</div>
+
+<%= javascript_include_tag 'general/pdf.js' %>
