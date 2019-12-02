@@ -58,41 +58,65 @@ body {
 #menu-items {
   position: relative;
   background-color: #F5F5F5;
+  left: -10%;
+  right: -10%;
   height: 70%;
+  max-height: 485px;
   width: 80%;
-  min-width: 435px;
+  max-width: 435px;
 
   top: 20%;
   margin: auto;
 }
 
-#logo-1,
+#logos {
+  position: relative;
+  top: 5%;
+  height: 15%;
+  width: 100%;
+}
+
+#logo-1 {
+  position: relative;
+  float: left;
+  left: 15%;
+}
+
 #logo-2 {
   position: relative;
-  height: 50px;
-  left: 20%;
-  padding-top: 10%;
-  padding-left: 15px;
-  padding-bottom: 5%;
+  float: right;
+  right: 15%;
+}
+
+#new_user {
+  position: relative;
+  top: 5%;
+  height: 100%;
+  width: 100%;
+}
+
+.button_to {
+  position: relative;
+  top: -40%;
+  height: 10%;
+  width: 100%;
+  padding-top: 5%;
 }
 
 .field {
   position: relative;
-  width: 60%;
-  margin: auto;
-}
-
-.ipt-text {
-  height: 2em;
+  left: 20%;
+  height: 10%;
   width: 100%;
-  font-size: 15px;
-
-  margin-top: 10px;
-  margin-bottom: 15px;
+  padding: 2.5% 0% 2.5% 0%;
 }
 
+.ipt-text,
 .ipt-label {
-  height: 2.5;
+  height: 40%;
+  width: 60%;
+  font-size: 15px;
+  margin: 2.5% 0% 2.5% 0%;
 }
 
 #esqueci-senha-link,
@@ -101,17 +125,17 @@ body {
 }
 
 #esqueci-senha-link {
-  text-align: center;
   padding-top: 10px;
+}
+
+#btn-signin {
+  position: relative;
+  height: 100%;
+  width: 60%;
 }
 
 #btn-signup,
 #btn-signin {
-  position: relative;
-  width: 60%;
-  margin: 10px 20% 0% 20%;
-
-  height: 40px;
   font-family: Open Sans;
   font-size: 15px;
   color: white;
@@ -119,4 +143,22 @@ body {
   cursor: pointer;
 
   text-align: center;
+}
+
+#btn-signup {
+  position: relative;
+  left: 20%;
+  height: 100%;
+  width: 60%;
+}
+
+.error-message {
+  position: fixed;
+  right: 25px;
+  top: 25px;
+  padding: 10px;
+
+  font-size: 14px;
+  background-color: cornsilk;
+  border: 1px solid black;
 }

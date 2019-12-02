@@ -8,34 +8,51 @@ body {
       width: 100%;
 }
 
-.navbar {
+#navbar {
       background-color: white;
       position: relative;
       width: 100%;
       height: 15%;
+
+      display: flex;
 }
 
-#nav-logo {
+#navbar-left {
       position: relative;
-      top: 25%;
-      left: 5%;
+      width: 25%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+}
+
+#navbar-middle {
+      position: relative;
+      width: 50%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+}
+
+#navbar-right {
+      position: relative;
+      width: 25%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
 }
 
 #nav-title {
       font-weight: bold;
       font-size: 18px;
-
-      display: inline;
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translateX(-50%);
-}
-
-#nav-user {
-      position: absolute;
-      top: 40%;
-      right: 2%;
 }
 
 .middle-bar {
@@ -44,8 +61,6 @@ body {
       width: 100%;
       height: 5%;
 }
-
-
 
 .main-menu {
       position: relative;
@@ -61,11 +76,17 @@ body {
       width: 20%;
 }
 
-#button-1,
-#button-2,
-#button-3 {
+#button-1>form,
+#button-2>form,
+#button-3>form,
+#button-4 {
       color: white;
-      padding: 50px 30px 50px 30px;
+      padding: 10% 10% 5% 10%;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
 }
 
 #img-button-1,
@@ -80,6 +101,7 @@ body {
 
 #new-curriculum-button,
 #edit-curriculum-button,
+#admin-button,
 #menu-principal {
       float: right;
       font-size: 15px;
@@ -111,10 +133,9 @@ body {
 #text-pt2 {
       position: relative;
       width: 80%;
-
-      margin-top: 80px;
-      margin-left: 100px;
       line-height: 250%;
+
+      margin: 10%;
 }
 
 #image-content {
@@ -122,12 +143,15 @@ body {
       float: right;
       height: 100%;
       width: 40%;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center
 }
 
 #candidate-img {
       position: relative;
-      top: 10%;
-      left: 15%;
 
       max-height: 347px;
       max-width: 300px;

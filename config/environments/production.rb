@@ -56,6 +56,17 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "sis_ope_#{Rails.env}"
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'railsh.herokuapp.com'}
+
+  ActionMailer::Base.smtp_settings = {
+  :user_name => 'sis_ope',
+  :password => 'impactados2020',
+  :domain => 'sendemailapp2.herokuapp.com',
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

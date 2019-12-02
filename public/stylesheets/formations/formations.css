@@ -1,0 +1,518 @@
+#menu-principal {
+    position: relative;
+    top: 15px;
+    left: 15px;
+    float: right;
+    font-size: 15px;
+    font-family: 'Open Sans';
+    background-color: #282421;
+    border: none;
+    color: white;
+    text-align: left;
+    text-decoration: none;
+    height: 40px;
+    width: 80%;
+}
+
+#new_formation,
+.edit_formation {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+/* Add formation fields size and position */
+
+#add-formacao {
+    position: relative;
+    font-style: italic;
+    padding: 2.5% 0% 0% 2.5%;
+    height: 5%;
+    width: 85%;
+    left: 7.5%;
+    z-index: 2;
+}
+
+#add-formacao:hover {
+    cursor: pointer;
+}
+
+#add-formacao:before,
+#add-formacao:after {
+    position: absolute;
+    top: 30%;
+    left: -1.5%;
+    content: ' ';
+    height: 35px;
+    width: 2px;
+    border: 5px solid #DDA100;
+    background-color: #DDA100;
+}
+
+#add-formacao:before {
+    transform: rotate(180deg);
+}
+
+#add-formacao:after {
+    transform: rotate(-90deg);
+}
+
+/* formation fields size and position */
+
+#formacoes {
+    position: relative;
+    height: 80%;
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: 12px;
+    overflow: auto;
+}
+
+.formacoes-fields {
+    position: relative;
+    border: 1px solid black;
+    left: 5%;
+    width: 90%;
+    height: 50%;
+    margin-top: 2.5%;
+
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: 2.5% 17.5% 20% 20% 5% 15% 15%;
+    grid-template-rows: 15% 20% 5% 20% 5% 20% 15%;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: center;
+}
+
+.remover-formacao {
+    grid-column: 6;
+    grid-row: 2;
+    margin-top: -25%;
+    margin-left: 100%;
+    width: 150%;
+
+    justify-self: left;
+    align-self: center;
+}
+
+.remover-formacao:after {
+    position: absolute;
+    top: 2.5%;
+    left: 77.5%;
+    content: ' ';
+    height: 35px;
+    width: 2px;
+    border: 5px solid #DDA100;
+    background-color: #DDA100;
+    transform: rotate(-90deg);
+}
+
+.remover-formacao:hover {
+    cursor: pointer;
+}
+
+#tipo-label {
+    grid-column: 2;
+    grid-row: 2;
+
+    justify-self: left;
+    align-self: center;
+}
+
+#formation_tipo {
+    grid-column: 3;
+    grid-row: 2;
+
+    justify-self: left;
+    align-self: center;
+}
+
+#curso-label {
+    grid-column: 2;
+    grid-row: 4;
+
+    justify-self: left;
+    align-self: center;
+}
+
+#field-curso {
+    grid-column: 3;
+    grid-row: 4;
+    width: 200%;
+
+    justify-self: left;
+    align-self: center;
+}
+
+#instituicao-label {
+    grid-column: 2;
+    grid-row: 6;
+
+    justify-self: left;
+    align-self: center;
+}
+
+#field-instituicao {
+    grid-column: 3;
+    grid-row: 6;
+    width: 200%;
+
+    justify-self: left;
+    align-self: center;
+}
+
+#data-inicio-curso-label {
+    grid-column: 6;
+    grid-row: 4;
+
+    justify-self: left;
+    align-self: center;
+}
+
+#field-data-inicio-curso {
+    grid-column: 7;
+    grid-row: 4;
+    width: 100%;
+
+    justify-self: left;
+    align-self: center;
+}
+
+#field-data-inicio-curso>input {
+    width: 100%;
+}
+
+#data-fim-curso-label {
+    grid-column: 6;
+    grid-row: 6;
+
+    justify-self: left;
+    align-self: center;
+}
+
+#field-data-fim-curso {
+    grid-column: 7;
+    grid-row: 6;
+    width: 100%;
+
+    justify-self: left;
+    align-self: center;
+}
+
+#field-data-fim-curso>input {
+    width: 100%;
+}
+
+/* Bottom bar size and position */
+
+#bottom-bar {
+    position: relative;
+    border-top: 15px solid #00B0BE;
+    height: calc(15% - 15px);
+    width: 100%;
+
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: 20% 60% 20%;
+}
+
+#progress-bar {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 5%;
+
+    text-align: center;
+
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: 5% 10% 10% 10% 10% 10% 10% 10% 10% 10% 5%;
+    grid-template-rows: 65% 10% 20%;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: center;
+}
+
+#previous-page {
+    position: relative;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: center;
+}
+
+#next-page {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    grid-column: 3;
+    grid-row: 1;
+}
+
+/* Circle size and position */
+
+#dados-cadastrais-progress,
+#formacoes-progress,
+#experiencias-progress,
+#cursos-extra-progress,
+#finalizacao-progress {
+    position: relative;
+    background-color: #282421;
+    height: 35px;
+    width: 35px;
+    border: 1px solid #282421;
+    border-radius: 50%;
+
+    justify-self: center;
+    align-self: center;
+}
+
+#dados-cadastrais-progress {
+    background-color: #00B0BE;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#formacoes-progress {
+    background-color: #00B0BE;
+    grid-column: 4;
+    grid-row: 1;
+}
+
+#experiencias-progress {
+    grid-column: 6;
+    grid-row: 1;
+}
+
+#cursos-extra-progress {
+    grid-column: 8;
+    grid-row: 1;
+}
+
+#finalizacao-progress {
+    grid-column: 10;
+    grid-row: 1;
+}
+
+/* Connections size and position */
+
+#middle-1,
+#middle-2,
+#middle-3,
+#middle-4 {
+    position: relative;
+    background-color: #282421;
+    height: 8px;
+    width: 175%;
+    z-index: -1;
+
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+}
+
+#middle-1 {
+    background-color: #00B0BE;
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#middle-2 {
+    grid-column: 5;
+    grid-row: 1;
+}
+
+#middle-3 {
+    grid-column: 7;
+    grid-row: 1;
+}
+
+#middle-4 {
+    grid-column: 9;
+    grid-row: 1;
+}
+
+/* Labels size and position */
+
+#dados-cadastrais-progress-label,
+#formacoes-progress-label,
+#experiencias-progress-label,
+#cursos-extra-progress-label,
+#finalizacao-progress-label {
+    font-size: 12px;
+    justify-self: center;
+    align-self: center;
+}
+
+#dados-cadastrais-progress-label {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+#formacoes-progress-label {
+    grid-column: 4;
+    grid-row: 3;
+}
+
+#experiencias-progress-label {
+    grid-column: 6;
+    grid-row: 3;
+}
+
+
+#cursos-extra-progress-label {
+    grid-column: 8;
+    grid-row: 3;
+}
+
+#finalizacao-progress-label {
+    grid-column: 10;
+    grid-row: 3;
+}
+
+/* Buttons size and position */
+
+#previous-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#previous-page-button {
+    position: relative;
+    height: 30px;
+    width: 100px;
+    background-color: #DDA100;
+}
+
+#previous-page-button:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-right-color: #DDA100;
+    border-style: solid;
+    border-width: 25px;
+    margin-top: -25px;
+    margin-right: 0px;
+    z-index: 1;
+}
+
+#previous-page-button_link {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: black;
+    background-color: #DDA100;
+    font-family: Open Sans;
+    font-size: 12px;
+    font-style: italic;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#previous-page-button_link-a {
+    position: relative;
+    top: 10%;
+    height: 100%;
+    width: 100%;
+    color: black;
+    background-color: #DDA100;
+    font-family: Open Sans;
+    font-size: 12px;
+    font-style: italic;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#next-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#next-page-button {
+    position: relative;
+    height: 30px;
+    width: 100px;
+    background-color: #DDA100;
+}
+
+#next-page-button:after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-left-color: #DDA100;
+    border-style: solid;
+    border-width: 25px;
+    margin-top: -25px;
+    margin-left: -10px;
+}
+
+#next-page-button-link {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: black;
+    background-color: #DDA100;
+    font-family: Open Sans;
+    font-size: 12px;
+    font-style: italic;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#next-page-button-link-a {
+    position: relative;
+    top: 10%;
+    left: 10%;
+    height: 100%;
+    width: 100%;
+    color: black;
+    background-color: #DDA100;
+    font-family: Open Sans;
+    font-size: 12px;
+    font-style: italic;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.error-message {
+    position: fixed;
+    right: 25px;
+    top: 25px;
+    padding: 10px;
+
+    font-size: 14px;
+    background-color: cornsilk;
+    border: 1px solid black;
+}

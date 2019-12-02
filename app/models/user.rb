@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :cpf, uniqueness: true
-  has_one :candidato, :class_name => "User", :foreign_key => "user_id"
+  validates :cpf, uniqueness: true, length: {is: 11}
+  validates_presence_of :cpf, message: ': CPF não pode ser nulo'
+  has_one :candidato, :class_name => "Candidato", :foreign_key => "user_id", :dependent => :destroy
 
 end

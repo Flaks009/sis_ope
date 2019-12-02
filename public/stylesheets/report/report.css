@@ -1,0 +1,97 @@
+#right-menu {
+  overflow: auto;
+}
+
+#menu-principal {
+  position: relative;
+  top: 15px;
+  left: 15px;
+  float: right;
+  font-size: 15px;
+  font-family: 'Open Sans';
+  background-color: #282421;
+  border: none;
+  color: white;
+  text-align: left;
+  text-decoration: none;
+  height: 40px;
+  width: 80%;
+}
+
+#nav-candidatos {
+  position: relative;
+  height: 20%;
+  width: 100%;
+
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: 2.5% 95% 2.5%;
+  grid-template-rows: 25% 25% 25% 25%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  justify-content: center;
+}
+
+#label-candidatos {
+  grid-column: 2;
+  grid-row: 2;
+
+  justify-self: left;
+  align-self: center;
+
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#form-search {
+  width: 100%;
+  grid-column: 2;
+  grid-row: 3;
+
+  justify-self: center;
+  align-self: center;
+
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#cpf-label,
+#name-label,
+#city-label {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  font-weight: 900;
+}
+
+#search-button {
+  margin-left: 10%;
+  font-family: Open Sans;
+  font-size: 15px;
+  color: white;
+  background-color: #DBA102;
+  cursor: pointer;
+
+  text-align: center;
+}
+
+/* table formatação */
+
+#table-candidatos {
+  position: relative;
+  height: 80%;
+  width: 100%;
+}
+
+th,
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 5px;
+  height: 20px;
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+}
