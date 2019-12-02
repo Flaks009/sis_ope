@@ -18,12 +18,9 @@
         <% end %>
     
         <div id="formacoes">
-
-          <div id="add-formacao">Clique para adicionar mais uma formação</div>
           
           <div id="formacoes-fields-1" class="formacoes-fields">
-            <div id="remover-formacao-1" class="remover-formacao">Remover formação</div>
-              
+                        
             <%= f.label :tipo, "Tipo de Formação", id:"tipo-label" %>
             <%= f.select :tipo, ['Técnico', 'Graduação', 'Pós-Graduação', 'Mestrado', 'Doutorado', 'Pós-Doutorado'], id:"field-tipo", :required => 'required' %>
 

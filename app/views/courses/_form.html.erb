@@ -18,11 +18,8 @@
     <% end %>
 
     <div id="cursos">
-
-      <div id="add-curso">Clique para adicionar mais uma curso</div>
-      
+    
       <div id="cursos-fields-1" class="cursos-fields">
-        <div id="remover-curso-1" class="remover-curso">Remover curso</div>
         
         <%= f.label :nome, "Nome do Curso", id:"curso-label" %>
         <%= f.text_field :nome, id:"field-curso", placeholder:"Digite o nome do curso", :required => 'required'%>

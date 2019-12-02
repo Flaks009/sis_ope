@@ -6,7 +6,7 @@
 <div id="block-pdf" style="position:relative;font-family:'Open Sans';padding:50px 100px 50px 100px;">
   <div id="pdf" style="padding:50px 100px 50px 100px;">
     <div style="font-family:'Open Sans';">
-      <h1 align="center"><b><%= @candidato.nome %>, <%= (Date.today.day - @candidato.data_nasc.day).to_s %> anos</b></h1>
+      <h1 align="center"><b><%= @candidato.nome %>, <%= (Date.today.year - @candidato.data_nasc.year).to_s %> anos</b></h1>
       <br>
       <p align="right"><%= @candidato.logradouro %>, <%= @candidato.numero %></p>
       <p align="right"><%= @candidato.cidade %> - <%= @candidato.uf %> - CEP: <%= @candidato.cep %></p>

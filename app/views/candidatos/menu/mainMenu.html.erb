@@ -19,16 +19,10 @@
             </div>
         <% end %>
     <% elsif current_user.tipoUser == 'admin' %> 
-        <div id="button-1">
-            <form action="/candidatos/new">
-                <img id="img-button-1" src="/img/new-curriculum.png">
-                <button id="new-curriculum-button" type="submit">Cadastrar Dados</button>
-            </form>
-        </div>
         <div id="button-3">
             <form action="/candidatos/edit">
                 <img id="img-button-3" src="/img/admin.png">
-                <button id="admin-button" type="submit">Visualizar Currículos</button>
+                <button id="admin-button" type="submit">Gerenciar Currículos</button>
             </form>
         </div>
     <% end %>
