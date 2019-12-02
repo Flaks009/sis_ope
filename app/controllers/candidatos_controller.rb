@@ -113,20 +113,19 @@ class CandidatosController < ApplicationController
   end
 
   def pdf_generate
-    @candidato = Candidato.where(cpf: @current_user.cpf)
-    id = @candidato.ids
-    @candidato = Candidato.find_by_id(id)
+    @candidato = Candidato.find(params[:id])
+    cpf = @candidato.cpf
 
-    @courses = Course.where(cpf_candidato: @current_user.cpf)
+    @courses = Course.where(cpf_candidato: cpf)
     id = @courses.ids
     @courses = Course.find_by_id(id)
 
-    @experience = Experience.where(cpf_candidato: @current_user.cpf)
+    @experience = Experience.where(cpf_candidato: cpf)
     id = @experience.ids
     @experience = Experience.find_by_id(id)
 
 
-    @formation = Formation.where(cpf_candidato: @current_user.cpf)
+    @formation = Formation.where(cpf_candidato: cpf)
     id = @formation.ids
     @formation = Formation.find_by_id(id)
 

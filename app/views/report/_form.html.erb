@@ -40,7 +40,7 @@
             <td><%= candidato.nome %></td>
             <td><%= link_to 'Editar', edit_candidato_path(candidato) %></td>
             <td><%= link_to 'Deletar', candidato, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
-            <td><%= link_to 'Visualizar PDF', '/pdf' %></td>
+            <td><%= link_to 'Visualizar PDF', pdf_generate_candidato_path(candidato) %></td>
           </tr>
           <% end %>
       </tbody>
