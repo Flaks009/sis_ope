@@ -26,7 +26,7 @@ Candidato.create([{
     bairro:  'Tereza',
     cidade:  'Jandira',
     uf:  "SP",
-    user_id: 3},
+    user_id: 2},
 
     {cpf:  '24556887932',
     nome:  'Bruno Maranini',
@@ -37,7 +37,7 @@ Candidato.create([{
     bairro:  'Barra Funda',
     cidade:  'São Paulo',
     uf:  "SP",
-    user_id: 4},
+    user_id: 3},
        
     {cpf:  '34556887932',
     nome:  'Filipe Gomes',
@@ -48,7 +48,7 @@ Candidato.create([{
     bairro:  'Paraisópolis',
     cidade:  'São Paulo',
     uf:  "SP",
-    user_id: 5},
+    user_id: 4},
 
     {cpf:  '44556887932',
     nome:  'Renato Souza',
@@ -59,7 +59,7 @@ Candidato.create([{
     bairro:  'Liberdade',
     cidade:  'São Paulo',
     uf:  "SP",
-    user_id: 6},
+    user_id: 5},
                
     {cpf:  '54556887932',
     nome:  'Hercules Silva',
@@ -70,7 +70,7 @@ Candidato.create([{
     bairro:  'Morumbi',
     cidade:  'São Paulo',
     uf:  "SP",
-    user_id: 7},
+    user_id: 6},
     
     {cpf:  '64556887932',
     nome:  'Joel Pereira',
@@ -81,9 +81,135 @@ Candidato.create([{
     bairro:  'Butantã',
     cidade:  'São Paulo',
     uf:  "SP",
-    user_id: 8}])
+    user_id: 7}])
 
 
+Formation.create([{
+
+    tipo: "Graduação",
+    curso: "Análise e Desenvolvimento de Sistemas",
+    instituicao: "Faculdade Impacta de Técnologia",
+    data_inicio: "2018-02-01",
+    data_final: "2019-12-06",
+    cpf_candidato: "14556887932"},
+
+    {tipo: "Graduação",
+    curso: "Análise e Desenvolvimento de Sistemas",
+    instituicao: "Faculdade Impacta de Técnologia",
+    data_inicio: "2018-02-01",
+    data_final: "2019-12-06",
+    cpf_candidato: "24556887932"},
+
+    {tipo: "Graduação",
+    curso: "Análise e Desenvolvimento de Sistemas",
+    instituicao: "Faculdade Impacta de Técnologia",
+    data_inicio: "2018-02-01",
+    data_final: "2019-12-06",
+    cpf_candidato: "34556887932"},
+
+    {tipo: "Graduação",
+    curso: "Análise e Desenvolvimento de Sistemas",
+    instituicao: "Faculdade Impacta de Técnologia",
+    data_inicio: "2018-02-01",
+    data_final: "2019-12-06",
+    cpf_candidato: "44556887932"},
+
+    {tipo: "Graduação",
+    curso: "Análise e Desenvolvimento de Sistemas",
+    instituicao: "Faculdade Impacta de Técnologia",
+    data_inicio: "2018-02-01",
+    data_final: "2019-12-06",
+    cpf_candidato: "54556887932"},
+
+    {tipo: "Graduação",
+    curso: "Análise e Desenvolvimento de Sistemas",
+    instituicao: "Faculdade Impacta de Técnologia",
+    data_inicio: "2018-02-01",
+    data_final: "2019-12-06",
+    cpf_candidato: "64556887932"},
+    ])
+
+
+Experience.create([{
+
+    empresa: "Consorcio Ipojuca Refinaria RNEST",
+    cargo: "Analista",
+    admissao: "2014-06-01",
+    saida: "2015-12-14",
+    cpf_candidato: "14556887932"},
+
+    {empresa: "Microsoft",
+    cargo: "Desenvolvedor",
+    admissao: "2018-07-01",
+    saida: "2019-12-26",
+    cpf_candidato: "24556887932"},
+
+    {empresa: "GE",
+    cargo: "Desenvolvedor",
+    admissao: "2015-03-09",
+    saida: "2019-12-30",
+    cpf_candidato: "34556887932"},
+
+    {empresa: "Banco do Brasil",
+    cargo: "Analista",
+    admissao: "2013-04-09",
+    saida: "2019-12-25",
+    cpf_candidato: "44556887932"},
+
+    {empresa: "Google",
+    cargo: "Desenvolvedor",
+    admissao: "2018-05-04",
+    saida: "2019-12-16",
+    cpf_candidato: "54556887932"},
+
+    {empresa: "IBM",
+    cargo: "Desenvolvedor",
+    admissao: "2018-05-19",
+    saida: "2019-12-15",
+    cpf_candidato: "64556887932"},
+
+    ])
+
+
+
+Course.create([{
+
+    nome: "Análise e Desenvolvimento de Sistemas",
+    instituicao: "Faculdade Impacta de Técnologia",
+    inicio: "2018-02-01",
+    final: "2019-12-06",
+    cpf_candidato: "14556887932"},
+
+    {nome: "Análise e Desenvolvimento de Sistemas",
+    instituicao: "Faculdade Impacta de Técnologia",
+    inicio: "2018-02-01",
+    final: "2019-12-06",
+    cpf_candidato: "24556887932"},
+
+    {nome: "Análise e Desenvolvimento de Sistemas",
+    instituicao: "Faculdade Impacta de Técnologia",
+    inicio: "2018-02-01",
+    final: "2019-12-06",
+    cpf_candidato: "34556887932"},
+
+    {nome: "Análise e Desenvolvimento de Sistemas",
+    instituicao: "Faculdade Impacta de Técnologia",
+    inicio: "2018-02-01",
+    final: "2019-12-06",
+    cpf_candidato: "44556887932"},
+
+    {nome: "Análise e Desenvolvimento de Sistemas",
+    instituicao: "Faculdade Impacta de Técnologia",
+    inicio: "2018-02-01",
+    final: "2019-12-06",
+    cpf_candidato: "54556887932"},
+
+    {nome: "Análise e Desenvolvimento de Sistemas",
+    instituicao: "Faculdade Impacta de Técnologia",
+    inicio: "2018-02-01",
+    final: "2019-12-06",
+    cpf_candidato: "64556887932"},
+    ])
 
 
 
