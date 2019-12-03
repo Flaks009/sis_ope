@@ -7,10 +7,11 @@
   </div>
   <div class="right-menu">
     <div id="nav-candidatos">
-    <% if current_user.tipoUser == 'admin'%>
+      <% if current_user.tipoUser == 'admin'%>
           <p id="label-candidatos">Relatório de Candidatos</p>
+          <%= @a %>
         
-          <%= form_tag("show", method: :get, id:"form-search") do %>
+        <%= form_tag("show", method: :get, id:"form-search") do %>
           <%= label :nome, "Documento", id:"cpf-label" %>
           <%= text_field_tag :cpf_term,nil, placeholder:"Informe o CPF" %>
 
@@ -19,7 +20,8 @@
 
           <%= label :nome, "Cidade", id:"city-label" %>
           <%= text_field_tag :city_term,nil, placeholder:"Informe a Cidade" %>
-          <%= submit_tag 'Procurar', id:"search-button" %> <% end %>     
+          <%= submit_tag 'Procurar', id:"search-button" %> 
+        <% end %>     
     <% else %>
         <p id="label-candidatos">Meu Currículo</p>
     <% end %>
