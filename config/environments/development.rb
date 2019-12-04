@@ -54,8 +54,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'railsh.herokuapp.com'}
 
   ActionMailer::Base.smtp_settings = {
-  :user_name => 'sis_ope',
-  :password => 'impactados2020',
+  :user_name => '',
+  :password => '',
   :domain => 'sendemailapp2.herokuapp.com',
   :address => 'smtp.sendgrid.net',
   :port => 587,
