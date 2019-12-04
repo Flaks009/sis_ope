@@ -32,7 +32,7 @@
             <%= f.text_field :nome, id:"field-nome", placeholder:"Digite seu nome"%>
 
             <%= f.label :data_nasc, "Data de Nascimento", id:"data-nascimento-label" %>
-            <%= f.date_field :data_nasc, id:"field-date", placeholder:"Ex.: dd/mm/aaaa", :required => 'required' %>
+            <%= f.date_field :data_nasc, id:"field-date", placeholder:"Ex.: dd/mm/aaaa", :required => 'required', min: 80.year.ago, max:Date.today%>
 
             <p id="email-label">E-mail</p>
             <% if current_user.tipoUser == 'candidato' %>
