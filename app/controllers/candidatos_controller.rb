@@ -136,6 +136,7 @@ class CandidatosController < ApplicationController
     render 'candidatos/pdf/pdf'
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_candidato
