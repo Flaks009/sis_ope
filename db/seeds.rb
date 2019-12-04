@@ -6,12 +6,12 @@ unless User.exists?(email: 'admin@email.com')
 
   end
 
-User.create([{email: 'jose.albuquerque@aluno.faculdadeimpacta.com.br', cpf: '14556887932', password: 'sis_ope', password_confirmation: 'sis_ope', tipoUser: 'Candidato'},
-             {email: 'bruno.flaks@aluno.faculdadeimpacta.com.br', cpf: '24556887932', password: 'sis_ope', password_confirmation: 'sis_ope', tipoUser: 'Candidato'},
-             {email: 'filipe.furtado@aluno.faculdadeimpacta.com.br', cpf: '34556887932', password: 'sis_ope', password_confirmation: 'sis_ope', tipoUser: 'Candidato'},
-             {email: 'renato.alves@aluno.faculdadeimpacta.com.br', cpf: '44556887932', password: 'sis_ope', password_confirmation: 'sis_ope', tipoUser: 'Candidato'},
-             {email: 'hercules.silva@aluno.faculdadeimpacta.com.br', cpf: '54556887932', password: 'sis_ope', password_confirmation: 'sis_ope', tipoUser: 'Candidato'},
-             {email: 'joel.aguiar@aluno.faculdadeimpacta.com.br', cpf: '64556887932', password: 'sis_ope', password_confirmation: 'sis_ope', tipoUser: 'Candidato'}
+User.create([{email: 'jose.albuquerque@aluno.faculdadeimpacta.com.br', cpf: '14556887932', password: 'sis_ope', password_confirmation: 'sis_ope', tipoUser: 'candidato'},
+             {email: 'bruno.flaks@aluno.faculdadeimpacta.com.br', cpf: '24556887932', password: 'sis_ope', password_confirmation: 'sis_ope', tipoUser: 'candidato'},
+             {email: 'filipe.furtado@aluno.faculdadeimpacta.com.br', cpf: '34556887932', password: 'sis_ope', password_confirmation: 'sis_ope', tipoUser: 'candidato'},
+             {email: 'renato.alves@aluno.faculdadeimpacta.com.br', cpf: '44556887932', password: 'sis_ope', password_confirmation: 'sis_ope', tipoUser: 'candidato'},
+             {email: 'hercules.silva@aluno.faculdadeimpacta.com.br', cpf: '54556887932', password: 'sis_ope', password_confirmation: 'sis_ope', tipoUser: 'candidato'},
+             {email: 'joel.aguiar@aluno.faculdadeimpacta.com.br', cpf: '64556887932', password: 'sis_ope', password_confirmation: 'sis_ope', tipoUser: 'candidato'}
              ])
 
 
