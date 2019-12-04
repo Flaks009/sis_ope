@@ -1,8 +1,6 @@
 class CoursesController < ApplicationController
     before_action :set_candidato, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
-    after_filter "link_back", only: [:new]
-
 
     def index
       if current_user
@@ -39,7 +37,8 @@ class CoursesController < ApplicationController
           @course = Course.new(course_params)
           respond_to do |format|
             if @course.save
-              format.html { render "/confirm/_form" }
+              link_forward
+              format.html { redirect_to confirm_path(:id => @id_forward_course) }
             else
               format.html { render :new }
             end
@@ -54,6 +53,7 @@ class CoursesController < ApplicationController
       @course = Course.find(params[:id])
       respond_to do |format|
         if @course.update(course_params)
+          link_forward
           format.html { render "/confirm/_form" }
         end
       end
@@ -82,9 +82,15 @@ class CoursesController < ApplicationController
     end
 
     def link_forward
-      forward_id = Course.where(cpf_candidato: current_user.cpf)
-      @id_forward_course = forward_id.ids
-      @id_forward_course = @id_forward_course[0]
+      if current_user.tipoUser == 'candidato'
+        forward_id = Course.where(cpf_candidato: current_user.cpf)
+        @id_forward_course = forward_id.ids
+        @id_forward_course = @id_forward_course[0]
+      elsif current_user.tipoUser == 'admin'
+        forward_id = Course.where(cpf_candidato: @course.cpf_candidato)
+        @id_forward_course = forward_id.ids
+        @id_forward_course = @id_forward_course[0]     
+      end
     end
   
     private
