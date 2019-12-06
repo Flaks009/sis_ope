@@ -133,6 +133,10 @@ class CandidatosController < ApplicationController
     id = @formation.ids
     @formation = Formation.find_by_id(id)
 
+    @user = User.where(cpf: cpf)
+    id = @user.ids
+    @user = User.find_by_id(id)
+
     render 'candidatos/pdf/pdf'
   end
 
