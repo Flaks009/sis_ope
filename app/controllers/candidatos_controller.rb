@@ -15,12 +15,12 @@ class CandidatosController < ApplicationController
     if current_user.tipoUser == 'candidato'
       @candidato = Candidato.where(cpf: @current_user.cpf)
     elsif current_user.tipoUser == 'admin'
-      if params[:name_term].present?
-        @candidato = Candidato.where('nome ILIKE ?', "%#{params[:name_term]}%")
-      elsif params[:city_term].present?
-        @candidato = Candidato.where('cidade ILIKE ?', "%#{params[:city_term]}%")
-      elsif params[:cpf_term].present?
-        @candidato = Candidato.where('cpf ILIKE ?', "%#{params[:cpf_term]}%")
+      if params[:campos_select] == "Documento"
+        @candidato = Candidato.where('cpf ILIKE ?', "%#{params[:campos_value]}%")
+      elsif params[:campos_select] == "Nome"
+        @candidato = Candidato.where('nome ILIKE ?', "%#{params[:campos_value]}%")
+      elsif params[:campos_select] == "Cidade"
+        @candidato = Candidato.where('cidade ILIKE ?', "%#{params[:campos_value]}%")
       else
         @candidato = Candidato.all
       end

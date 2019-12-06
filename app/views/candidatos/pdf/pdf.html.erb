@@ -4,47 +4,50 @@
 <% @experience %>
 
 <div id="block-pdf" style="position:relative;font-family:'Open Sans';padding:50px 100px 50px 100px;">
-    <div id="pdf" style="padding:50px 100px 50px 100px;">
-        <div style="font-family:'Open Sans';">
-            <h1 align="center"><b><%= @candidato.nome %>, <%= (Date.today.year - @candidato.data_nasc.year).to_s %>
-                    anos</b></h1>
+    <div id="pdf" style="padding:0px 50px 0px 50px;">
+        <div style="font-family:'Open Sans'; padding:50px; border: 5px solid #DDA100;">
+            <p align="center" style="font-weight: bold; font-style: italic;font-size: 16px;"><%= @candidato.nome %>, <%= (Date.today.year - @candidato.data_nasc.year).to_s %>
+                    anos</p>
             <br>
-            <p align="right"><%= @candidato.logradouro %>, <%= @candidato.numero %></p>
-            <p align="right"><%= @candidato.cidade %> - <%= @candidato.uf %> - CEP: <%= @candidato.cep %></p>
+            <p align="right" style="font-size: 12px;"><%= @candidato.logradouro %>, <%= @candidato.numero %></p>
+            <p align="right" style="font-size: 12px;"><%= @candidato.cidade %> - <%= @candidato.uf %> - CEP: <%= @candidato.cep %></p>
 
-            <br>
-            <hr>
-            <h2 align="center"><b>Escolaridade</b></h2>
-            <hr>
-            <br>
+            <% if @formation != nil %>
+                <br>
+                <p align="left" style="font-weight: bold; font-size: 14px;">Escolaridade</p>
+                <div style="height: 5px; width: 100%; background-color: #00B0BE; margin-top: 5px;"></div>
+                <br>
+                <p align="left" style="font-size: 12px;"><b>Tipo de Formação:</b> <%= @formation.tipo %></p>
+                <p align="left" style="font-size: 12px;"><b>Instituição:</b> <%= @formation.instituicao %></p>
+                <p align="left" style="font-size: 12px;"><b>Curso:</b> <%= @formation.curso %></p>
+                <p align="left" style="font-size: 12px;"><b>Início:</b> <%= @formation.data_inicio.year %>/<%= @formation.data_inicio.month %></p>
+                <p align="left" style="font-size: 12px;"><b>Conclusão:</b> <%= @formation.data_final.year %>/<%= @formation.data_final.month %></p>
+            <% end %>
+            
+            <% if @experience != nil %>
+                <br>
+                <p align="left" style="font-weight: bold; font-size: 14px;">Experiência Profissional</p>
+                <div style="height: 5px; width: 100%; background-color: #00B0BE; margin-top: 5px;"></div>
+                <br>
+                <p align="left" style="font-size: 12px;"><b>Empresa:</b> <%= @experience.empresa %></p>
+                <p align="left" style="font-size: 12px;"><b>Admissao:</b> <%= @experience.admissao %></p>
+                <p align="left" style="font-size: 12px;"><b>Saída:</b> <%= @experience.saida %></p>
+            <% end %>
 
-            <p align="left"><b>Tipo de Formação:</b> <%= @formation.tipo %></p>
-            <p align="left"><b>Instituição:</b> <%= @formation.instituicao %></p>
-            <p align="left"><b>Curso:</b> <%= @formation.curso %></p>
-            <p align="left"><b>Início:</b> <%= @formation.data_inicio.year %>/<%= @formation.data_inicio.month %></p>
-            <p align="left"><b>Conclusão:</b> <%= @formation.data_final.year %>/<%= @formation.data_final.month %></p>
-            <br>
-            <hr>
-            <h2 align="center"><b>Experiência Profissional</b></h2>
-            <hr>
-            <br>
-            <p align="left"><b>Empresa:</b> <%= @experience.empresa %></p>
-            <p align="left"><b>Admissao:</b> <%= @experience.admissao %></p>
-            <p align="left"><b>Saída:</b> <%= @experience.saida %></p>
-            <br>
-            <hr>
-            <h2 align="center"><b>Outros Cursos</b></h2>
-            <hr>
-            <br>
-
-            <p align="left"><b>Instituição:</b> <%= @courses.instituicao %></p>
-            <p align="left"><b>Curso:</b> <%= @courses.nome %></p>
-            <p align="left"><b>Início:</b> <%= @courses.inicio.year %>/<%= @courses.inicio.month %></p>
-            <p align="left"><b>Conclusão:</b> <%= @courses.final.year %>/<%= @courses.final.month %></p>
+            <% if @experience != nil %>
+                <br>
+                <p align="left" style="font-weight: bold; font-size: 14px;">Outros Cursos</p>
+                <div style="height: 5px; width: 100%; background-color: #00B0BE; margin-top: 5px;"></div>
+                <br>
+                <p align="left" style="font-size: 12px;"><b>Instituição:</b> <%= @courses.instituicao %></p>
+                <p align="left" style="font-size: 12px;"><b>Curso:</b> <%= @courses.nome %></p>
+                <p align="left" style="font-size: 12px;"><b>Início:</b> <%= @courses.inicio.year %>/<%= @courses.inicio.month %></p>
+                <p align="left" style="font-size: 12px;"><b>Conclusão:</b> <%= @courses.final.year %>/<%= @courses.final.month %></p>
+            <% end %>
         </div>
     </div>
     <input type="button" value="Confirmar Dados e Gerar PDF" id="btnImprimir"
-        style="left: 50%;position: absolute;transform: translateX(-50%);font-size:16px;height:30px;width:300px;color:white;background-color:#DDA100;"
+        style="margin-top: 2.5%; margin-bottom: 2.5%; left: 50%;position: absolute;transform: translateX(-50%);font-size:16px;height:30px;width:300px;color:white;background-color:#DDA100;"
         onclick="GerarPDF()" />
 
     </p>

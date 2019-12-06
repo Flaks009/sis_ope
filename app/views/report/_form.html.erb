@@ -12,15 +12,11 @@
           <%= @a %>
         
         <%= form_tag("show", method: :get, id:"form-search") do %>
-          <%= label :nome, "Documento", id:"cpf-label" %>
-          <%= text_field_tag :cpf_term,nil, placeholder:"Informe o CPF" %>
-
-          <%= label :nome, "Nome", id:"name-label" %>
-          <%= text_field_tag :name_term,nil, placeholder:"Informe o Nome" %>
-
-          <%= label :nome, "Cidade", id:"city-label" %>
-          <%= text_field_tag :city_term,nil, placeholder:"Informe a Cidade" %>
-          <%= submit_tag 'Procurar', id:"search-button" %> 
+          <%= label :nome, "Campos", id:"cpf-label" %>
+          <%= select_tag :campos_select, options_for_select(['Documento', 'Nome', 'Cidade']), id:"campos-select" %>
+          <%= text_field_tag :campos_value,nil, placeholder:"Informe um valor", id:"campos-value" %>
+          <%= submit_tag 'Procurar', id:"search-button" %>
+          <%= link_to 'Limpar Busca', "/candidatos/edit", id:"clean-button-link" %>
         <% end %>     
     <% else %>
         <p id="label-candidatos">Meu Currículo</p>

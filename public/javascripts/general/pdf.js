@@ -1,7 +1,7 @@
 function GerarPDF() {
   var dadosPDF = document.getElementById('pdf').innerHTML;
 
-  var newWindow = window.open('', '', 'height=700,width=700');
+  var newWindow = window.open('', '', 'height=842,width=595');
   newWindow.document.write('<html><head>');
   newWindow.document.write('<title>Synergia</title>');
   newWindow.document.write('</head>');
