@@ -14,3 +14,7 @@ development:
 test:
   <<: *default
   database: sis_ope_test
+
+production:
+  <<: *default
+  database: sis_ope_production
