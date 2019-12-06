@@ -56,10 +56,10 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "sis_ope_#{Rails.env}"
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'railsh.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: '54.172.146.200:3000'}
 
   ActionMailer::Base.smtp_settings = {
-  :user_name => 'sis_ope',
+  :user_name => 'impactados_ope',
   :password => 'impactados2020',
   :domain => 'sendemailapp2.herokuapp.com',
   :address => 'smtp.sendgrid.net',
