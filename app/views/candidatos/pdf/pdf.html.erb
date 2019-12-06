@@ -1,14 +1,10 @@
-<% @candidato %>
-<% @course %>
-<% @formation %>
-<% @experience %>
-
 <div id="block-pdf" style="position:relative;font-family:'Open Sans';padding:50px 100px 50px 100px;">
     <div id="pdf" style="padding:0px 50px 0px 50px;">
         <div style="font-family:'Open Sans'; padding:50px; border: 5px solid #DDA100;">
             <p align="center" style="font-weight: bold; font-style: italic;font-size: 16px;"><%= @candidato.nome %>, <%= (Date.today.year - @candidato.data_nasc.year).to_s %>
                     anos</p>
             <br>
+            <p align="right" style="font-size: 12px;"><%= @user.email %></p>
             <p align="right" style="font-size: 12px;"><%= @candidato.logradouro %>, <%= @candidato.numero %></p>
             <p align="right" style="font-size: 12px;"><%= @candidato.cidade %> - <%= @candidato.uf %> - CEP: <%= @candidato.cep %></p>
 
