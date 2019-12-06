@@ -65,13 +65,41 @@
   font-weight: 900;
 }
 
+#campos-select {
+  width: 150px;
+}
+
+#campos-value {
+  margin-left: 2.5%;
+  width: 200px;
+}
+
 #search-button {
-  margin-left: 10%;
+  margin-left: 2.5%;
   font-family: Open Sans;
   font-size: 15px;
   color: white;
   background-color: #DBA102;
   cursor: pointer;
+  height: 25px;
+  width: 100px;
+
+  text-align: center;
+}
+
+#clean-button-link {
+  margin-left: 2.5%;
+  font-family: Open Sans;
+  font-size: 14px;
+  color: white;
+  background-color: #DBA102;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 3px 10px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
 
   text-align: center;
 }

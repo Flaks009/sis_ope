@@ -128,6 +128,7 @@ pt-BR:
       odd: deve ser ímpar
       other_than: deve ser diferente de %{count}
       present: deve ficar em branco
+      presence: não pode estar em branco
       required: é obrigatório(a)
       taken: já está em uso
       too_long:

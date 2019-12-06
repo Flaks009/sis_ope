@@ -29,10 +29,10 @@
             <% end %>
 
             <%= f.label :nome, "Nome Completo", id:"nome-label" %>
-            <%= f.text_field :nome, id:"field-nome", placeholder:"Digite seu nome", :required => 'required' %>
+            <%= f.text_field :nome, id:"field-nome", placeholder:"Digite seu nome"%>
 
             <%= f.label :data_nasc, "Data de Nascimento", id:"data-nascimento-label" %>
-            <%= f.date_field :data_nasc, id:"field-date", placeholder:"Ex.: dd/mm/aaaa", :required => 'required' %>
+            <%= f.date_field :data_nasc, id:"field-date", placeholder:"Ex.: dd/mm/aaaa", :required => 'required', min: 80.year.ago, max:Date.today%>
 
             <p id="email-label">E-mail</p>
             <% if current_user.tipoUser == 'candidato' %>
@@ -65,7 +65,7 @@
           <%= f.select :uf, ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'], id:"field-estado", placeholder:"Selecione seu estado", :required => 'required' %>
 
           <%= f.label :cep, "CEP", id:"cep-label" %>
-          <%= f.text_field :cep, id:"field-cep", placeholder:"Ex.: 00000000", :required => 'required' %>
+          <%= f.text_field :cep, id:"field-cep", placeholder:"Ex.: 00000000", :required => 'required', :onblur => 'pesquisacep(this.value)'; %>
 
           <%= f.hidden_field :user_id, :value => current_user.id %>
         </div>
@@ -102,3 +102,4 @@
     </div>
   </div>
   <%= javascript_include_tag 'general/error_messages.js' %>
+  <%= javascript_include_tag 'general/cep.js' %>

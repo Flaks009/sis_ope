@@ -15,10 +15,14 @@ class CandidatosController < ApplicationController
     if current_user.tipoUser == 'candidato'
       @candidato = Candidato.where(cpf: @current_user.cpf)
     elsif current_user.tipoUser == 'admin'
-      @candidato = if params[:name_term]
-        Candidato.where('nome ILIKE ?', "%#{params[:name_term]}%").or(Candidato.where('cidade ILIKE ?', "%#{params[:city_term]}%"))
+      if params[:campos_select] == "Documento"
+        @candidato = Candidato.where('cpf ILIKE ?', "%#{params[:campos_value]}%")
+      elsif params[:campos_select] == "Nome"
+        @candidato = Candidato.where('nome ILIKE ?', "%#{params[:campos_value]}%")
+      elsif params[:campos_select] == "Cidade"
+        @candidato = Candidato.where('cidade ILIKE ?', "%#{params[:campos_value]}%")
       else
-        @Candidato = Candidato.all
+        @candidato = Candidato.all
       end
     end
   end
@@ -132,6 +136,7 @@ class CandidatosController < ApplicationController
     render 'candidatos/pdf/pdf'
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_candidato
@@ -140,6 +145,6 @@ class CandidatosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidato_params
-      params.require(:candidato).permit(:cpf, :nome, :data_nasc, :cep, :logradouro, :numero, :bairro, :cidade, :uf, :user_id, :term)
+      params.require(:candidato).permit(:cpf, :nome, :data_nasc, :cep, :logradouro, :numero, :bairro, :cidade, :uf, :user_id, :name_term, :city_term, :cpf_term)
     end
 end

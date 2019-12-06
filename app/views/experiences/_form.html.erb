@@ -29,12 +29,12 @@
 
         <%= f.label :admissao, "Data de Admissão", id:"data-inicio-experiencia-label" %>
         <div id="field-data-inicio-admissao">
-          <%= f.date_field :admissao, :required => 'required' %>
+          <%= f.date_field :admissao, :required => 'required', min: 80.year.ago, max:Date.today %>
         </div>
 
         <%= f.label :saida, "Data de Desligamento", id:"data-fim-experiencia-label" %>
         <div id="field-data-fim-experiencia">
-          <%= f.date_field :saida, :required => 'required' %>
+          <%= f.date_field :saida, :required => 'required', min: 80.year.ago, max:Date.today %>
         </div>
 
         <% if current_user.tipoUser == 'candidato'%>

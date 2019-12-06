@@ -32,12 +32,12 @@
 
             <%= f.label :data_inicio, "Data de Início do Curso", id:"data-inicio-curso-label" %>
             <div id="field-data-inicio-curso">
-              <%= f.date_field :data_inicio, :required => 'required'%>
+              <%= f.date_field :data_inicio, :required => 'required', min: 80.year.ago, max:Date.today%>
             </div>
 
             <%= f.label :data_final, "Data de Finalização do Curso", id:"data-fim-curso-label" %>
             <div id="field-data-fim-curso"> 
-              <%= f.date_field :data_final, :required => 'required' %>
+              <%= f.date_field :data_final, :required => 'required', min: 80.year.ago, max:Date.today %>
             </div>
             <% if current_user.tipoUser == 'candidato' %>
               <%= f.hidden_field :cpf_candidato, :value => current_user.cpf %>
